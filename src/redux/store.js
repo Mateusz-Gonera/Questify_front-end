@@ -9,3 +9,11 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+
+const middleware = [
+  ...getDefaultMiddleware({
+    serializableCheck: {
+      ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
+];
