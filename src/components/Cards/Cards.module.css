@@ -1,0 +1,79 @@
+.cardContainer{
+   display: flex;
+   padding: 21px;
+   flex-direction: column;
+   width: 199px;
+   height: 205px;
+   align-items: center;
+   background: white;
+   border-radius: 10px;
+   position: relative;
+}
+.difficultyContainer{
+   display: flex;
+   width: inherit;
+   align-items: center;
+   justify-content: space-between;
+   flex-direction: row;
+}
+.difficultyIcon{
+   height: 8px;
+   width: 8px;
+   background-color: blueviolet;
+   border-radius: 50%;
+   margin-right: 7px;
+}
+.levelDifficulty{
+   display: flex;
+   align-items: center;
+   margin-left: 21px;
+}
+.level{
+font-size: 14px;
+color: #B9C3C8;
+line-height: 13px;
+margin:0;
+
+}
+.icon{
+   position: absolute;
+   top: 18px;
+   right: 21px;
+   color: black;
+   margin: 0;
+
+}
+.chalengeName{
+   display: flex;
+   justify-content: center;
+   font-weight: bold;
+   text-align: center;
+   color: white;
+}
+.taskName{
+   display: flex;
+   justify-content: center;
+   font-weight: bold;
+   text-align: center;
+   margin-top: 42px;
+   color: black;
+   font-size: 16px;
+}
+.isChallenge{
+   margin-bottom: 10px;
+   margin-top: 25px;
+   text-align: center; 
+   text-transform: uppercase;
+}
+.group{
+   margin: 0;
+   display: flex;
+   height: 25px;
+   width: 88px;
+   font-size: 11px;
+   align-items: center;
+   position: absolute;
+   bottom: 33px;
+   left: 0;
+   color: red;
+}
