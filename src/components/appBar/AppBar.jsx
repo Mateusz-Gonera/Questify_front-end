@@ -1,11 +1,20 @@
 import { NavBar } from "../navBar/NavBar";
+import { useAuth } from "../../utils/hooks/useAuth";
+import { UserMenu } from "../userMenu/userMenu";
+import { AuthNav } from "../authNav/AuthNav";
 
-import style from "../AppBar/AppBar.module.css";
+import style from "../appBar/AppBar.module.css";
 
 export const AppBar = () => {
+	
+	const { isLoggedIn } = useAuth();
 	return (
-		<header className={style.header}>To jest czarny header a w nim NavBar
-			<NavBar/> 
+		<header className={style.header}>
+			<NavBar /> 
+			{isLoggedIn ? <UserMenu /> : <AuthNav />}
 		</header>
 	);
 };
+
+
+
