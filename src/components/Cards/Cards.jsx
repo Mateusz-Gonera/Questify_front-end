@@ -1,25 +1,24 @@
 import style from './Cards.module.css'
 
 function Card({
-   deadline, isChallenge
+ isChallenge,
+ difficulty,
+ group
 }) {
-   const date = new Date(deadline).toLocaleTimeString
-   return (
-      <div>
-         <h3>Hello i am first of your Card</h3>
-         <div className={style.cardContainer}>
 
-            <div className={style.difficultyContainer}>
-               <div className={style.levelDifficulty}>
-                  <div className={style.difficultyIcon}> </div>
-                  <h3 className={style.level}> Hard</h3>
-               </div>
-            <p className={style.icon}>Icon</p>
+   return (
+      <div className={isChallenge ? style.challengeContainer : style.cardContainer}>
+         <div className={style.difficultyContainer}>
+            <div className={style.difficultyLevel}>
+               <div className={style[difficulty]}> </div>
+               <h3 className={style.levelName}>{difficulty}</h3>
             </div>
-            {isChallenge && <h3 className={style.isChallenge} >Challenge</h3>}
-            <h2 className={isChallenge ? style.chalengeName : style.taskName}>Blabla CardNAme</h2>
-            <div className={style.group}>Health</div>
+            {isChallenge ? <button className={style.trophyIcon}> </button>
+            : <button className={style.starIcon}> </button> }
          </div>
+         {isChallenge && <h3 className={style.isChallenge} >Challenge</h3>}
+         <h2 className={isChallenge ? style.chalengeName : style.taskName}>Blabla CardNAme</h2>
+         <div className={style[group]}>{group}</div>
       </div>
 
    )

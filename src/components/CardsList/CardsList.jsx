@@ -9,7 +9,9 @@ function CardsList() {
          <ul className={style.cardList}>
             <li className={style.cardsListItem} >
                < Card
-                  //id={id}
+                  isChallenge = {true}
+                  difficulty = {"Easy"}
+                  group = {'Leisure'}
                />
             </li>
          </ul>
