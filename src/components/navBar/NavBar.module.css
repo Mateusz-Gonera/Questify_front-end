@@ -1,7 +1,73 @@
-.link {
-    display: inline-block;
-    text-decoration: none;
-    padding: 12px;
+.logo {
+
     font-weight: 700;
-    color: #080808;
+    font-size: 18px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    /* identical to box height */
+    letter-spacing: 0.02em;
+    color: #00D7FF;
+}
+
+.navWrapper {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.userMenu {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    display: flex;
+    margin-right: 10px;
+}
+
+.btn {
+    background-color: transparent;
+    padding: 0;
+
+}
+
+@media screen and (max-width: 480px) {
+    .userName {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 767px) {
+
+    .logo {
+        font-size: 21px;
+        line-height: 21px;
+        /* identical to box height */
+    }
+
+    .userMenu {
+        font-size: 17px;
+        line-height: 17px;
+        /* identical to box height */
+        letter-spacing: 0.02em;
+        color: #7B8AA4;
+        width: 179px;
+        position: absolute;
+        left: 294px;
+    }
+
+    .challengeIcon {
+        margin-right: 38px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+
+    .userMenu {
+        left: 550px;
+    }
+
 }

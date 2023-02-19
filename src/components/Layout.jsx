@@ -6,12 +6,12 @@ import { AppBar } from "./appBar/AppBar";
 
 export const Layout = () => {
   return (
-    <>
+    <div>
       <AppBar />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
       <ToastContainer autoClose={3000} />
-    </>
+    </div>
   );
 };

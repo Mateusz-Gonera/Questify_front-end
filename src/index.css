@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'HelveticaNeueCyr', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -24,11 +24,13 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  margin: 0 auto;
   min-width: 320px;
-  min-height: 100vh;
+  
+  /* display: flex; */
+  /* place-items: center; */ 
+  /* min-width: 320px;
+  min-height: 100vh; */
 }
 
 h1 {
@@ -57,8 +59,8 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #373c40;
+    background-color: #F2F3F7;
   }
   a:hover {
     color: #747bff;
