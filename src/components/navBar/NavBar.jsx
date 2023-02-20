@@ -15,19 +15,3 @@ export const NavBar = () => {
 };
 
 
-// export const NavBar = () => {
-// 	const { isLoggedIn } = useAuth();
-
-// 	return (
-// 		<nav>
-// 			<NavLink className={style.link} to="/landing">
-// 				Questify
-// 			</NavLink>
-// 			{isLoggedIn && (
-// 				<NavLink className={style.link} to="/dashboard">
-// 					tasks
-// 				</NavLink>
-// 			)}
-// 		</nav>
-// 	);
-// };

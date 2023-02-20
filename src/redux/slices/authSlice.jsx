@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { questifyApi } from '../api/questifyApi';
 
-// const token = localStorage.getItem('token')
-//   ? localStorage.getItem('token')
-//   : null;
+const token = localStorage.getItem('token')
+  ? localStorage.getItem('token')
+  : null;
 
 const initialState = {
   user: { email: null, password: null },
