@@ -9,13 +9,14 @@ import { PrivateRoute } from "./PrivateRoute";
 import "./App.css";
 
 const Dashboard = React.lazy(() => import("../pages/dashboard/Dashboard"));
-const LandingPage = React.lazy(() => import("../pages/landing/LandingPage"));
+const LandingPage = React.lazy(() => import("../pages/landingPage/LandingPage"));
 
 const App = () => {
 	return (
 		<>
 			<Routes>
 				<Route path="/" element={<Layout />}>
+					<Route path="landing" element={<LandingPage />} />
 					<Route index element={<Dashboard />} />
 					{/* <Route element={<PrivateRoute />}>
 					</Route> */}

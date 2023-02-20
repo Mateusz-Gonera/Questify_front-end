@@ -1,15 +1,16 @@
 import { useState } from "react";
+import { useLoginMutation } from "../../../redux/api/questifyApi";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import validationSchema from "../../../schemas/formValidation";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import LandingModal from "../LandingModal/LandingModal";
+import LandingModal from "../landingModal/LandingModal";
 import {
 	Wrapper,
 	TextFieldStyled,
-	RegistrationLInk,
+	RegistrationLink,
 	FormButton,
 	Paragraph,
 } from "./LandingForm.styled";
@@ -63,9 +64,9 @@ const LandingForm = () => {
 			<form onSubmit={handleSubmit}>
 				<Paragraph>
 					Choose your name to{" "}
-					<RegistrationLInk onClick={() => setIsOpen(true)}>
+					<RegistrationLink onClick={() => setIsOpen(true)}>
 						sign up
-					</RegistrationLInk>{" "}
+					</RegistrationLink>{" "}
 					or log in
 				</Paragraph>
 				<TextFieldStyled

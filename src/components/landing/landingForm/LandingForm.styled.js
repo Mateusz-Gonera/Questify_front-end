@@ -44,7 +44,7 @@ export const TextFieldStyled = styled(TextField)`
 	}
 `;
 
-export const RegistrationLInk = styled.span`
+export const RegistrationLink = styled.span`
 	cursor: pointer;
 	color: #00d7ff;
 	text-decoration: underline;
