@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../utils/hooks/useAuth";
 //import { useDispatch } from 'react-redux';
 
 import Avatar from "../../assets/header/avatar.svg";
@@ -14,10 +15,11 @@ export const NavBar = () => {
 	//const dispatch = useDispatch();
 	//const { user } = useAuth();
 	//const [logout] = useLogoutMutation();
+	const { isLoggedIn } = useAuth();
 
 	return (
 		<>
-			<NavLink className={style.logo} to="/">
+			<NavLink className={style.link} to="/">
 				Questify
 			</NavLink>
 			<nav className={style.navWrapper}>
