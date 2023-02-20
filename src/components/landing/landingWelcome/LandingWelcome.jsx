@@ -1,4 +1,4 @@
-import { } from "";
+import { Wrapper } from "./LandingWelcome.styled"
 
 const LandingWelcome = () => {
   return (

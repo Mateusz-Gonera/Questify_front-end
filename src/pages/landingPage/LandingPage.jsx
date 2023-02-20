@@ -1,6 +1,6 @@
 import Landing from "../../components/landing/Landing";
 
-const LandingMain = () => {
+const LandingPage = () => {
   return (
     <>
       <Landing />
@@ -8,4 +8,4 @@ const LandingMain = () => {
   );
 };
 
-export default LandingMain;
+export default LandingPage;

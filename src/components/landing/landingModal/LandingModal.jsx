@@ -7,6 +7,7 @@ import {
   Paragraph,
 } from "./LandingModal.styled";
 import { IoMdClose } from "react-icons/io";
+import { useRegisterMutation } from "../../../redux/api/questifyApi";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import validationSchema from "../../../schemas/formValidation";
@@ -27,7 +28,7 @@ const LandingModal = ({ setIsOpen }) => {
           .then(({ id }) => {
             resetForm();
             setIsOpen(false);
-            toast.success("Now you can use your credentials to login");
+            toast.success("Now you can try to login");
           })
           .catch(() => {
             toast.warn(`User with ${values.email} already exists`);
