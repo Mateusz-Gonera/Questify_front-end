@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 //import { useDispatch } from 'react-redux';
 
-import Avatar from "../../assets/header/avatar.svg"
+import Avatar from "../../assets/header/avatar.svg";
 import ChallengeIcon from "../../assets/header/challengeIcon.svg";
 import Logout from "../../assets/header/logout.svg";
 
@@ -13,11 +13,12 @@ import style from "../navBar/NavBar.module.css";
 export const NavBar = () => {
 	//const dispatch = useDispatch();
 	//const { user } = useAuth();
-	//const [logout] = useLogoutMutation(); 
+	//const [logout] = useLogoutMutation();
 
 	return (
 		<>
-			<NavLink className={style.logo} to="/">Questify
+			<NavLink className={style.logo} to="/">
+				Questify
 			</NavLink>
 			<nav className={style.navWrapper}>
 				<div className={style.userMenu}>
@@ -28,7 +29,9 @@ export const NavBar = () => {
 				</div>
 				<img className={style.challengeIcon} src={ChallengeIcon} alt="logo" />
 
-				<button className={style.btn} type="button"><img src={Logout} /></button>
+				<button className={style.btn} type="button">
+					<img alt="logout" src={Logout} />
+				</button>
 				{/* do wylogowania dodać onclik jak ponizej*/}
 				{/* <button className={style.btn} type="button" onClick={() => dispatch(logout())} ><img src={Logout} /></button> */}
 			</nav>
