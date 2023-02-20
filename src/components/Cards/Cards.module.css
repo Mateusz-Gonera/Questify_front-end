@@ -80,7 +80,7 @@
    box-shadow: rgba(0, 215, 255, 0.25);
 }
 .starIcon{
-   background-image: url(../../Images/star_icon_full.svg);
+   background-image: url(../../Images/star_icon.svg);
    background-repeat: no-repeat;
    background-position: center;
    background-size: cover;
@@ -91,12 +91,9 @@
    padding: 0;
    margin: 0;
    border: transparent;
-   border: dotted 0.1px black;
 }
 .starIcon:hover {
    box-shadow: rgba(0, 215, 255, 0.25);
-   height: 16px;
-   width: 16px;
 }
 .isChallenge {
    font-size: 12px;

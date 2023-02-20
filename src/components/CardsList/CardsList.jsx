@@ -9,9 +9,10 @@ function CardsList() {
          <ul className={style.cardList}>
             <li className={style.cardsListItem} >
                < Card
-                  isChallenge = {true}
+                  isChallenge = {false}
                   difficulty = {"Easy"}
                   group = {'Leisure'}
+                  title = {"Blabla CardName"}
                />
             </li>
          </ul>

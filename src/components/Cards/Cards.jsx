@@ -3,7 +3,8 @@ import style from './Cards.module.css'
 function Card({
  isChallenge,
  difficulty,
- group
+ group,
+ title
 }) {
 
    return (
@@ -17,7 +18,7 @@ function Card({
             : <button className={style.starIcon}> </button> }
          </div>
          {isChallenge && <h3 className={style.isChallenge} >Challenge</h3>}
-         <h2 className={isChallenge ? style.chalengeName : style.taskName}>Blabla CardNAme</h2>
+         <h2 className={isChallenge ? style.chalengeName : style.taskName}>{title}</h2>
          <div className={style[group]}>{group}</div>
       </div>
 
