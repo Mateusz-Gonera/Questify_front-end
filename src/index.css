@@ -56,7 +56,10 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+/* Dodalem List style-none, przeszkadzalo!!  */
+li{
+list-style: none;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #373c40;
