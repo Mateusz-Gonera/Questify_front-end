@@ -2,11 +2,11 @@ import styles from './RegisterForm.module.css';
 import { Form, Button, Container } from 'react-bootstrap';
 //import { register } from "../../../redux/";
 import { useDispatch } from 'react-redux';
-//import { useRegisterMutation } from "../../../redux/api/questifyApi";
+import { useRegisterMutation } from "../../../redux/api/questifyApi";
 
 
 export const RegisterForm = () => {
-  //const [register] = useRegisterMutation();
+  const [register] = useRegisterMutation();
   const dispatch = useDispatch();
 
   const handleSubmit = evt => {
@@ -60,7 +60,7 @@ export const RegisterForm = () => {
             required
           />
         </Form.Group>
-        <Button type="submit">Register</Button>
+        <Button className={styles.buttonGo} type="submit">go!</Button>
       </Form>
     </Container>
   );

@@ -1,4 +1,5 @@
 import { Wrapper } from "./LandingWelcome.styled"
+import styles from "../landingLogin/LoginForm.module.css";
 
 const LandingWelcome = () => {
   return (
@@ -11,7 +12,7 @@ const LandingWelcome = () => {
 
       <br/>
       
-      <p>Choose your name to <span className="textButton">sign up</span> or <span className="textButton">log in</span> <button> go! </button></p>
+      <p>Choose your name to <span className="textButton">sign up</span> or <span className="textButton">log in</span> <button className={styles.buttonGo}> go! </button></p>
     
     </Wrapper>
   );
