@@ -6,12 +6,12 @@ import { AppBar } from "./appBar/AppBar";
 
 export const Layout = () => {
   return (
-    <>
+    <div style={{margin: '0 auto', padding: '0 16px' }}>
       <AppBar />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
       <ToastContainer autoClose={3000} />
-    </>
+    </div>
   );
 };

@@ -1,8 +1,9 @@
+import CardList from "../../components/CardsList/CardsList";
 
 const Dashboard = () => {
 	return (
 		<div>
-			Main body of our website. Add components
+			<CardList />
 		</div>
 	);
 };
