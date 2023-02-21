@@ -3,7 +3,7 @@ import style from './Cards.module.css'
 function Card({
  isChallenge,
  difficulty,
- group,
+ category,
  title,
  dueDate,
  dueTime,
@@ -28,7 +28,7 @@ function Card({
             </div>
          
 
-         <div className={style[group]}>{group}</div>
+         <div className={style[category]}>{category}</div>
       </div>
    </li>
 

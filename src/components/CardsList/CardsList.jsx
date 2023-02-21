@@ -21,7 +21,7 @@ function CardsList(props) {
                   dueTime={card.time}
                   isChallenge={card.isChallenge}
                   difficulty={card.difficulty}
-                  group={card.group}
+                  category={card.category}
                   />
                   ))}
          </ul>
