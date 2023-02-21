@@ -3,7 +3,6 @@ import { LoginForm } from "./landingLogin/LoginForm";
 import { RegisterForm } from "./landingRegister/RegisterForm";
 import { Container, Wrapper } from "./Landing.styled";
 import { useEffect, useState } from "react";
-import { ImgUp, ImgDown, ImgWrapper } from "./Landing.styled";
 
 import MobileDown from "../../imagesLanding/mobile/blueRectangle.svg";
 import MobileUp from "../../imagesLanding/mobile/greyRectangle.svg";
@@ -49,11 +48,7 @@ const Landing = () => {
 	}, []);
 	return (
 		<Wrapper>
-			
-			<ImgWrapper>
-				<ImgUp src={image1} />
-				<ImgDown src={image2} />
-			</ImgWrapper>
+
 			
 			<Container>
 				{/* {<LandingWelcome/>} */}

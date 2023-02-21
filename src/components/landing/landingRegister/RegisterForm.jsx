@@ -23,8 +23,9 @@ export const RegisterForm = () => {
         password,
       })
     );
-    form.reset();
     navigate("/dashboard");
+    form.reset();
+  
   };
 
   return (
