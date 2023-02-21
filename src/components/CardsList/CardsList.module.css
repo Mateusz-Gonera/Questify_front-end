@@ -1,7 +1,12 @@
 .cardList{
-   display: grid;
+   display: flex;
+   gap: 28px;
 
 }
 .cardsListItem{
    margin: 0 auto ;
+}
+.clockContainer{
+   display: flex;
+   gap: 15px;
 }

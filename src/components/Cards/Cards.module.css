@@ -1,3 +1,4 @@
+
 .challengeContainer{
    display: flex;
    padding: 21px;
@@ -95,11 +96,15 @@
 .starIcon:hover {
    box-shadow: rgba(0, 215, 255, 0.25);
 }
+
+.titleContainer{
+   text-align: center;
+}
+
 .isChallenge {
    font-size: 12px;
    color: rgba(185, 195, 200, 1);
    margin-bottom: 10px;
-   margin-top: 20px;
    text-align: center;
    text-transform: uppercase;
    letter-spacing: 2%;
@@ -112,6 +117,7 @@
    justify-content: center;
    text-align: center;
    color: rgba(255, 255, 255, 1);
+   margin: 0;
 }
 .taskName{
    display: flex;
@@ -223,4 +229,8 @@ background-color: rgba(211, 246, 206, 1);
    bottom: 21px;
    left: 0;
    color: rgba(40, 40, 40, 1);
+}
+.date{
+   color:  rgba(185, 195, 200, 1);
+   margin: 0;
 }

@@ -4,10 +4,14 @@ function Card({
  isChallenge,
  difficulty,
  group,
- title
-}) {
+ title,
+ dueDate,
+ dueTime,
+   
 
+}) {
    return (
+   <li>
       <div className={isChallenge ? style.challengeContainer : style.cardContainer}>
          <div className={style.difficultyContainer}>
             <div className={style.difficultyLevel}>
@@ -17,10 +21,16 @@ function Card({
             {isChallenge ? <button className={style.trophyIcon}> </button>
             : <button className={style.starIcon}> </button> }
          </div>
-         {isChallenge && <h3 className={style.isChallenge} >Challenge</h3>}
-         <h2 className={isChallenge ? style.chalengeName : style.taskName}>{title}</h2>
+            <div className={style.titleContainer} >
+               {isChallenge && <h3 className={style.isChallenge} >Challenge</h3>}
+               <h2 className={isChallenge ? style.chalengeName : style.taskName}>{title}</h2>
+               <h5 className={style.date}>{dueDate} {dueTime}</h5>
+            </div>
+         
+
          <div className={style[group]}>{group}</div>
       </div>
+   </li>
 
    )
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { Layout } from "./Layout";
@@ -12,6 +12,7 @@ const Dashboard = React.lazy(() => import("../pages/dashboard/Dashboard"));
 const LandingPage = React.lazy(() => import("../pages/landing/LandingPage"));
 
 const App = () => {
+
 	return (
 		<>
 			<Routes>
