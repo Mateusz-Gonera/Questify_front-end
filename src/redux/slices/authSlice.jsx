@@ -35,7 +35,7 @@ const authSlice = createSlice({
       questifyApi.endpoints.login.matchFulfilled,
       (state, { payload }) => {
         state.user = payload.user;
-        state.token = payload.token;
+        state.token = payload.accessToken;
         state.isLoggedIn = true;
       }
     );

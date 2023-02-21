@@ -1,28 +1,37 @@
 import styles from "./LoginForm.module.css";
 import { Form, Button, Container } from "react-bootstrap";
-//import { logIn } from "../../../redux/";
+
 import { useLoginMutation } from "../../../redux/api/questifyApi";
-import { useDispatch } from "react-redux";
+
 import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
-    const dispatch = useDispatch();
-  const [logIn] = useLoginMutation();
+  
+  const [login] = useLoginMutation();
   const navigate = useNavigate();
 
-  const handleSubmit = evt => {
+  const handleSubmit = async evt => {
     evt.preventDefault();
     const form = evt.currentTarget;
     const email = form.elements.email.value;
     const password = form.elements.password.value;
-    dispatch(
-      logIn({
-        email,
-        password,
-      })
-    );
-    form.reset();
+    
+    const credentials = { email, password };
+    await login(credentials)
+    unwrap()
+      .then(({ accessToken,
+        userData: { email, id, cards }, }) => localStorage.setItem('token', accessToken))
+      .catch(() => {
+        toast.warn('Please check your email address or password', {
+          icon: "🦄", theme: "dark"
+        });
+      });
+
+    const token = localStorage.getItem('token');
+    dispatch(login(token))
     navigate("/dashboard")
+    form.reset();
+   
   };
 
   return (

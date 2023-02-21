@@ -18,7 +18,7 @@ export const questifyApi = createApi({
   tagTypes: ["Auth", "Card"],
   endpoints: (builder) => ({
     register: builder.mutation({
-      query: newUser => ({
+      query:( newUser) => ({
         url: "/auth/register",
         method: "POST",
         body: newUser,
@@ -27,7 +27,7 @@ export const questifyApi = createApi({
     }),
       
     login: builder.mutation({
-      query: userData => ({
+      query: (userData) => ({
         url: "/auth/login",
         method: "POST",
         body: userData,
