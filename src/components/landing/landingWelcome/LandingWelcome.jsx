@@ -1,7 +1,10 @@
 import { Wrapper } from "./LandingWelcome.styled"
 import styles from "../landingLogin/LoginForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 const LandingWelcome = () => {
+
+  const navigate = useNavigate()
   return (
     <Wrapper>
       <h1>Questify</h1>
@@ -12,7 +15,8 @@ const LandingWelcome = () => {
 
       <br/>
       
-      <p>Choose your name to <span className="textButton">sign up</span> or <span className="textButton">log in</span> <button className={styles.buttonGo}> go! </button></p>
+      <p>Choose your name to <button onClick={()=>navigate("/register")} className="textButton">sign up</button>
+         or <button onClick={()=>navigate("/login")} className="textButton">log in</button> <button onClick={()=>navigate("/login")} className={styles.buttonGo}> go! </button></p>
     
     </Wrapper>
   );

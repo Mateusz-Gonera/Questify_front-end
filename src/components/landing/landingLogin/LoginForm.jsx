@@ -3,10 +3,12 @@ import { Form, Button, Container } from "react-bootstrap";
 //import { logIn } from "../../../redux/";
 import { useLoginMutation } from "../../../redux/api/questifyApi";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
     const dispatch = useDispatch();
-    const [logIn] = useLoginMutation();
+  const [logIn] = useLoginMutation();
+  const navigate = useNavigate();
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -20,6 +22,7 @@ export const LoginForm = () => {
       })
     );
     form.reset();
+    navigate("/dashboard")
   };
 
   return (
