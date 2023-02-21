@@ -6,6 +6,8 @@ export const Container = styled.div`
 	padding-right: 15px;
 	margin-left: auto;
 	margin-right: auto;
+	
+
 	@media screen and (min-width: 768px) and (max-width: 1020px) and (min-height: 760px) {
 		max-width: 375px;
 		padding: 0;
@@ -28,4 +30,30 @@ export const Wrapper = styled.div`
 	height: 100vh;
 	overflow: hidden;
 	position: relative;
+`;
+
+export const ImgWrapper = styled.div`
+top:0;
+left:0;
+width:100%;
+height:100%;
+position:absolute;
+`;
+
+export const ImgUp = styled.img`
+	position: absolute;
+	bottom: 0;
+	@media screen and (min-width: 768px) and (min-height: 760px) {
+		top: 0;
+		right: 0;
+	}
+`;
+
+export const ImgDown = styled.img`
+	position: absolute;
+	bottom: 0;
+	@media screen and (min-width: 768px) and (min-height: 760px) {
+		bottom: 0;
+		right: 0;
+	}
 `;
