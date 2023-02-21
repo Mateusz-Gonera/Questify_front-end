@@ -5,10 +5,9 @@ export const questifyApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://questify-backend.goit.global/",
     prepareHeaders: (headers, { getState }) => {
-      
-        const token = getState().auth.token;
-      
-        if (token) {
+      const token = getState().auth.token;
+
+      if (token) {
         headers.set("Authorization", `Bearer ${token}`);
       }
       return headers;
@@ -18,16 +17,16 @@ export const questifyApi = createApi({
   tagTypes: ["Auth", "Card"],
   endpoints: (builder) => ({
     register: builder.mutation({
-      query: newUser => ({
+      query: (newUser) => ({
         url: "/auth/register",
         method: "POST",
         body: newUser,
       }),
       invalidatesTags: ["Auth"],
     }),
-      
+
     login: builder.mutation({
-      query: userData => ({
+      query: (userData) => ({
         url: "/auth/login",
         method: "POST",
         body: userData,
@@ -44,7 +43,7 @@ export const questifyApi = createApi({
     }),
 
     refresh: builder.mutation({
-      query: sid => ({
+      query: (sid) => ({
         url: "/auth/refresh",
         method: "POST",
         body: sid, // sid = Session's id (needed for /auth/refresh)
@@ -52,12 +51,12 @@ export const questifyApi = createApi({
       invalidatesTags: ["Auth"],
     }),
 
-     getAllCards: builder.query({
+    getAllCards: builder.query({
       query: () => "/card",
       providesTags: ["Auth", "Card"],
     }),
     createCard: builder.mutation({
-      query: card => ({
+      query: (card) => ({
         url: "/card",
         method: "POST",
         body: card,
@@ -66,7 +65,7 @@ export const questifyApi = createApi({
     }),
 
     editCard: builder.mutation({
-      query: card => ({
+      query: (card) => ({
         url: `/card/${card.id}`,
         method: "PATCH",
         body: card.body,
@@ -75,15 +74,15 @@ export const questifyApi = createApi({
     }),
 
     deleteCard: builder.mutation({
-      query: id => ({
+      query: (id) => ({
         url: `/card/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Card"],
     }),
- 
+
     completeCard: builder.mutation({
-      query: id => ({
+      query: (id) => ({
         url: `/card/complete/${id}`,
         method: "PATCH",
       }),
@@ -93,14 +92,14 @@ export const questifyApi = createApi({
 });
 
 export const {
-	useRegisterMutation,
-	useLoginMutation,
-	useLogoutMutation,
+  useRegisterMutation,
+  useLoginMutation,
+  useLogoutMutation,
   useRefreshMutation,
-  
-	useCreateCardMutation,
-	useEditCardMutation,
-	useDeleteCardMutation,
-	useGetAllCardsQuery,
-	useCompleteCardMutation,
+
+  useCreateCardMutation,
+  useEditCardMutation,
+  useDeleteCardMutation,
+  useGetAllCardsQuery,
+  useCompleteCardMutation,
 } = questifyApi;
