@@ -1,3 +1,7 @@
+#root {
+  width:100%;
+}
+
 :root {
   font-family: 'HelveticaNeueCyr', sans-serif;
   line-height: 1.5;
@@ -60,6 +64,21 @@ button:focus-visible {
 li{
 list-style: none;
 }
+
+.textButton{
+  text-decoration: underline;
+}
+.textButton:hover{
+  background-color:#FF851C;
+}
+
+.textButton{
+  text-decoration: underline;
+}
+.textButton:hover{
+  background-color:#FF851C;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #373c40;
