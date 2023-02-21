@@ -1,8 +1,20 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #2786ae;
-  
+  display: flex;
+  background-color: #242a37;
+  box-shadow: 0px 4px 4px rgba(36, 42, 55, 0.1);
+  padding: 21px 15px;
+  height: 60px;
+}
+
+@media screen and (min-width: 767px) {
+  .header {
+    padding: 50px 24px;
+    height: 70px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header {
+    padding: 70px 24px;
+  }
 }

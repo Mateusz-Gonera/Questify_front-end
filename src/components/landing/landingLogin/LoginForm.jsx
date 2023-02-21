@@ -1,12 +1,14 @@
 import styles from "./LoginForm.module.css";
 import { Form, Button, Container } from "react-bootstrap";
 //import { logIn } from "../../../redux/";
-//import { useLoginMutation } from "";
+import { useLoginMutation } from "../../../redux/api/questifyApi";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
     const dispatch = useDispatch();
-    const [logIn] = useLoginMutation();
+  const [logIn] = useLoginMutation();
+  const navigate = useNavigate();
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -20,6 +22,7 @@ export const LoginForm = () => {
       })
     );
     form.reset();
+    navigate("/dashboard")
   };
 
   return (
@@ -47,7 +50,7 @@ export const LoginForm = () => {
             required
           />
         </Form.Group>
-        <Button type="submit">Log in</Button>
+        <Button className={styles.buttonGo} type="submit">go!</Button>
       </Form>
     </Container>
   );
