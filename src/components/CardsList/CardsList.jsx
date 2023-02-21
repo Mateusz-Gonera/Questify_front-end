@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Card from "../Cards/Cards"
 import style from "./CardsList.module.css"
+// import newCard  from "../newCard/newCard.jsx"
 // import {modal} from "../modal/modal.jsx"
 
 // function CardsList() {
@@ -39,7 +40,7 @@ function CardsList() {
        isChallenge: false,
        difficulty: 'Normal',
        group: 'Work',
-       title: 'New Card'
+       title: 'New Challenge'
      };
      setCards([...cards, newCard]);
    };

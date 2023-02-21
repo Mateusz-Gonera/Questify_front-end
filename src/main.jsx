@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import App from "./components/App";
 import "./index.css";
 import { store } from "./redux/store.js";
-import {ChallengeList} from "./components/challengeList/challengeList"
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
