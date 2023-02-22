@@ -27,3 +27,13 @@
    font-weight: 300;
    color: rgba(40, 40, 40, 1);
 }
+.btn_add_card {
+   border: solid #FF851C 0px;
+   border-radius: 150px 150px 150px 150px;
+   background-color: #FF851C;
+color: white;
+width: 52px;
+height: 52px;
+font-size: 15px;
+margin: 46px;
+}

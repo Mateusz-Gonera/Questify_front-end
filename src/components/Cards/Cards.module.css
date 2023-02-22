@@ -22,6 +22,8 @@
    border-radius: 10px;
    position: relative;
    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
+   font-family: HelveticaNeueCyr;
+   font-weight: 400;
 }
 .difficultyContainer{
    display: flex;
