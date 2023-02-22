@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
 import Card from "../Cards/Cards"
 import style from "./CardsList.module.css"
+<<<<<<< HEAD
 import Clock from "./Clock"
 
 function CardsList({cards}) {
@@ -96,3 +98,70 @@ function timeStringToMs(cards) {
 }
 
 export default CardsList
+=======
+// import newCard  from "../newCard/newCard.jsx"
+// import {modal} from "../modal/modal.jsx"
+
+// function CardsList() {
+
+
+//    return(
+//       <div>
+//          <ul className={style.cardList}>
+//             <li className={style.cardsListItem} >
+//                < Card
+//                   isChallenge = {false}
+//                   difficulty = {"Easy"}
+//                   group = {'Leisure'}
+//                   title = {"Blabla CardName"}
+//                />
+//             </li>
+//          </ul>
+//       </div>
+//    )
+// }
+
+// export default CardsList
+
+function CardsList() {
+   const [cards, setCards] = useState([
+     {
+       isChallenge: false,
+       difficulty: 'Easy',
+       group: 'Leisure',
+       title: 'Blabla CardName'
+     }
+   ]);
+ 
+   const addCard = () => {
+     const newCard = {
+       isChallenge: false,
+       difficulty: 'Normal',
+       group: 'Work',
+       title: 'New Challenge'
+     };
+     setCards([...cards, newCard]);
+   };
+ 
+   return (
+     <div>
+      
+       <button onClick={addCard}>Add Card</button>
+       <ul className={style.cardList}>
+         {cards.map((card, index) => (
+           <li className={style.cardsListItem} key={card.index}>
+             <Card
+               isChallenge={card.isChallenge}
+               difficulty={card.difficulty}
+               group={card.group}
+               title={card.title}
+             />
+           </li>
+         ))}
+       </ul>
+     </div>
+   );
+ }
+ 
+ export default CardsList;
+>>>>>>> f4cbbc5d42383874b44b88e77db9b3998e7b5cd8

@@ -3,10 +3,15 @@
    color: black;
 }
 .cardList{
+<<<<<<< HEAD
    display: flex;
    gap: 28px;
    margin: 0;
    padding: 0;
+=======
+   display: flex
+   
+>>>>>>> f4cbbc5d42383874b44b88e77db9b3998e7b5cd8
 }
 .cardsListItem{
    margin: 0 auto ;
