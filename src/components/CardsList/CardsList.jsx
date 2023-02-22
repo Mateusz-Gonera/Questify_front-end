@@ -1,29 +1,8 @@
 import React, { useState } from 'react';
 import Card from "../Cards/Cards"
 import style from "./CardsList.module.css"
-// import newCard  from "../newCard/newCard.jsx"
-// import {modal} from "../modal/modal.jsx"
-
-// function CardsList() {
 
 
-//    return(
-//       <div>
-//          <ul className={style.cardList}>
-//             <li className={style.cardsListItem} >
-//                < Card
-//                   isChallenge = {false}
-//                   difficulty = {"Easy"}
-//                   group = {'Leisure'}
-//                   title = {"Blabla CardName"}
-//                />
-//             </li>
-//          </ul>
-//       </div>
-//    )
-// }
-
-// export default CardsList
 
 function CardsList() {
    const [cards, setCards] = useState([

@@ -1,32 +1,3 @@
-// import style from './Cards.module.css'
-
-// function Card({
-//  isChallenge,
-//  difficulty,
-//  group,
-//  title
-// }) {
-
-//    return (
-//       <div className={isChallenge ? style.challengeContainer : style.cardContainer}>
-//          <div className={style.difficultyContainer}>
-//             <div className={style.difficultyLevel}>
-//                <div className={style[difficulty]}> </div>
-//                <h3 className={style.levelName}>{difficulty}</h3>
-//             </div>
-//             {isChallenge ? <button className={style.trophyIcon}> </button>
-//             : <button className={style.starIcon}> </button> }
-//          </div>
-//          {isChallenge && <h3 className={style.isChallenge} >Challenge</h3>}
-//          <h2 className={isChallenge ? style.chalengeName : style.taskName}>{title}</h2>
-//          <div className={style[group]}>{group}</div>
-//       </div>
-
-//    )
-// }
-// export default Card
-// import { useState } from 'react';
-// import style from './Cards.module.css';
 
 
 import { useState } from 'react';
@@ -41,10 +12,14 @@ function Card({
   const [title, setTitle] = useState(initialTitle);
   const [selectedDifficulty, setSelectedDifficulty] = useState(difficulty);
   const [showDifficultyDropdown, setShowDifficultyDropdown] = useState(false);
+  const [selectedGroup, setSelectedGroup] = useState(group);
+  const [showGroupDropdown, setShowGroupDropdown] = useState(false);
+  const [endDate, setEndDate] = useState(null);
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
+
 
   const handleDifficultyClick = () => {
     setShowDifficultyDropdown(!showDifficultyDropdown);
@@ -54,6 +29,30 @@ function Card({
     setSelectedDifficulty(event.target.value);
     setShowDifficultyDropdown(false);
   };
+
+  const handleGroupChange = (event) => {
+    setSelectedGroup(event.target.value);
+    setShowGroupDropdown(false);
+  };
+
+  const handleGroupClick = () => {
+    setShowGroupDropdown(!showGroupDropdown);
+  };
+
+  function handleEndDateChange(event) {
+    setEndDate(event.target.value);
+    }
+    
+    function handleEndDateSubmit(event) {
+    event.preventDefault();
+    // tutaj można wykorzystać wartość endDate
+    }
+    
+    function handleResetEndDate() {
+    setEndDate(null);
+    }
+    
+  
 
   return (
     <div className={isChallenge ? style.challengeContainer : style.cardContainer}>
@@ -76,6 +75,7 @@ function Card({
               <option value="Hard">Hard</option>
             </select>
           )}
+          
         </div>
         {isChallenge ? (
           <button className={style.trophyIcon}> </button>
@@ -83,16 +83,54 @@ function Card({
           <button className={style.starIcon}> </button>
         )}
       </div>
-      {isChallenge && <h3 className={style.isChallenge}>Challenge</h3>}
+     
+      {isChallenge && <button className={style.isChallenge}>Challenge</button>}
       <input
         type="text"
         className={isChallenge ? style.chalengeName : style.taskName}
         value={title}
         onChange={handleTitleChange}
+        
       />
-      <div className={style[group]}>{group}</div>
+
+<div>
+
+{endDate ? (
+<div>
+{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+<p onClick={handleResetEndDate}> {endDate}</p>
+
+</div>
+) : (
+<form onSubmit={handleEndDateSubmit}>
+<label>
+
+<input type="datetime-local" onChange={handleEndDateChange} />
+</label>
+{/* <button type="submit">OK</button> */}
+</form>
+)}
+</div>
+      {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+<div className={style[selectedGroup]} onClick={handleGroupClick}>{selectedGroup}
+{showGroupDropdown && (
+        <select
+        className={style.difficultyDropdown}
+        value={selectedGroup}
+        onChange={handleGroupChange}
+         size="6">
+          <option value="Stuff">Stuff</option>
+          <option value="Family">Family</option>
+          <option value="Health">Health</option>
+          <option value="Learning">Learning</option>
+          <option value="Leisure">Leisure</option>
+          <option value="Work">Work</option>
+        </select>
+      )}
+ </div>
     </div>
   );
 }
 
 export default Card;
+
