@@ -1,6 +1,7 @@
 .sectionCards{
    background-color: rgba(242, 243, 247, 1);
    color: black;
+   
 }
 .cardList{
    display: flex;
@@ -27,13 +28,25 @@
    font-weight: 300;
    color: rgba(40, 40, 40, 1);
 }
+.btn_container {
+   padding: 45px;
+   position: absolute;
+      right: 45px;
+}
 .btn_add_card {
+   text-align: center;
    border: solid #FF851C 0px;
    border-radius: 150px 150px 150px 150px;
    background-color: #FF851C;
 color: white;
 width: 52px;
 height: 52px;
-font-size: 15px;
-margin: 46px;
+font-size: 35px;
+padding: 0;
+padding-bottom: 5px;
+}
+.btn_add_card:hover {
+color: #FF851C;
+background-color: white;
+border: solid #FF851C 2px;
 }

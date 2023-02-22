@@ -22,7 +22,7 @@
    border-radius: 10px;
    position: relative;
    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
-   font-family: HelveticaNeueCyr;
+   font-family: 'Helvetica Neue', sans-serif;
    font-weight: 400;
 }
 .difficultyContainer{
@@ -32,6 +32,7 @@
    padding: 0 21px;
    justify-content: space-between;
    align-items: center;
+   
 }
 .Easy{
    height: 8px;

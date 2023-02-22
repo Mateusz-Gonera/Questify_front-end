@@ -17,12 +17,14 @@ function CardsList({ cards }) {
 
   return (
     <div className={style.sectionCards}>
-      <button className={style.btn_add_card} onClick={addCard}>
-        +
-      </button>
       <Clock />
       <TodayCards cards={cards} />
       <TomorrowCards cards={cards} />
+      <div className={style.btn_container}>
+        <button className={style.btn_add_card} onClick={addCard}>
+          +
+        </button>
+      </div>
     </div>
   );
 }
