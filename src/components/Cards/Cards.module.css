@@ -112,6 +112,7 @@
 }
 .chalengeName{
   
+  
    font-size: 16px;
    font-weight: 700;
    display: flex;
@@ -121,6 +122,7 @@
    margin: 0;
 }
 .taskName{
+   width: 90%;
    width: 90%;
    display: flex;
    justify-content: center;

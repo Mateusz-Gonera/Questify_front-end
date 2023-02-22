@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import style from './Cards.module.css'
+
+
+import { useState } from 'react';
+import style from './Cards.module.css';
 
 function Card({
  isChallenge,
@@ -45,6 +48,50 @@ const today = new Date();
     });
     }
   };
+  const [title, setTitle] = useState(initialTitle);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(difficulty);
+  const [showDifficultyDropdown, setShowDifficultyDropdown] = useState(false);
+  const [selectedGroup, setSelectedGroup] = useState(group);
+  const [showGroupDropdown, setShowGroupDropdown] = useState(false);
+  const [endDate, setEndDate] = useState(null);
+
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+
+  const handleDifficultyClick = () => {
+    setShowDifficultyDropdown(!showDifficultyDropdown);
+  };
+
+  const handleDifficultyChange = (event) => {
+    setSelectedDifficulty(event.target.value);
+    setShowDifficultyDropdown(false);
+  };
+
+  const handleGroupChange = (event) => {
+    setSelectedGroup(event.target.value);
+    setShowGroupDropdown(false);
+  };
+
+  const handleGroupClick = () => {
+    setShowGroupDropdown(!showGroupDropdown);
+  };
+
+  function handleEndDateChange(event) {
+    setEndDate(event.target.value);
+    }
+    
+    function handleEndDateSubmit(event) {
+    event.preventDefault();
+    // tutaj można wykorzystać wartość endDate
+    }
+    
+    function handleResetEndDate() {
+    setEndDate(null);
+    }
+    
+  
 
    return (
    <li>
@@ -85,7 +132,54 @@ const today = new Date();
             </div>
          <div className={style[category]}>{category}</div>
       </div>
-   </li>
-   )
+     
+      {isChallenge && <button className={style.isChallenge}>Challenge</button>}
+      <input
+        type="text"
+        className={isChallenge ? style.chalengeName : style.taskName}
+        value={title}
+        onChange={handleTitleChange}
+        
+      />
+
+<div>
+
+{endDate ? (
+<div>
+{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+<p onClick={handleResetEndDate}> {endDate}</p>
+
+</div>
+) : (
+<form onSubmit={handleEndDateSubmit}>
+<label>
+
+<input type="datetime-local" onChange={handleEndDateChange} />
+</label>
+{/* <button type="submit">OK</button> */}
+</form>
+)}
+</div>
+      {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+<div className={style[selectedGroup]} onClick={handleGroupClick}>{selectedGroup}
+{showGroupDropdown && (
+        <select
+        className={style.difficultyDropdown}
+        value={selectedGroup}
+        onChange={handleGroupChange}
+         size="6">
+          <option value="Stuff">Stuff</option>
+          <option value="Family">Family</option>
+          <option value="Health">Health</option>
+          <option value="Learning">Learning</option>
+          <option value="Leisure">Leisure</option>
+          <option value="Work">Work</option>
+        </select>
+      )}
+ </div>
+    </div>
+  );
 }
-export default Card
+
+export default Card;
+
