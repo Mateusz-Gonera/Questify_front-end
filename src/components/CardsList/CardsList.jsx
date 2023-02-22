@@ -4,6 +4,17 @@ import Clock from "./Clock"
 
 function CardsList({cards}) {
 
+ 
+   const addCard = () => {
+     const newCard = {
+       isChallenge: false,
+       difficulty: 'Normal',
+       group: 'Work',
+       title: 'New Challenge'
+     };
+     setCards([...cards, newCard]);
+   };
+//
   const currentDate = new Date();
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
   
@@ -60,6 +71,7 @@ function timeStringToMs(cards) {
 
    return(
       <div className={style.sectionCards}>
+         <button onClick={addCard}>Add Card</button>
          <Clock/>
          <div className={style.todaylist}>
             <h4>Today</h4>

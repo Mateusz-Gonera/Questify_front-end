@@ -232,21 +232,16 @@ background-color: rgba(211, 246, 206, 1);
    left: 0;
    color: rgba(40, 40, 40, 1);
 }
-<<<<<<< HEAD
 .date{
    color:  rgba(185, 195, 200, 1);
    margin: 0;
-=======
-
-
-.difficultyDropdown{
-      position: absolute;
-      top: 0;
-      left: 0;
-      overflow: hidden;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-    
->>>>>>> f4cbbc5d42383874b44b88e77db9b3998e7b5cd8
+}
+.difficultyDropdown {
+   position: absolute;
+   top: 0;
+   left: 0;
+   overflow: hidden;
+   appearance: none;
+   -webkit-appearance: none;
+   -moz-appearance: none;
 }
