@@ -106,6 +106,7 @@
    font-weight: 400;
 }
 .chalengeName{
+  
    font-size: 16px;
    font-weight: 700;
    display: flex;
@@ -114,6 +115,7 @@
    color: rgba(255, 255, 255, 1);
 }
 .taskName{
+   width: 90%;
    display: flex;
    justify-content: center;
    font-weight: bold;
@@ -223,4 +225,16 @@ background-color: rgba(211, 246, 206, 1);
    bottom: 21px;
    left: 0;
    color: rgba(40, 40, 40, 1);
+}
+
+
+.difficultyDropdown{
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    
 }

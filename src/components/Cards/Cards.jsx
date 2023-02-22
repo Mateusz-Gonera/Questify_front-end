@@ -69,6 +69,7 @@ function Card({
               className={style.difficultyDropdown}
               value={selectedDifficulty}
               onChange={handleDifficultyChange}
+               size="3"
             >
               <option value="Easy" >Easy</option>
               <option value="Normal">Normal</option>

@@ -1,6 +1,6 @@
 .cardList{
-   display: grid;
-
+   display: flex
+   
 }
 .cardsListItem{
    margin: 0 auto ;
