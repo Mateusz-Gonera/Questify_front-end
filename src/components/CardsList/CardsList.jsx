@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
-import Card from "../Cards/Cards"
+import React from 'react';
 import style from "./CardsList.module.css"
+import Clock from "./Clock"
+import TodayCards from './TodayCards';
+import TomorrowCards from './TomorrowCards';
 
+function CardsList({cards}) {
 
-
-function CardsList() {
-   const [cards, setCards] = useState([
-     {
-       isChallenge: false,
-       difficulty: 'Easy',
-       group: 'Leisure',
-       title: 'Blabla CardName'
-     }
-   ]);
- 
    const addCard = () => {
      const newCard = {
        isChallenge: false,
@@ -23,25 +15,16 @@ function CardsList() {
      };
      setCards([...cards, newCard]);
    };
- 
-   return (
-     <div>
-      
-       <button onClick={addCard}>Add Card</button>
-       <ul className={style.cardList}>
-         {cards.map((card, index) => (
-           <li className={style.cardsListItem} key={card.index}>
-             <Card
-               isChallenge={card.isChallenge}
-               difficulty={card.difficulty}
-               group={card.group}
-               title={card.title}
-             />
-           </li>
-         ))}
-       </ul>
-     </div>
-   );
- }
- 
- export default CardsList;
+
+   return(
+      <div className={style.sectionCards}>
+         <button onClick={addCard}>Add Card</button>
+         <Clock/>
+         <TodayCards cards={cards}/>
+         <TomorrowCards cards={cards}/>
+         
+      </div>
+   )
+}
+
+export default CardsList

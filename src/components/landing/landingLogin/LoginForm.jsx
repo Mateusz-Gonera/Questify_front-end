@@ -5,9 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 
 export const LoginForm = () => {
-  
-  const [login] = useLoginMutation();
-  const navigate = useNavigate();
+	const [login] = useLoginMutation();
+	const navigate = useNavigate();
 
   const handleSubmit = async evt => {
     evt.preventDefault();
@@ -31,33 +30,41 @@ export const LoginForm = () => {
    
   };
 
-  return (
-    <Container className={styles.container}>
-      <Form className="border rounded p-4" onSubmit={handleSubmit}>
-        <p className={styles.paragraph}>Please log in</p>
-        <Form.Group className="mb-3" controlId="inputEmail">
-          <Form.Label>E-mail</Form.Label>
-          <Form.Control
-            className={styles.input}
-            type="email"
-            name="email"
-            title="For example: example@email.com"
-            required
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="inputPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            className={styles.input}
-            type="password"
-            name="password"
-            title="Minimum 4 characters"
-            minLength="4"
-            required
-          />
-        </Form.Group>
-        <Button className={styles.buttonGo} type="submit">go!</Button>
-      </Form>
-    </Container>
-  );
+		// const token = localStorage.getItem("token");
+		// await login(token);
+		// navigate("/dashboard");
+		// form.reset();
+	
+
+	return (
+		<Container className={styles.container}>
+			<Form className="border rounded p-4" onSubmit={handleSubmit}>
+				<p className={styles.paragraph}>Please log in</p>
+				<Form.Group className="mb-3" controlId="inputEmail">
+					<Form.Label>E-mail</Form.Label>
+					<Form.Control
+						className={styles.input}
+						type="email"
+						name="email"
+						title="For example: example@email.com"
+						required
+					/>
+				</Form.Group>
+				<Form.Group className="mb-3" controlId="inputPassword">
+					<Form.Label>Password</Form.Label>
+					<Form.Control
+						className={styles.input}
+						type="password"
+						name="password"
+						title="Minimum 4 characters"
+						minLength="4"
+						required
+					/>
+				</Form.Group>
+				<Button className={styles.buttonGo} type="submit">
+					go!
+				</Button>
+			</Form>
+		</Container>
+	);
 };
