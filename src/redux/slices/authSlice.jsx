@@ -6,9 +6,8 @@ const token = localStorage.getItem("token")
   : null;
 
 const initialState = {
-  user: { email: null, password: null },
+  user: { email: "", password: "" },
   token,
-  sid: "",
   isLoggedIn: false,
   isError: null,
 };
@@ -27,18 +26,17 @@ const authSlice = createSlice({
     builder.addMatcher(
       questifyApi.endpoints.register.matchFulfilled,
       (state, { payload }) => {
-        state.user = payload.user;
-        state.token = payload.token;
-        state.isLoggedIn = true;
+        state.user = payload.userData;
+        // state.token = payload.token;
+        // state.isLoggedIn = true;
       }
     );
     builder.addMatcher(
       questifyApi.endpoints.login.matchFulfilled,
       (state, { payload }) => {
-        state.user = payload.user;
+        state.user = payload.userData;
         state.token = payload.accessToken;
         state.isLoggedIn = true;
-        state.sid = payload.sid;
       }
     );
     builder.addMatcher(
@@ -58,10 +56,10 @@ const authSlice = createSlice({
     builder.addMatcher(
       questifyApi.endpoints.refresh.matchFulfilled,
       (state, { payload }) => {
-        state.user = payload;
+        state.user = payload.userData;
         state.isLoggedIn = true;
-        state.token = payload.refreshToken;
-        state.sid = payload.sid;
+        // state.token = payload.refreshToken;
+        // state.sid = payload.sid;
       }
     );
   },

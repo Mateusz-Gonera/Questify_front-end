@@ -1,34 +1,30 @@
 import styles from "./LoginForm.module.css";
 import { Form, Button, Container } from "react-bootstrap";
 import { useLoginMutation } from "../../../redux/api/questifyApi";
-import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 export const LoginForm = () => {
+	
 	const [login] = useLoginMutation();
-	const navigate = useNavigate();
 
 	const handleSubmit = async (evt) => {
 		evt.preventDefault();
-		const form = evt.currentTarget;
-		const email = form.elements.email.value;
-		const password = form.elements.password.value;
+
+		const form = evt.target;
+		const { email: { value: email }, password: { value: password },
+		} = form;
 
 		const credentials = { email, password };
+
 		await login(credentials)
 			.unwrap()
 			.then(({ accessToken, userData: { email, id, cards } }) =>
-				localStorage.setItem("token", accessToken),
-			)
+				localStorage.setItem("token", accessToken),)
 			.catch(() => {
 				toast.warn("Please check your email address or password", {
-					icon: "🦄",
-					e: "dark",
+					theme: "dark",
 				});
 			});
-
-		const token = localStorage.getItem("token");
-		await login(token);
-		navigate("/dashboard");
 		form.reset();
 	};
 

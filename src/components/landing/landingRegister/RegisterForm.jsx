@@ -1,6 +1,5 @@
 import styles from './RegisterForm.module.css';
 import { Form, Button, Container } from 'react-bootstrap';
-//import { register } from "../../../redux/";
 
 import { useRegisterMutation } from "../../../redux/api/questifyApi";
 import { useNavigate } from "react-router-dom";
