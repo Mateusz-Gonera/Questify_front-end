@@ -51,9 +51,9 @@ const Landing = () => {
 
 			
 			<Container>
-				{/* {<LandingWelcome/>} */}
-				{<LoginForm /> }
-				{<RegisterForm/>}
+				{<LandingWelcome/>}
+				{/* {<LoginForm /> }
+				{<RegisterForm/>} */}
 			</Container>
 
 		</Wrapper>

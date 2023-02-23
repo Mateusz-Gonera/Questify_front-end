@@ -1,7 +1,7 @@
 import styles from './RegisterForm.module.css';
 import { Form, Button, Container } from 'react-bootstrap';
-//import { register } from "../../../redux/";
 
+import { toast } from "react-toastify";
 import { useRegisterMutation } from "../../../redux/api/questifyApi";
 import { useNavigate } from "react-router-dom";
 
@@ -19,8 +19,9 @@ export const RegisterForm = () => {
    
     const credentials = { email, password };
     await register(credentials)
+      toast.success("Now you can use your credentials to login");
    
-    navigate("/dashboard");
+    navigate("/login");
     form.reset();
   
   };

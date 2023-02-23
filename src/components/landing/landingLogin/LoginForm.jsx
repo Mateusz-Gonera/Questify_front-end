@@ -1,9 +1,8 @@
 import styles from "./LoginForm.module.css";
 import { Form, Button, Container } from "react-bootstrap";
-
 import { useLoginMutation } from "../../../redux/api/questifyApi";
-
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 export const LoginForm = () => {
   
@@ -18,17 +17,15 @@ export const LoginForm = () => {
     
     const credentials = { email, password };
     await login(credentials)
-    unwrap()
+      .unwrap()
       .then(({ accessToken,
         userData: { email, id, cards }, }) => localStorage.setItem('token', accessToken))
       .catch(() => {
-        toast.warn('Please check your email address or password', {
-          icon: "🦄", theme: "dark"
-        });
+        toast.warn('Please check your email address or password');
       });
 
     const token = localStorage.getItem('token');
-    dispatch(login(token))
+    // dispatch(login(token))
     navigate("/dashboard")
     form.reset();
    
