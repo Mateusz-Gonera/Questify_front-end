@@ -1,5 +1,5 @@
 import CardList from "../../components/CardsList/CardsList";
-
+import { AppBar } from "../../components/appBar/AppBar";
 const Dashboard = () => {
     const cards = [
     { id: 1, title: "Buy the gift for Mary", date: "2023-02-23",time:"08-10", isChallenge: true, difficulty:"Normal", category:"Stuff" },
@@ -11,7 +11,8 @@ const Dashboard = () => {
   ];
   
 	return (
-		<div>
+    <div>
+      <AppBar />
 			<CardList  cards={cards} />
 		</div>
 	);
