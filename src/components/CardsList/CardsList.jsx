@@ -4,7 +4,7 @@ import Clock from "./Clock"
 import TodayCards from './TodayCards';
 import TomorrowCards from './TomorrowCards';
 
-function CardsList({cards}) {
+function CardsList({data}) {
 
    const addCard = () => {
      const newCard = {
@@ -16,12 +16,16 @@ function CardsList({cards}) {
      setCards([...cards, newCard]);
    };
 
+
+
+
+
    return(
       <div className={style.sectionCards}>
          <button onClick={addCard}>Add Card</button>
          <Clock/>
-         <TodayCards cards={cards}/>
-         <TomorrowCards cards={cards}/>
+         <TodayCards cards={data}/>
+         <TomorrowCards cards={data}/>
          
       </div>
    )

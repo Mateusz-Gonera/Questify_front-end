@@ -1,9 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const API_BASE_URL = 'http://localhost:3000/';
+const API_GOIT_URL = "https://questify-backend.goit.global/";
+
 export const questifyApi = createApi({
   reducerPath: "questifyApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://questify-backend.goit.global/",
+    baseUrl: API_BASE_URL,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 

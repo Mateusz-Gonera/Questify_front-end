@@ -17,8 +17,6 @@ function TodayCards ({cards}) {
   const todayCards = filteredCards.sort((a, b) => {
    const timeA = timeStringToMs(a.time);
 		const timeB = timeStringToMs(b.time);
-      console.log(timeA)
-      console.log(timeB)
 		if (timeA < timeB) {
 			return -1;
 		} else if (timeA > timeB) {
