@@ -3,7 +3,7 @@ import style from "./CardsList.module.css"
 import Clock from "./Clock"
 import TodayCards from './TodayCards';
 import TomorrowCards from './TomorrowCards';
-
+import DoneList from '../Cards/CardsDone';
 function CardsList({cards}) {
 
    const addCard = () => {
@@ -22,7 +22,7 @@ function CardsList({cards}) {
          <Clock/>
          <TodayCards cards={cards}/>
          <TomorrowCards cards={cards}/>
-         
+         <DoneList/>
       </div>
    )
 }
