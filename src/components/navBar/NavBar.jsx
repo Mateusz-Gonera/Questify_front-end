@@ -26,7 +26,7 @@ export const NavBar = () => {
 					<p className={style.userName}>{user.email} Quest Log </p>
 				</div>
 				<img className={style.challengeIcon} src={ChallengeIcon} alt="logo" />
-			    <NavLink to="/landing">
+			    <NavLink to="/">
 					{ <button className={style.btn} type="button" onClick={() => logout()} ><img src={Logout} /></button> }
                 </NavLink>
 			</nav>
