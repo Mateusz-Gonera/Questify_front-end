@@ -24,9 +24,9 @@ function CardsList({data}) {
       <div className={style.sectionCards}>
          <button onClick={addCard}>Add Card</button>
          <Clock/>
-         <TodayCards cards={data}/>
-         <TomorrowCards cards={data}/>
-         
+         <TodayCards cards={cards}/>
+         <TomorrowCards cards={cards}/>
+         <DoneList/>
       </div>
    )
 }

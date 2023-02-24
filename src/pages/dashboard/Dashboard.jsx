@@ -1,6 +1,5 @@
 import CardList from "../../components/CardsList/CardsList";
-import { useGetAllCardsQuery } from '../../redux/api/questifyApi';
-
+import { AppBar } from "../../components/appBar/AppBar";
 const Dashboard = () => {
 //    const cards = [
 //    { id: 1, title: "Buy the gift for Mary", date: "2023-02-23",time:"08-10", isChallenge: true, difficulty:"Normal", category:"Stuff" },
@@ -13,8 +12,9 @@ const Dashboard = () => {
   const {data} = useGetAllCardsQuery();
   console.log()
 	return (
-		<div>
-			{/*<CardList  cards={data} />*/}
+    <div>
+      <AppBar />
+			<CardList  cards={cards} />
 		</div>
 	);
 };
