@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { Layout } from "./Layout";
 import NotFound from "../pages/notFound/NotFound";
-import LandingWelcome from "./landing/landingWelcome/LandingWelcome";
+//import LandingWelcome from "./landing/landingWelcome/LandingWelcome";
 import { RestrictedRoute } from "./RestrictedRoute";
 import { PrivateRoute } from "./PrivateRoute";
 import "./App.css";
@@ -12,7 +12,7 @@ import Login from "../pages/landingPage/Login";
 
 const Dashboard = React.lazy(() => import("../pages/dashboard/Dashboard"));
 const LandingPage = React.lazy(
-	() => import("../pages/landingPage/LandingPage"),
+	() => import("../pages/landingPage/LandingPage")
 );
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
 		<>
 			<Routes>
 				<Route path="/" element={<Layout />}>
-					<Route index element={<LandingWelcome />} />
+					<Route index element={<LandingPage />} />
 					<Route path="register" element={<Register />} />
 					<Route
 						path="login"
