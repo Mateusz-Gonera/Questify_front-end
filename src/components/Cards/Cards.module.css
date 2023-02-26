@@ -244,8 +244,23 @@ background-color: rgba(211, 246, 206, 1);
    -webkit-appearance: none;
    -moz-appearance: none;
 }
+.btnContainer{
+   display: flex;
+   margin-top: 29px;
+   gap: 5px;
+}
+.completBtn{
+   padding: 3px;
+   font-size: 10px;
+   background-color: wheat;
+}
 .deleteBtn{
    padding: 3px;
    font-size: 10px;
    background-color: rebeccapurple;
+}
+.submitBtn{
+   padding: 3px;
+   font-size: 10px;
+   background-color: darkcyan;
 }

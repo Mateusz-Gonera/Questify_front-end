@@ -45,6 +45,7 @@ function Card({
             type={type}
             difficulty={difficulty}
             category={category}
+
          />
       ) : (
          <div onClick={cardClick}>
