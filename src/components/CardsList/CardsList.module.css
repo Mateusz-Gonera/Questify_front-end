@@ -1,29 +1,51 @@
-.sectionCards{
-   background-color: rgba(242, 243, 247, 1);
-   color: black;
+.sectionCards {
+  background-color: rgba(242, 243, 247, 1);
+  color: black;
 }
-.cardList{
-   display: flex;
-   gap: 28px;
-   margin: 0;
-   padding: 0;
+.cardList {
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
 }
-.cardsListItem{
-   margin: 0 auto ;
+.cardsListItem {
+  margin: 0 auto;
 }
-.clockContainer{
-   display: flex;
-   gap: 15px;
+.clockContainer {
+  display: flex;
+  gap: 15px;
 }
-.todaylist{
-   padding: 15px;
-   font-size: 15px;
-   font-weight: 300;
-   color: rgba(40, 40, 40, 1);
+.todaylist {
+  padding: 15px;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(40, 40, 40, 1);
 }
-.tomorrowList{
-   padding: 15px;
-   font-size: 15px;
-   font-weight: 300;
-   color: rgba(40, 40, 40, 1);
+.tomorrowList {
+  padding: 15px;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(40, 40, 40, 1);
+}
+.btn_container {
+  padding: 45px;
+  position: absolute;
+  right: 45px;
+}
+.btn_add_card {
+  text-align: center;
+  border: solid #ff851c 0px;
+  border-radius: 150px 150px 150px 150px;
+  background-color: #ff851c;
+  color: white;
+  width: 52px;
+  height: 52px;
+  font-size: 35px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+.btn_add_card:hover {
+  color: #ff851c;
+  background-color: white;
+  border: solid #ff851c 2px;
 }
