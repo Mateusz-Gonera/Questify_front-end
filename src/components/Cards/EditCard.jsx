@@ -13,7 +13,6 @@ function EditCard({
  dueTime,
  isChallenge,
  id,
- type,
 }) {
   const [deleteCard] = useDeleteCardMutation();
   const [editCard, { isLoading, error }] = useEditCardMutation();
@@ -29,6 +28,9 @@ function EditCard({
 
       const handleSubmit = async (event) => {
          event.preventDefault();
+         console.log(title)
+         console.log(selectedDifficulty)
+         console.log(selectedGroup)
       try{
          const result = await editCard({id, 
             title,
