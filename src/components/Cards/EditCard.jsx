@@ -1,16 +1,20 @@
 import { useState } from 'react';
+import { useDeleteCardMutation, useEditCardMutation } from '../../redux/api/questifyApi';
 import style from './Cards.module.css';
-import { getCardsType } from './ChallengeCard';
 
-function Cards({
 
+function EditCard({
  difficulty,
  category,
  title: initialTitle,
  dueDate,
  dueTime,
- type
+ type,
+ isChallenge,
+ id
 }) {
+
+const [deleteCard] = useDeleteCardMutation();
 
   const [title, setTitle] = useState(initialTitle);
   const [selectedDifficulty, setSelectedDifficulty] = useState(difficulty);
@@ -18,6 +22,21 @@ function Cards({
   const [selectedGroup, setSelectedGroup] = useState(category);
   const [showGroupDropdown, setShowGroupDropdown] = useState(false);
   const [endDate, setEndDate] = useState(null);
+
+
+   const [isDone, setIsDone] = useState(false);
+
+//const { data, error, isLoading, isSuccess } = useEditCardMutation();
+
+const [mutate, {isLoading}] = useEditCardMutation()
+
+const handleSubmit = (event) => {
+   event.preventDefault();
+   mutate(title)
+}
+const handleInputChange = (event) => {
+    setText(event.target.value);
+  };
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -52,6 +71,10 @@ function Cards({
     function handleResetEndDate() {
     setEndDate(null);
     }
+    const handleCompleted = () => {
+      setIsDone(true)
+      console.log('we did it')
+    }
 
    // Change date to string Today or Tomorrow
 const today = new Date();
@@ -71,8 +94,6 @@ const today = new Date();
     }
   };
 
-// Check isChallenge are true or false
-  const { isChallenge } = getCardsType(type);
 
    return (
 <li>
@@ -97,14 +118,21 @@ const today = new Date();
          </div>
 
 
-         {isChallenge ? ( <button className={style.trophyIcon}> </button> )
-            : ( <button className={style.starIcon}> </button> )}
+         {isChallenge ? ( <button className={style.trophyIcon} onClick={handleCompleted} name="done"> </button> )
+            : ( <button className={style.starIcon} onClick={handleCompleted} name="done"> </button> )}
       </div>
       <div className={style.titleContainer} >
          {isChallenge && <button className={style.isChallenge}>Challenge</button>}
          <input type="text" 
             className={isChallenge ? style.chalengeName : style.taskName} 
             value={title} onChange={handleTitleChange} />
+            {/* ////////////// */}
+            <form onSubmit={handleSubmit}> 
+                  <input type="text" value={title} onChange={handleInputChange}/>
+                  <button type='submit' disabled={isLoading}>
+                     {isLoading ? 'Loading...' : 'Submit'}
+                  </button>
+            </form>
 
 
          <h5 className={style.date}>{formatDate(new Date(dueDate))} , {dueTime} </h5>
@@ -143,10 +171,11 @@ const today = new Date();
          </select>
          )}
       </div>
+      <button className={style.deleteBtn} onClick={() => deleteCard(id)}>Delete</button>
    </div>
 </li>
   );
 }
 
-export default Cards;
+export default EditCard;
 

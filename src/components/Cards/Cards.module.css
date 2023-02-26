@@ -244,3 +244,8 @@ background-color: rgba(211, 246, 206, 1);
    -webkit-appearance: none;
    -moz-appearance: none;
 }
+.deleteBtn{
+   padding: 3px;
+   font-size: 10px;
+   background-color: rebeccapurple;
+}

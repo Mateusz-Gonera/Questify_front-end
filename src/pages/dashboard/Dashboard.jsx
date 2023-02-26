@@ -1,5 +1,7 @@
 import CardList from "../../components/CardsList/CardsList";
 import { AppBar } from "../../components/appBar/AppBar";
+import { useGetAllCardsQuery } from "../../redux/api/questifyApi";
+
 const Dashboard = () => {
 //    const cards = [
 //    { id: 1, title: "Buy the gift for Mary", date: "2023-02-23",time:"08-10", isChallenge: true, difficulty:"Normal", category:"Stuff" },
@@ -9,8 +11,10 @@ const Dashboard = () => {
 //    { id: 5, title: "Watch a movie",date: "2023-02-22",time:"11-30", isChallenge: false, difficulty:"Hard", category:"Leisure" },
 //    { id: 6, title: "Morning run", date: "2023-02-22",time:"09-45", isChallenge: false, difficulty:"Easy", category:"Work" },
 //  ];
-  const {data} = useGetAllCardsQuery();
-  console.log()
+  const { data, error, isLoading, isSuccess } = useGetAllCardsQuery();
+      if (!data) return 
+      const cards = data.cards
+
 	return (
     <div>
       <AppBar />

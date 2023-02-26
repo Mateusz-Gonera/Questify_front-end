@@ -58,6 +58,7 @@ export const questifyApi = createApi({
       query: () => "/card",
       providesTags: ["Auth", "Card"],
     }),
+    
     createCard: builder.mutation({
       query: (card) => ({
         url: "/card",
