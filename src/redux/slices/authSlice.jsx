@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { questifyApi } from "../api/questifyApi";
 
-const token = localStorage.getItem("token")
-  ? localStorage.getItem("token")
-  : null;
+// const token = localStorage.getItem("token")
+//   ? localStorage.getItem("token")
+//   : null;
+const token = localStorage.getItem("token") || "";
 
 const initialState = {
   user: { email: "", password: "" },
@@ -17,9 +18,13 @@ const authSlice = createSlice({
   initialState,
 
   reducers: {
-    setCredentials: (state, { payload }) => {
+    setUser: (state, { payload }) => {
       state.user = payload;
     },
+    setToken: (state, { payload }) => {
+      state.token = payload;
+    },
+   
   },
 
   extraReducers: (builder) => {
@@ -39,14 +44,14 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
       }
     );
-    builder.addMatcher(
-      questifyApi.endpoints.login.matchRejected,
-      (state, { payload }) => {
-        if (payload.status === 400) {
-          state.isError = true;
-        }
-      }
-    );
+    // builder.addMatcher(
+    //   questifyApi.endpoints.login.matchRejected,
+    //   (state, { payload }) => {
+    //     if (payload.status === 400) {
+    //       state.isError = true;
+    //     }
+    //   }
+    // );
     builder.addMatcher(questifyApi.endpoints.logout.matchFulfilled, (state) => {
       localStorage.removeItem("token");
       state.user = { email: null };
@@ -66,4 +71,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-export const { setCredentials } = authSlice.actions;
+export const { setUser, setToken } = authSlice.actions;
