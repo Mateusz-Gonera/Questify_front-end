@@ -51,6 +51,24 @@
   border-radius: 50%;
   margin-right: 7px;
 }
+.easy_list {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #b9c3c8;
+  font-weight: 400;
+}
+.normal_list {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #24d40c;
+  font-weight: 400;
+}
+.hard_list {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #db0837;
+  font-weight: 400;
+}
 .difficultyLevel {
   display: flex;
   justify-content: space-between;

@@ -1,10 +1,10 @@
-import * as React from "react";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import Collapse from "@mui/material/Collapse";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
+import * as React from 'react';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 
 export default function DoneList() {
   const [open, setOpen] = React.useState(true);
@@ -15,7 +15,7 @@ export default function DoneList() {
 
   return (
     <List
-          sx={{ width: "100%", maxWidth: 1280 }}
+      sx={{ width: '100%', maxWidth: 1280 }}
       component="nav"
       aria-labelledby="nested-list-subheader"
     >
@@ -25,19 +25,9 @@ export default function DoneList() {
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 5 }}>
-                      
-                      
-                     
-
-                      tu karty completed
-                  
-                  
-                  
-                  </ListItemButton>
+          <ListItemButton sx={{ pl: 5 }}>tu karty completed</ListItemButton>
         </List>
       </Collapse>
     </List>
   );
-
 }
