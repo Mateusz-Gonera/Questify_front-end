@@ -7,6 +7,7 @@ function CardItem({
   dueDate,
   dueTime,
   isChallenge,
+  editElement
 }) {
   const today = new Date();
   const tomorrow = new Date(today);
