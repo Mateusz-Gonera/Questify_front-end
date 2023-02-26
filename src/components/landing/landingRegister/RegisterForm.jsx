@@ -8,11 +8,11 @@ export const RegisterForm = () => {
 	const handleSubmit = async (evt) => {
 		evt.preventDefault();
 		const form = evt.currentTarget;
-		//const name = form.elements.name.value;
+		const name = form.elements.name.value;
 		const email = form.elements.email.value;
 		const password = form.elements.password.value;
 
-		const credentials = { email, password };
+		const credentials = { name, email, password };
 		await register(credentials);
 
 		form.reset();
@@ -22,16 +22,16 @@ export const RegisterForm = () => {
 		<Container className={styles.container}>
 			<Form className="border rounded p-4" onSubmit={handleSubmit}>
 				<p className={styles.paragraph}>Please Sign up</p>
-				{/* <Form.Group className="mb-3" controlId="inputName">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            className={styles.input}
-            type="name"
-            name="name"
-            title="For example: John Doe"
-            required
-          />
-        </Form.Group> */}
+				<Form.Group className="mb-3" controlId="inputName">
+					<Form.Label>Username</Form.Label>
+					<Form.Control
+						className={styles.input}
+						type="name"
+						name="name"
+						title="For example: John Doe"
+						required
+					/>
+				</Form.Group>
 				<Form.Group className="mb-3" controlId="inputEmail">
 					<Form.Label>E-mail</Form.Label>
 					<Form.Control

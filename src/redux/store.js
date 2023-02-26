@@ -16,6 +16,7 @@ import  authReducer  from '../redux/slices/authSlice';
 import { questifyApi } from '../redux/api/questifyApi';
 import authSlice from '../redux/slices/authSlice';
 
+
 // const middleware = [
 //   ...getDefaultMiddleware({
 //     serializableCheck: {
@@ -30,9 +31,9 @@ const persistLoggedIn = {
 };
 const keepLoggedIn = persistReducer(persistLoggedIn, authSlice);
 
-
 export const store = configureStore({
   reducer: {
+    auth: keepLoggedIn,
     auth: keepLoggedIn,
     [questifyApi.reducerPath]: questifyApi.reducer,
   },
@@ -42,7 +43,13 @@ export const store = configureStore({
         ignoredActions: [PERSIST],
     },
     }).concat(questifyApi.middleware),
+    getDefaultMiddleware({serializableCheck: {
+        ignoredActions: [PERSIST],
+    },
+    }).concat(questifyApi.middleware),
   devTools: true
 });
 
-setupListeners(store.dispatch)
+// setupListeners(store.dispatch)
+
+export let persistor = persistStore(store);
