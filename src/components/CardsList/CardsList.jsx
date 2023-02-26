@@ -112,19 +112,19 @@ const CardsList = ({ cards }) => {
             ))}
           </ul>
           <div className={style.btn_container}>
-            <button
+            {/* <button
               onClick={() => setIsOpenCreateCardForm(true)}
               className={style.btn_add_card}
             >
               +
-            </button>
-            {/* <IconButton
+            </button> */}
+            <IconButton
               aria-label="add"
-              // onClick={() => setIsOpenCreateCardForm(true)}
+              onClick={() => setIsOpenCreateCardForm(true)}
               className={style.btn_add_card}
             >
               <AddIcon />
-            </IconButton> */}
+            </IconButton>
           </div>
         </div>
         {/*<DoneList/>*/}
@@ -155,7 +155,6 @@ const CardsList = ({ cards }) => {
               }`,
             }}
             onSubmit={async values => {
-              console.log(values);
               addCard(values);
               setIsOpenCreateCardForm(false);
             }}
