@@ -131,7 +131,7 @@ const today = new Date();
       <div className={style[selectedGroup]} onClick={handleGroupClick}>{selectedGroup}
          {showGroupDropdown && (
          <select
-            className={style.difficultyDropdown}
+            className={style.difficultyDropdown_category}
             value={selectedGroup}
             onChange={handleGroupChange} size="6">
                <option value="Stuff">Stuff</option>

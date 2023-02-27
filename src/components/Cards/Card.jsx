@@ -3,34 +3,40 @@ import { getCardsType } from "./ChallengeCard";
 import EditCard from "./EditCard";
 import { getCardsStatus } from "./isDone";
 
-import CardItem from "./CardItem";
+import CardItem from './CardItem';
 
 function Card({
-   id,
-   difficulty,
-   category,
-   title,
-   dueDate,
-   dueTime,
-   type,
-   status,
-}){
-   const { isChallenge } = getCardsType(type);
-   const {isDone} = getCardsStatus(status);
+  id,
+  difficulty,
+  category,
+  title,
+  dueDate,
+  dueTime,
+  type,
+  status,
+}) {
+  const { isChallenge } = getCardsType(type);
+  const { isDone } = getCardsStatus(status);
 
+  const [edit, setEdit] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
 
-   const [edit, setEdit] = useState(false)
-   const [isModal, setIsModal] = useState(false)
-   
-   //const [isDone, setIsDone] = useState(false)
+  const [editElement, setEditElement] = useState(null);
 
-   function cardClick(){
-      if (isDone && !isModal) {
-         isModal(true);
-      } else if(!isDone){
-         setEdit(true);
-      }
-   }
+  //const [isDone, setIsDone] = useState(false)
+
+  function cardClick(event) {
+    console.log({
+      event,
+      currentTarget: event.currentTarget,
+      target: event.target,
+    });
+    if (isDone && !isDelete) {
+      setIsDelete(true);
+    } else if (!isDone) {
+      setEdit(true);
+    }
+  }
 
 
 

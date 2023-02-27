@@ -1,30 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Form, Formik, Field } from 'formik';
 
 import style from './CardsList.module.css';
 import Card from '../Cards/Card';
 import { useCreateCardMutation } from '../../redux/api/questifyApi';
-import { Input } from '@mui/material';
-import { Title } from '@mui/icons-material';
+
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+
 const CardsList = ({ cards }) => {
   // Create newCard
   const [addCard] = useCreateCardMutation();
-  const addNewCard = e => {
-    e.preventDefault();
-    const today = new Date();
-    const newCard = {
-      title: 'Example',
-      difficulty: 'Easy',
-      category: 'Stuff',
-      date: today,
-      type: 'Task',
-      time: '00-00',
-    };
-    addCard(newCard);
-  };
 
   // CardsSorted
-  const currentDate = new Date();
+  const [currentDate, setCurrentDate] = useState(new Date());
+
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
+  const [isOpenCreateCardForm, setIsOpenCreateCardForm] = useState(false);
 
   const filteredCards = cards.filter(card => {
     const cardDate = new Date(card.date);
@@ -45,6 +37,12 @@ const CardsList = ({ cards }) => {
       return 0;
     }
   });
+
+  useEffect(() => {
+    setInterval(() => {
+      setCurrentDate(new Date());
+    }, 60000);
+  }, []);
 
   const filteredTomorrowCards = cards.filter(card => {
     const cardDate = new Date(card.date);
@@ -75,13 +73,11 @@ const CardsList = ({ cards }) => {
     return date.getTime();
   }
 
-  //
-
   return (
     <>
       <div className={style.sectionCards}>
         <div className={style.todaylist}>
-          <h4>Today</h4>
+          <h4>TODAY</h4>
           <ul className={style.cardList}>
             {todayCards.map(card => (
               <Card
@@ -99,7 +95,7 @@ const CardsList = ({ cards }) => {
           </ul>
         </div>
         <div className={style.tomorrowList}>
-          <h4>Tomorrow </h4>
+          <h4>TOMORROW </h4>
           <ul className={style.cardList}>
             {tomorrowCards.map(card => (
               <Card
@@ -116,12 +112,82 @@ const CardsList = ({ cards }) => {
             ))}
           </ul>
           <div className={style.btn_container}>
-            <button onClick={addNewCard} className={style.btn_add_card}>
+            {/* <button
+              onClick={() => setIsOpenCreateCardForm(true)}
+              className={style.btn_add_card}
+            >
               +
-            </button>
+            </button> */}
+            <IconButton
+              aria-label="add"
+              onClick={() => setIsOpenCreateCardForm(true)}
+              className={style.btn_add_card}
+            >
+              <AddIcon />
+            </IconButton>
           </div>
         </div>
         {/*<DoneList/>*/}
+        {isOpenCreateCardForm && (
+          <Formik
+            initialValues={{
+              title: '',
+              category: 'Family',
+              difficulty: 'Easy',
+              type: 'Task',
+              date: `${currentDate.getFullYear()}-${
+                currentDate.getMonth() < 10
+                  ? '0' + currentDate.getMonth()
+                  : currentDate.getMonth()
+              }-${
+                currentDate.getDate() < 10
+                  ? '0' + currentDate.getDate()
+                  : currentDate.getDate()
+              }`,
+              time: `${
+                currentDate.getHours() < 10
+                  ? '0' + currentDate.getHours()
+                  : currentDate.getHours()
+              }:${
+                currentDate.getMinutes() < 10
+                  ? '0' + currentDate.getMinutes()
+                  : currentDate.getMinutes()
+              }`,
+            }}
+            onSubmit={async values => {
+              addCard(values);
+              setIsOpenCreateCardForm(false);
+            }}
+          >
+            <Form>
+              <Field name="title" type="text" />
+
+              <Field as="select" name="category">
+                <option value="Stuff">Stuff</option>
+                <option value="Family">Family</option>
+                <option value="Health">Health</option>
+                <option value="Learning">Learning</option>
+                <option value="Leisure">Leisure</option>
+                <option value="Work">Work</option>
+              </Field>
+
+              <Field as="select" name="difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Normal">Normal</option>
+                <option value="Hard">Hard</option>
+              </Field>
+
+              <Field as="select" name="type">
+                <option value="Task">Task</option>
+                <option value="Challenge">Challenge</option>
+              </Field>
+
+              <Field name="date" type="date" />
+              <Field name="time" type="time" />
+              <button type="submit">Create Card</button>
+            </Form>
+          </Formik>
+        )}
       </div>
     </>
   );

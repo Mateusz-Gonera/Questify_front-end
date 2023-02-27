@@ -66,6 +66,8 @@ function EditCard({
   };
 
   function handleEndDateChange(event) {
+    event.preventDefault();
+    console.log(event.target.value);
     setEndDate(event.target.value);
   }
 
@@ -159,14 +161,13 @@ function EditCard({
               <div>
                 {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
                 <p className={style.date} onClick={handleResetEndDate}>
-                  {' '}
                   {endDate}
                 </p>
               </div>
             ) : (
               <form onSubmit={handleEndDateSubmit}>
                 <label>
-                  <input type="datetime-local" onChange={handleEndDateChange} />
+                  <input type="datetime-local" />
                 </label>
                 {/* <button type="submit">OK</button> */}
               </form>
