@@ -41,11 +41,11 @@ function timeStringToMs(cards) {
    <h4>Tomorrow </h4>
    <ul className={style.cardList}>
       {tomorrowCards.map((card) => (
-         <Card key={card.id} 
+         <Card key={card._id} 
             title={card.title} 
+            type={card.type}
             dueDate={card.date} 
             dueTime={card.time}
-            isChallenge={card.isChallenge}
             difficulty={card.difficulty}
             category={card.category}  />
       ))}
