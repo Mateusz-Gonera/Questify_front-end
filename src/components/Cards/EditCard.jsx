@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   useDeleteCardMutation,
   useEditCardMutation,
@@ -13,7 +13,9 @@ function EditCard({
  dueTime,
  isChallenge,
  id,
+ handleEdit
 }) {
+
   const [deleteCard] = useDeleteCardMutation();
   const [editCard, { isLoading, error }] = useEditCardMutation();
 
@@ -24,20 +26,19 @@ function EditCard({
    const [showGroupDropdown, setShowGroupDropdown] = useState(false);
    const [endDate, setEndDate] = useState(null);
    const [isDone, setIsDone] = useState(false);
+   //const [isChallenge, setIsChallenge] = useState(i)
    
 
       const handleSubmit = async (event) => {
          event.preventDefault();
-         console.log(title)
-         console.log(selectedDifficulty)
-         console.log(selectedGroup)
       try{
          const result = await editCard({id, 
             title,
             difficulty: selectedDifficulty,
             category: selectedGroup,
-         }).unwrap();
+         })
          console.log(result);
+         handleEdit();
       } catch (err){
          console.log(err);
       }
@@ -100,7 +101,7 @@ function EditCard({
   };
 
   return (
-    <li>
+    <li className={style.backDrop}>
       <div
         className={isChallenge ? style.challengeContainer : style.cardContainer}
       >

@@ -1,3 +1,6 @@
+.backDrop{
+   z-index: 101;
+}
 .challengeContainer {
   display: flex;
   padding: 21px;

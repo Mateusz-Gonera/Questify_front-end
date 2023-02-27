@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { getCardsType } from "./ChallengeCard";
 import EditCard from "./EditCard";
 import { getCardsStatus } from "./isDone";
@@ -18,23 +18,23 @@ function Card({
    const { isChallenge } = getCardsType(type);
    const {isDone} = getCardsStatus(status);
 
+
    const [edit, setEdit] = useState(false)
-   const [isDelete, setIsDelete] = useState(false)
+   const [isModal, setIsModal] = useState(false)
    
    //const [isDone, setIsDone] = useState(false)
 
    function cardClick(){
-				if (isDone && !isDelete) {
-					setIsDelete(true);
-				} else if(!isDone){
-               setEdit(true);
-            }
-			}
+      if (isDone && !isModal) {
+         isModal(true);
+      } else if(!isDone){
+         setEdit(true);
+      }
+   }
 
 
 
    return (
-
       edit ? (
          <EditCard
             id={id}
@@ -45,7 +45,7 @@ function Card({
             type={type}
             difficulty={difficulty}
             category={category}
-
+            handleEdit={() => setEdit(false)}
          />
       ) : (
          <div onClick={cardClick}>
@@ -58,6 +58,8 @@ function Card({
                difficulty={difficulty}
                category={category} 
                isChallenge={isChallenge}
+               isModal={isModal}
+               on
             />
          </div>
       )

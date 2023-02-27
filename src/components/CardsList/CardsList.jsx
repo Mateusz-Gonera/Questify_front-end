@@ -12,7 +12,7 @@ const CardsList = ({ cards }) => {
     e.preventDefault();
     const today = new Date();
     const newCard = {
-      title: 'exemple',
+      title: 'Example',
       difficulty: 'Easy',
       category: 'Stuff',
       date: today,
