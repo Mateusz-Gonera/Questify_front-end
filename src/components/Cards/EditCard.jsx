@@ -88,9 +88,11 @@ function EditCard({
    }
    /////////
   const handleCompleted = () => {
-     setIsCompleted(true);
-
-  };
+   setIsCompleted(true)
+   };
+   const cancelComplete = () => {
+      setIsCompleted(false)
+   }
 
 
   const handleChangeType = () => {
@@ -124,7 +126,8 @@ function EditCard({
       >{isCompleted && (
           <CardComplete
                title={title}
-               close={() => isComplete(id)}
+                 close={() => isComplete(id)}
+                 cancel={()=> cancelComplete()}
           />
         )}
         
