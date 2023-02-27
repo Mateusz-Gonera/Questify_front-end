@@ -5,6 +5,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import styles from "./CardsDone.module.css";
 
 export default function DoneList() {
   const [open, setOpen] = React.useState(true);
@@ -26,6 +27,7 @@ export default function DoneList() {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
                   <ListItemButton sx={{ pl: 5 }}>
+                    <container className={styles.containerDone} > 
                       
                       
                      
@@ -33,7 +35,7 @@ export default function DoneList() {
                       tu karty completed
                   
                   
-                  
+                    </container>
                   </ListItemButton>
         </List>
       </Collapse>
