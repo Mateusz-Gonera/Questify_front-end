@@ -143,7 +143,7 @@ function EditCard({
                 onChange={handleDifficultyChange}
                 size="3"
               >
-                <option className={style.easy_list} value="Easy">
+               <option className={style.easy_list} value="Easy">
                   <div className={style.Easy}></div>Easy
                 </option>
                 <option className={style.normal_list} value="Normal">

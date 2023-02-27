@@ -2,13 +2,14 @@ import Icon from '../Icon';
 import style from './Cards.module.css';
 
 function CardItem({
-  difficulty,
-  category,
-  title,
-  dueDate,
-  dueTime,
-  isChallenge,
-  editElement
+   difficulty,
+   category,
+   title,
+   dueDate,
+   dueTime,
+   isChallenge,
+   dateDone,
+   status,
 }) {
   const today = new Date();
   const tomorrow = new Date(today);
@@ -25,8 +26,9 @@ function CardItem({
         day: 'numeric',
       });
     }
-  };
-
+   };
+   
+  
   return (
     <li>
       <div
@@ -65,7 +67,8 @@ function CardItem({
           </h2>
 
           <h5 className={style.date}>
-            {isChallenge && 'by '} {formatDate(new Date(dueDate))} , {dueTime}{' '}
+                 {isChallenge && 'by '}
+                 {formatDate(new Date(dueDate))} , {dueTime}{' '}
           </h5>
         </div>
 
