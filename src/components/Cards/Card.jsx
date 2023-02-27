@@ -64,8 +64,6 @@ function Card({
                difficulty={difficulty}
                category={category} 
                isChallenge={isChallenge}
-               isModal={isModal}
-               on
             />
          </div>
       )
