@@ -67,7 +67,8 @@ export default function DoneList({
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-              <ListItemButton sx={{ pl: 5 }}>              
+              <ListItemButton sx={{ pl: 5 }}>
+               <container className={styles.containerDone} >   
                {doneCards.map(card => (
                   <CardItem
                      key={card._id}
@@ -81,6 +82,7 @@ export default function DoneList({
                      status={card.status}
                   />
                ))}
+                    </container>
               </ListItemButton>
         </List>
       </Collapse>
