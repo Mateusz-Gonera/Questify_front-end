@@ -1,5 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { setupListeners } from '@reduxjs/toolkit/query'
+import { configureStore} from '@reduxjs/toolkit';
 import {
   persistReducer,
   persistStore,
@@ -39,10 +38,6 @@ export const store = configureStore({
   },
 
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({serializableCheck: {
-        ignoredActions: [PERSIST],
-    },
-    }).concat(questifyApi.middleware),
     getDefaultMiddleware({serializableCheck: {
         ignoredActions: [PERSIST],
     },
