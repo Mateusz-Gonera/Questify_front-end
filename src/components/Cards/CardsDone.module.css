@@ -1,0 +1,41 @@
+.cardContainer{
+   display: flex;
+   gap: 25px;
+   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 766px) {
+    .containerDone {
+        max-width: 290px;
+        margin: 20px 15px 80px;
+        display: flex;
+        justify-content: start;
+    }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1019px) {
+    .containerDone {
+        max-width: 668px;
+        margin: 20px 49px 88px 50px;
+        display: flex;
+        justify-content: start;
+    }
+}
+
+@media screen and (min-width: 1020px) and (max-width: 1279px) {
+    .containerDone {
+        max-width: 940px;
+        margin: 20px 39px 50px;
+        display: flex;
+        justify-content: start;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+   .containerDone{
+     max-width: 1140px;
+     margin: 30px 71px 65px;
+     display: flex;
+     justify-content: start;
+    } 
+}
