@@ -1,3 +1,4 @@
+import Icon from '../Icon';
 import style from './Cards.module.css';
 
 function CardItem({
@@ -37,11 +38,24 @@ function CardItem({
             <h3 className={style.levelName}>{difficulty}</h3>
           </div>
 
-          {isChallenge ? (
-            <button className={style.trophyIcon}> </button>
-          ) : (
-            <button className={style.starIcon}> </button>
-          )}
+          <button> 
+               {isChallenge ? (
+               <Icon
+                  className={style.trophyIcon}
+                  name="trophy"
+                  color="#00d7ff"
+                  size={15}
+               />
+               ) : (
+               <Icon
+                  className={style.starIcon}
+                  name="Star"
+                  color="#00d7ff"
+                  size={15}
+               />
+            )}
+         </button>
+
         </div>
 
         <div className={style.titleContainer}>

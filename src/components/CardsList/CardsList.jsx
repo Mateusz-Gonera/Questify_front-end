@@ -13,12 +13,15 @@ const CardsList = ({ cards }) => {
   const [addCard] = useCreateCardMutation();
 
   // CardsSorted
+   const inCompletedCards = cards.filter(card => card.status === "Incomplete")
+   
+   
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
   const [isOpenCreateCardForm, setIsOpenCreateCardForm] = useState(false);
 
-  const filteredCards = cards.filter(card => {
+  const filteredCards = inCompletedCards.filter(card => {
     const cardDate = new Date(card.date);
     return (
       cardDate.getFullYear() === currentDate.getFullYear() &&
@@ -44,7 +47,7 @@ const CardsList = ({ cards }) => {
     }, 60000);
   }, []);
 
-  const filteredTomorrowCards = cards.filter(card => {
+  const filteredTomorrowCards = inCompletedCards.filter(card => {
     const cardDate = new Date(card.date);
     return (
       cardDate.getFullYear() === tomorrowDate.getFullYear() &&

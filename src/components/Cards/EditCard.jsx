@@ -1,50 +1,57 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from "react";
 import {
-  useDeleteCardMutation,
-  useEditCardMutation,
-} from '../../redux/api/questifyApi';
-import style from './Cards.module.css';
+   useCompleteCardMutation,
+   useDeleteCardMutation,
+   useEditCardMutation,
+} from "../../redux/api/questifyApi";
+import CardComplete from "../CardComplete/CardComplete";
+import Icon from "../Icon";
+import style from "./Cards.module.css";
 
 function EditCard({
- difficulty,
- category,
- title: initialTitle,
- dueDate,
- dueTime,
- isChallenge,
- id,
- handleEdit
+   difficulty,
+   category,
+   title: initialTitle,
+   dueDate,
+   dueTime,
+   isChallenge,
+   type,
+   id,
+   hideCard,
+   isDone = false,
 }) {
+   const [deleteCard] = useDeleteCardMutation();
+   const [editCard, { isLoading, error }] = useEditCardMutation();
+   const [isComplete] = useCompleteCardMutation();
 
-  const [deleteCard] = useDeleteCardMutation();
-  const [editCard, { isLoading, error }] = useEditCardMutation();
+  const [title, setTitle] = useState(initialTitle);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(difficulty);
+  const [selectedGroup, setSelectedGroup] = useState(category);
+  const [showDifficultyDropdown, setShowDifficultyDropdown] = useState(false);
+  const [showGroupDropdown, setShowGroupDropdown] = useState(false);
+  const [endDate, setEndDate] = useState(null);
+  const [isTask, setIsTask] = useState(type);
+  const [Challenge, setChallenge] = useState(isChallenge);
+  const [isCompleted, setIsCompleted] = useState(isDone);
 
-   const [title, setTitle] = useState(initialTitle);
-   const [selectedDifficulty, setSelectedDifficulty] = useState(difficulty);
-   const [selectedGroup, setSelectedGroup] = useState(category);
-   const [showDifficultyDropdown, setShowDifficultyDropdown] = useState(false);
-   const [showGroupDropdown, setShowGroupDropdown] = useState(false);
-   const [endDate, setEndDate] = useState(null);
-   const [isDone, setIsDone] = useState(false);
-   //const [isChallenge, setIsChallenge] = useState(i)
-   
+  const handleSubmit = async (event) => {
+     event.preventDefault();
+    try {
+      const result = await editCard({
+        id,
+        title,
+        difficulty: selectedDifficulty,
+        category: selectedGroup,
+        type: isTask,
+      });
+      console.log(result);
+      hideCard();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-      const handleSubmit = async (event) => {
-         event.preventDefault();
-      try{
-         const result = await editCard({id, 
-            title,
-            difficulty: selectedDifficulty,
-            category: selectedGroup,
-         })
-         console.log(result);
-         handleEdit();
-      } catch (err){
-         console.log(err);
-      }
-      }
-
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     setTitle(event.target.value);
   };
 
@@ -52,11 +59,11 @@ function EditCard({
     setShowDifficultyDropdown(!showDifficultyDropdown);
   };
 
-  const handleDifficultyChange = event => {
+  const handleDifficultyChange = (event) => {
     setSelectedDifficulty(event.target.value);
     setShowDifficultyDropdown(false);
   };
-  const handleGroupChange = event => {
+  const handleGroupChange = (event) => {
     setSelectedGroup(event.target.value);
     setShowGroupDropdown(false);
   };
@@ -78,35 +85,50 @@ function EditCard({
 
   function handleResetEndDate() {
     setEndDate(null);
-  }
+   }
+   /////////
   const handleCompleted = () => {
-    setIsDone(true);
-    console.log('we did it');
+     setIsCompleted(true);
+
+  };
+
+
+  const handleChangeType = () => {
+    Challenge ? setIsTask("Task") : setIsTask("Challenge");
+    Challenge ? setChallenge(false) : setChallenge(true);
   };
 
   // Change date to string Today or Tomorrow
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
-  const formatDate = date => {
+  const formatDate = (date) => {
     if (date.toDateString() === today.toDateString()) {
-      return 'Today';
+      return "Today";
     } else if (date.toDateString() === tomorrow.toDateString()) {
-      return 'Tomorrow';
+      return "Tomorrow";
     } else {
-      return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
       });
     }
   };
 
   return (
-    <li className={style.backDrop}>
+     <li>
+        
       <div
-        className={isChallenge ? style.challengeContainer : style.cardContainer}
-      >
+        className={Challenge ? style.challengeContainer : style.cardContainer}
+      >{isCompleted && (
+          <CardComplete
+               title={title}
+               close={() => isComplete(id)}
+          />
+        )}
+        
+
         <div className={style.difficultyContainer}>
           <div className={style.difficultyLevel}>
             {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
@@ -134,14 +156,26 @@ function EditCard({
             )}
           </div>
 
-          {isChallenge ? (
-            <button className={style.trophyIcon}> </button>
-          ) : (
-            <button className={style.starIcon}> </button>
-          )}
+          <button onClick={handleChangeType}>
+            {Challenge ? (
+              <Icon
+                className={style.trophyIcon}
+                name="trophy"
+                color="#00d7ff"
+                size={15}
+              />
+            ) : (
+              <Icon
+                className={style.starIcon}
+                name="Star"
+                color="#00d7ff"
+                size={15}
+              />
+            )}
+          </button>
         </div>
         <div className={style.titleContainer}>
-          {isChallenge && (
+          {Challenge && (
             <button className={style.isChallenge}>Challenge</button>
           )}
 
@@ -153,7 +187,7 @@ function EditCard({
           />
 
           <h5 className={style.date}>
-            {formatDate(new Date(dueDate))} , {dueTime}{' '}
+            {formatDate(new Date(dueDate))} , {dueTime}{" "}
           </h5>
 
           <div>
@@ -175,43 +209,57 @@ function EditCard({
           </div>
         </div>
         {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-        <div className={style[selectedGroup]} onClick={handleGroupClick}>
-          {selectedGroup}
-          {showGroupDropdown && (
-            <select
-              className={style.difficultyDropdown}
-              value={selectedGroup}
-              onChange={handleGroupChange}
-              size="6"
-            >
-              <option value="Stuff">Stuff</option>
-              <option value="Family">Family</option>
-              <option value="Health">Health</option>
-              <option value="Learning">Learning</option>
-              <option value="Leisure">Leisure</option>
-              <option value="Work">Work</option>
-            </select>
-          )}
-        </div>
-        <div className={style.btnContainer}>
-          <button
-            className={style.completBtn}
-            onClick={handleCompleted}
-            name="done"
-          >
-            isCompleted
-          </button>
-          <button className={style.deleteBtn} onClick={() => deleteCard(id)}>
-            Delete
-          </button>
-          <button
-            className={style.submitBtn}
-            type="submit"
-            disabled={isLoading}
-            onClick={handleSubmit}
-          >
-            {isLoading ? 'Loading...' : 'Submit'}
-          </button>
+        <div className={style.bottomContainer}>
+          <div className={style[selectedGroup]} onClick={handleGroupClick}>
+            {selectedGroup}
+            {showGroupDropdown && (
+              <select
+                className={style.difficultyDropdown}
+                value={selectedGroup}
+                onChange={handleGroupChange}
+                size="6"
+              >
+                <option value="Stuff">Stuff</option>
+                <option value="Family">Family</option>
+                <option value="Health">Health</option>
+                <option value="Learning">Learning</option>
+                <option value="Leisure">Leisure</option>
+                <option value="Work">Work</option>
+              </select>
+            )}
+          </div>
+          <div className={style.btnContainer}>
+            <button onClick={handleCompleted}>
+              <Icon
+                className={style.doneIcon}
+                name="done"
+                color="#24d40c"
+                size={14}
+              />
+            </button>
+
+            <button onClick={() => deleteCard(id)}>
+              <Icon
+                className={style.clearIcon}
+                name="clear"
+                color="#DB0837"
+                size={10}
+              />
+            </button>
+
+            <button type="submit" disabled={isLoading} onClick={handleSubmit}>
+              {isLoading ? (
+                "Loading..."
+              ) : (
+                <Icon
+                  className={style.saveIcon}
+                  name="save"
+                  color="#00d7ff"
+                  size={10}
+                />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </li>
