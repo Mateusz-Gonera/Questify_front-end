@@ -16,7 +16,7 @@ export default function DoneList() {
 
   return (
     <List
-          sx={{ width: "100%", maxWidth: 1280 }}
+      sx={{ width: '100%', maxWidth: 1280 }}
       component="nav"
       aria-labelledby="nested-list-subheader"
     >
@@ -41,5 +41,4 @@ export default function DoneList() {
       </Collapse>
     </List>
   );
-
 }

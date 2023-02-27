@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import style from './Cards.module.css';
+import { getCardsType } from './ChallengeCard';
 
-function Card({
- isChallenge,
+function Cards({
+
  difficulty,
  category,
  title: initialTitle,
  dueDate,
  dueTime,
+ type
 }) {
 
   const [title, setTitle] = useState(initialTitle);
@@ -51,7 +53,7 @@ function Card({
     setEndDate(null);
     }
 
-   //
+   // Change date to string Today or Tomorrow
 const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
@@ -69,12 +71,16 @@ const today = new Date();
     }
   };
 
+// Check isChallenge are true or false
+  const { isChallenge } = getCardsType(type);
+
    return (
 <li>
-   <div className={isChallenge ? style.challengeContainer : style.cardContainer}>
+   <div className={ isChallenge ? style.challengeContainer : style.cardContainer}>
       <div className={style.difficultyContainer}>
          <div className={style.difficultyLevel}>
             {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+            <div className={style[selectedDifficulty]}> </div>
                <h3 className={style.levelName} onClick={handleDifficultyClick}>
                   {selectedDifficulty}
                </h3>
@@ -125,7 +131,7 @@ const today = new Date();
       <div className={style[selectedGroup]} onClick={handleGroupClick}>{selectedGroup}
          {showGroupDropdown && (
          <select
-            className={style.difficultyDropdown}
+            className={style.difficultyDropdown_category}
             value={selectedGroup}
             onChange={handleGroupChange} size="6">
                <option value="Stuff">Stuff</option>
@@ -142,5 +148,5 @@ const today = new Date();
   );
 }
 
-export default Card;
+export default Cards;
 
