@@ -129,64 +129,68 @@ const CardsList = ({ cards }) => {
         </div>
         {/*<DoneList/>*/}
         {isOpenCreateCardForm && (
-          <Formik
-            initialValues={{
-              title: '',
-              category: 'Family',
-              difficulty: 'Easy',
-              type: 'Task',
-              date: `${currentDate.getFullYear()}-${
-                currentDate.getMonth() < 10
-                  ? '0' + currentDate.getMonth()
-                  : currentDate.getMonth()
-              }-${
-                currentDate.getDate() < 10
-                  ? '0' + currentDate.getDate()
-                  : currentDate.getDate()
-              }`,
-              time: `${
-                currentDate.getHours() < 10
-                  ? '0' + currentDate.getHours()
-                  : currentDate.getHours()
-              }:${
-                currentDate.getMinutes() < 10
-                  ? '0' + currentDate.getMinutes()
-                  : currentDate.getMinutes()
-              }`,
-            }}
-            onSubmit={async values => {
-              addCard(values);
-              setIsOpenCreateCardForm(false);
-            }}
-          >
-            <Form>
-              <Field name="title" type="text" />
+          <div>
+            <Formik
+              initialValues={{
+                title: '',
+                category: 'Family',
+                difficulty: 'Easy',
+                type: 'Task',
+                date: `${currentDate.getFullYear()}-${
+                  currentDate.getMonth() < 10
+                    ? '0' + currentDate.getMonth()
+                    : currentDate.getMonth()
+                }-${
+                  currentDate.getDate() < 10
+                    ? '0' + currentDate.getDate()
+                    : currentDate.getDate()
+                }`,
+                time: `${
+                  currentDate.getHours() < 10
+                    ? '0' + currentDate.getHours()
+                    : currentDate.getHours()
+                }:${
+                  currentDate.getMinutes() < 10
+                    ? '0' + currentDate.getMinutes()
+                    : currentDate.getMinutes()
+                }`,
+              }}
+              onSubmit={async values => {
+                addCard(values);
+                setIsOpenCreateCardForm(false);
+              }}
+            >
+              <div>
+                <Form className={style.modal_add_container}>
+                  <Field className={style.modal_add_name} name="title" type="text" />
 
-              <Field as="select" name="category">
-                <option value="Stuff">Stuff</option>
-                <option value="Family">Family</option>
-                <option value="Health">Health</option>
-                <option value="Learning">Learning</option>
-                <option value="Leisure">Leisure</option>
-                <option value="Work">Work</option>
-              </Field>
+                  <Field as="select" name="category">
+                    <option value="Stuff">Stuff</option>
+                    <option value="Family">Family</option>
+                    <option value="Health">Health</option>
+                    <option value="Learning">Learning</option>
+                    <option value="Leisure">Leisure</option>
+                    <option value="Work">Work</option>
+                  </Field>
 
-              <Field as="select" name="difficulty">
-                <option value="Easy">Easy</option>
-                <option value="Normal">Normal</option>
-                <option value="Hard">Hard</option>
-              </Field>
+                  <Field as="select" name="difficulty">
+                    <option value="Easy">Easy</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Hard">Hard</option>
+                  </Field>
 
-              <Field as="select" name="type">
-                <option value="Task">Task</option>
-                <option value="Challenge">Challenge</option>
-              </Field>
+                  <Field as="select" name="type">
+                    <option value="Task">Task</option>
+                    <option value="Challenge">Challenge</option>
+                  </Field>
 
-              <Field name="date" type="date" />
-              <Field name="time" type="time" />
-              <button type="submit">Create Card</button>
-            </Form>
-          </Formik>
+                  <Field name="date" type="date" />
+                  <Field name="time" type="time" />
+                  <button type="submit">Create Card</button>
+                </Form>
+              </div>
+            </Formik>
+          </div>
         )}
       </div>
     </>

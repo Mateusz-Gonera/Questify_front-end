@@ -1,3 +1,9 @@
+input {
+  all: unset;
+}
+form {
+  all: unset;
+}
 .sectionCards {
   background-color: rgba(242, 243, 247, 1);
   color: black;
@@ -48,4 +54,23 @@
   color: #ff851c;
   background-color: white;
   border: solid #ff851c 2px;
+}
+.modal_add_container {
+  display: flex;
+  flex-direction: column;
+  height: 199px;
+  width: 205px;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
+  border-radius: 10px;
+  background-color: white;
+}
+.modal_add_name {
+  border: 0px;
+}
+input {
+  all: unset;
+}
+form {
+  all: unset;
 }
