@@ -66,10 +66,8 @@ export default function DoneList({
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-              <ListItemButton sx={{ pl: 5 }}>
-               <container className={styles.containerDone} >   
-               {doneCards.map(card => (
+           <List component="ul" disablePadding className={styles.cardContainer}>
+              {doneCards.map(card => (
                   <CardItem
                      key={card._id}
                      id={card._id}
@@ -82,8 +80,11 @@ export default function DoneList({
                      status={card.status}
                   />
                ))}
-                    </container>
-              </ListItemButton>
+              {/*<ListItemButton sx={{ pl: 5 }}>
+               <div className={styles.containerDone} >   
+               
+                    </div>
+              </ListItemButton>*/}
         </List>
       </Collapse>
     </List>
