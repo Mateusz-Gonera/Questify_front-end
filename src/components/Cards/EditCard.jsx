@@ -84,13 +84,17 @@ function EditCard({
 		// tutaj można wykorzystać wartość endDate
 	}
 
-	function handleResetEndDate() {
-		setEndDate(null);
-	}
-	/////////
-	const handleCompleted = () => {
-		setIsCompleted(true);
-	};
+  function handleResetEndDate() {
+    setEndDate(null);
+   }
+   /////////
+  const handleCompleted = () => {
+   setIsCompleted(true)
+   };
+   const cancelComplete = () => {
+      setIsCompleted(false)
+   }
+
 
 	const handleChangeType = () => {
 		Challenge ? setIsTask("Task") : setIsTask("Challenge");
@@ -115,41 +119,46 @@ function EditCard({
 		}
 	};
 
-	return (
-		<li>
-			<div
-				className={Challenge ? style.challengeContainer : style.cardContainer}
-			>
-				{isCompleted && (
-					<CardComplete title={title} close={() => isComplete(id)} />
-				)}
+  return (
+     <li>
+        
+      <div
+        className={Challenge ? style.challengeContainer : style.cardContainer}
+      >{isCompleted && (
+          <CardComplete
+               title={title}
+                 close={() => isComplete(id)}
+                 cancel={()=> cancelComplete()}
+          />
+        )}
+        
 
-				<div className={style.difficultyContainer}>
-					<div className={style.difficultyLevel}>
-						{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-						<div className={style[selectedDifficulty]}> </div>
-						<h3 className={style.levelName} onClick={handleDifficultyClick}>
-							{selectedDifficulty}
-						</h3>
-						{showDifficultyDropdown && (
-							<select
-								className={style.difficultyDropdown}
-								value={selectedDifficulty}
-								onChange={handleDifficultyChange}
-								size="3"
-							>
-								<option className={style.easy_list} value="Easy">
-									<div className={style.Easy}></div>Easy
-								</option>
-								<option className={style.normal_list} value="Normal">
-									<li>Normal</li>
-								</option>
-								<option className={style.hard_list} value="Hard">
-									<li>Hard</li>
-								</option>
-							</select>
-						)}
-					</div>
+        <div className={style.difficultyContainer}>
+          <div className={style.difficultyLevel}>
+            {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+            <div className={style[selectedDifficulty]}> </div>
+            <h3 className={style.levelName} onClick={handleDifficultyClick}>
+              {selectedDifficulty}
+            </h3>
+            {showDifficultyDropdown && (
+              <select
+                className={style.difficultyDropdown}
+                value={selectedDifficulty}
+                onChange={handleDifficultyChange}
+                size="3"
+              >
+               <option className={style.easy_list} value="Easy">
+                  <div className={style.Easy}></div>Easy
+                </option>
+                <option className={style.normal_list} value="Normal">
+                  <li>Normal</li>
+                </option>
+                <option className={style.hard_list} value="Hard">
+                  <li>Hard</li>
+                </option>
+              </select>
+            )}
+          </div>
 
 					<button onClick={handleChangeType}>
 						{Challenge ? (
