@@ -37,9 +37,9 @@ export const LoginForm = () => {
     return (
       <Container className={styles.container__form}>
         <Form className="border rounded p-4" onSubmit={handleSubmit}>
-          <p className={styles.paragraph__form}>Please log in</p>
+          {/* <p className={styles.paragraph__form}>Please log in</p> */}
           <Form.Group className="mb-3" controlId="inputEmail">
-            <Form.Label>E-mail</Form.Label>
+            <Form.Label className={styles.paragraph__form}>E-mail</Form.Label>
             <Form.Control
               className={styles.input__form}
               type="email"
@@ -49,13 +49,13 @@ export const LoginForm = () => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="inputPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label className={styles.paragraph__form}>Password</Form.Label>
             <Form.Control
               className={styles.input__form}
               type="password"
               name="password"
-              title="Minimum 4 characters"
-              minLength="4"
+              title="Minimum 8 characters"
+              minLength="8"
               required
             />
           </Form.Group>
