@@ -59,6 +59,9 @@ export const RegisterForm = () => {
 						minLength="4"
 						required
 					/>
+					<Form.Text className="text-muted">
+						Your passowrd should consist of at least four characters and contain any letters from a to z and any numbers from 0 through 9.
+					</Form.Text>
 				</Form.Group>
 				<Button className={styles.buttonGo} type="submit">
 					go!
