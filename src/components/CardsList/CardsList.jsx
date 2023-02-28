@@ -14,10 +14,9 @@ const CardsList = ({ cards }) => {
   const [addCard] = useCreateCardMutation();
 
   // CardsSorted
-   const inCompletedCards = cards.filter(card => card.status === "Incomplete")
-   const CompletedCards = cards.filter(card => card.status === "Complete")
-   
-   
+  const inCompletedCards = cards.filter(card => card.status === 'Incomplete');
+  const CompletedCards = cards.filter(card => card.status === 'Complete');
+
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
@@ -76,11 +75,8 @@ const CardsList = ({ cards }) => {
     date.setHours(hours);
     date.setMinutes(minutes);
     return date.getTime();
-   }
-   ///////////////// Lisata Done
-
-
-
+  }
+  ///////////////// Lisata Done
 
   return (
     <>
@@ -135,11 +131,8 @@ const CardsList = ({ cards }) => {
               <AddIcon />
             </IconButton>
           </div>
-           </div>
-           <DoneList
-              item={CompletedCards}
-              
-           />
+        </div>
+        <DoneList item={CompletedCards} />
         {isOpenCreateCardForm && (
           <div>
             <Formik
@@ -174,7 +167,11 @@ const CardsList = ({ cards }) => {
             >
               <div>
                 <Form className={style.modal_add_container}>
-                  <Field className={style.modal_add_name} name="title" type="text" />
+                  <Field
+                    className={style.modal_add_name}
+                    name="title"
+                    type="text"
+                  />
 
                   <Field as="select" name="category">
                     <option value="Stuff">Stuff</option>
