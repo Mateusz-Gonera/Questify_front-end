@@ -1,9 +1,10 @@
 import styles from "./Landing.module.css";
+import { toast } from 'react-toastify';
 import { Form, Button, Container } from "react-bootstrap";
 import { useRegisterMutation } from "../../redux/api/questifyApi";
 
 export const RegisterForm = () => {
-	const [register] = useRegisterMutation();
+	const [register, {error}] = useRegisterMutation();
 
 	const handleSubmit = async (evt) => {
 		evt.preventDefault();
@@ -13,8 +14,14 @@ export const RegisterForm = () => {
 		const password = form.elements.password.value;
 
 		const credentials = { name, email, password };
-		await register(credentials);
-
+		await register(credentials)
+			.unwrap()
+			.then()
+			.catch((error) => {
+				toast.error(error.data.message, {
+					theme: "dark",
+				});
+			});
 		form.reset();
 	};
 

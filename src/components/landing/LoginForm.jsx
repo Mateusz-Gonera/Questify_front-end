@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 export const LoginForm = () => {
   //   const dispatch = useDispatch();
-  const [login] = useLoginMutation();
+  const [login, { error }] = useLoginMutation();
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -26,8 +26,8 @@ export const LoginForm = () => {
         //   dispatch(setUser({ email, id, cards }));
         // }
       })
-      .catch(() => {
-        toast.warn("Please check your email address or password", {
+      .catch((error) => {
+        toast.error( error.data.message , {
           theme: "dark",
         });
       });
