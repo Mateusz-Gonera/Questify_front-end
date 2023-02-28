@@ -14,7 +14,7 @@ const LandingWelcome = () => {
         quests and exciting challenges.
       </p>
       <p className={styles.landingTekst}>Choose your name
-        to <button onClick={() => navigate("/register")} className={styles.textButton}>sign up</button> or <button onClick={() => navigate("/login")} className={styles.textButton}>log in</button> <button onClick={() => navigate("/login")} className={styles.buttonGo}> go! </button></p>
+        to <button onClick={() => navigate("/register")} className={styles.textButton}>sign up</button> or <button onClick={() => navigate("/login")} className={styles.textButton}>log in</button></p>
     </div>
   );
 };
