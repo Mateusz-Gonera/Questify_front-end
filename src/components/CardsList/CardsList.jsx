@@ -7,18 +7,23 @@ import { useCreateCardMutation } from '../../redux/api/questifyApi';
 
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
+import DoneList from '../Cards/CardsDone';
 
 const CardsList = ({ cards }) => {
   // Create newCard
   const [addCard] = useCreateCardMutation();
 
   // CardsSorted
+   const inCompletedCards = cards.filter(card => card.status === "Incomplete")
+   const CompletedCards = cards.filter(card => card.status === "Complete")
+   
+   
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
   const [isOpenCreateCardForm, setIsOpenCreateCardForm] = useState(false);
 
-  const filteredCards = cards.filter(card => {
+  const filteredCards = inCompletedCards.filter(card => {
     const cardDate = new Date(card.date);
     return (
       cardDate.getFullYear() === currentDate.getFullYear() &&
@@ -44,7 +49,7 @@ const CardsList = ({ cards }) => {
     }, 60000);
   }, []);
 
-  const filteredTomorrowCards = cards.filter(card => {
+  const filteredTomorrowCards = inCompletedCards.filter(card => {
     const cardDate = new Date(card.date);
     return (
       cardDate.getFullYear() === tomorrowDate.getFullYear() &&
@@ -71,7 +76,11 @@ const CardsList = ({ cards }) => {
     date.setHours(hours);
     date.setMinutes(minutes);
     return date.getTime();
-  }
+   }
+   ///////////////// Lisata Done
+
+
+
 
   return (
     <>
@@ -126,8 +135,11 @@ const CardsList = ({ cards }) => {
               <AddIcon />
             </IconButton>
           </div>
-        </div>
-        {/*<DoneList/>*/}
+           </div>
+           <DoneList
+              item={CompletedCards}
+              
+           />
         {isOpenCreateCardForm && (
           <div>
             <Formik

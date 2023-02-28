@@ -1,6 +1,6 @@
-import styles from "./RegisterForm.module.css";
+import styles from "./Landing.module.css";
 import { Form, Button, Container } from "react-bootstrap";
-import { useRegisterMutation } from "../../../redux/api/questifyApi";
+import { useRegisterMutation } from "../../redux/api/questifyApi";
 
 export const RegisterForm = () => {
 	const [register] = useRegisterMutation();
@@ -19,13 +19,13 @@ export const RegisterForm = () => {
 	};
 
 	return (
-		<Container className={styles.container}>
+		<Container className={styles.container__form}>
 			<Form className="border rounded p-4" onSubmit={handleSubmit}>
-				<p className={styles.paragraph}>Please Sign up</p>
+				<p className={styles.paragraph__form}>Please Sign up</p>
 				<Form.Group className="mb-3" controlId="inputName">
 					<Form.Label>Username</Form.Label>
 					<Form.Control
-						className={styles.input}
+						className={styles.input__form}
 						type="name"
 						name="name"
 						title="For example: John Doe"
@@ -35,7 +35,7 @@ export const RegisterForm = () => {
 				<Form.Group className="mb-3" controlId="inputEmail">
 					<Form.Label>E-mail</Form.Label>
 					<Form.Control
-						className={styles.input}
+						className={styles.input__form}
 						type="email"
 						name="email"
 						title="For example: example@email.com"
@@ -45,7 +45,7 @@ export const RegisterForm = () => {
 				<Form.Group className="mb-3" controlId="inputPassword">
 					<Form.Label>Password</Form.Label>
 					<Form.Control
-						className={styles.input}
+						className={styles.input__form}
 						type="password"
 						name="password"
 						title="Minimum 4 characters"

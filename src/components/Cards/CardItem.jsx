@@ -1,13 +1,15 @@
+import Icon from '../Icon';
 import style from './Cards.module.css';
 
 function CardItem({
-  difficulty,
-  category,
-  title,
-  dueDate,
-  dueTime,
-  isChallenge,
-  editElement
+   difficulty,
+   category,
+   title,
+   dueDate,
+   dueTime,
+   isChallenge,
+   dateDone,
+   status,
 }) {
   const today = new Date();
   const tomorrow = new Date(today);
@@ -24,8 +26,9 @@ function CardItem({
         day: 'numeric',
       });
     }
-  };
-
+   };
+   
+  
   return (
     <li>
       <div
@@ -37,11 +40,24 @@ function CardItem({
             <h3 className={style.levelName}>{difficulty}</h3>
           </div>
 
-          {isChallenge ? (
-            <button className={style.trophyIcon}> </button>
-          ) : (
-            <button className={style.starIcon}> </button>
-          )}
+          <button> 
+               {isChallenge ? (
+               <Icon
+                  className={style.trophyIcon}
+                  name="trophy"
+                  color="#00d7ff"
+                  size={15}
+               />
+               ) : (
+               <Icon
+                  className={style.starIcon}
+                  name="Star"
+                  color="#00d7ff"
+                  size={15}
+               />
+            )}
+         </button>
+
         </div>
 
         <div className={style.titleContainer}>
@@ -51,7 +67,8 @@ function CardItem({
           </h2>
 
           <h5 className={style.date}>
-            {isChallenge && 'by '} {formatDate(new Date(dueDate))} , {dueTime}{' '}
+                 {isChallenge && 'by '}
+                 {formatDate(new Date(dueDate))} , {dueTime}{' '}
           </h5>
         </div>
 
