@@ -18,10 +18,6 @@ const Register = () => {
       </div>
       <Background></Background>
     </div>
-
-    // <div>
-    //   <RegisterForm />
-    // </div>
   );
 };
 
