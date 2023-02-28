@@ -12,15 +12,13 @@
 }
 
 .wrap {
-	max-height: 648px;
 	max-width: 320px;
 	position: relative;
 }
 
 .info {
 	max-width: 281px;
-	padding-top: 60px;
-	padding-bottom: 30px;
+	padding-top: 50px;
 }
 
 .landingHeader {
@@ -31,7 +29,7 @@
 	line-height: 24px;
 	letter-spacing: 0.02em;
 	display: flex;
-	padding-bottom: 60px;
+	padding-bottom: 30px;
 	margin: 0px;
 	color: #00D7FF;
 }
@@ -56,13 +54,14 @@
 	font-weight: 400;
 	line-height: 45px;
 	letter-spacing: 0.02em;
-	margin: 10px;
-	padding-bottom: 30px;
+	margin: 0px;
+	padding: 0px;
 	color: #B9C3C8;
 }
 
 .textButton{
 	font-size: 14px;
+	text-decoration: underline;
 	margin: 0px;
 	padding: 0px;
 	color: #B9C3C8;
@@ -73,28 +72,28 @@
 }
 		.input__form {
 			width: 150px;
-			margin-bottom: 10px;
+			margin-bottom: 5px;
 			border-color: #00D7FF;
 		}
 	
 		.container__form {
-			margin: 50px;
-			padding: 20px 0;
+			margin: 5px 0px 10px 50px;
 			width: 150px;
 			z-index: 2;
 			font-family: 'HelveticaNeueCyr';
 		}
 	
 		.paragraph__form {
-			font-size: 25px;
+			font-size: 15px;
 			margin-bottom: 15px;
-			font-weight: 700;
 			text-align: center;
 			color: #00D7FF;
 			font-family: 'HelveticaNeueCyr';
 		}
 
 .buttonGo {
+	margin-top: 5px;
+	margin-left: 50px;
 	background-color: #FF851C;
 	border-radius: 50%;
 	width: 35px;
@@ -155,7 +154,7 @@
 		font-size: 20px;
 		line-height: 20px;
 		letter-spacing: 0.02em;
-		padding-bottom: 50px;
+		padding-bottom: 40px;
 		color: #00D7FF;
 	}
 
@@ -183,6 +182,7 @@
 
 .textButton {
 	font-size: 18px;
+	text-decoration: underline;
 	margin: 0px;
 	padding: 0px;
 	color: #B9C3C8;
@@ -194,33 +194,34 @@
 }
 	.info {
 		max-width: 375px;
-		padding-top: 50px;
+		padding-top: 200px;
 	}
 
 		.input__form {
 			width: 200px;
-			margin-bottom: 10px;
+			margin-bottom: 5px;
 			border-color: #00D7FF;
 		}
 	
 		.container__form {
-			margin: 50px;
-			padding: 20px 0;
+			margin-left: 90px;
 			width: 200px;
 			z-index: 2;
 			font-family: 'HelveticaNeueCyr';
+			;
 		}
 	
 		.paragraph__form {
-			font-size: 25px;
+			font-size: 15px;
 			margin-bottom: 15px;
-			font-weight: 700;
 			text-align: center;
 			color: #00D7FF;
 			font-family: 'HelveticaNeueCyr';
 		}
 
 .buttonGo {
+	margin-top: 5px;
+	margin-left: 70px;
     background-color: #FF851C;
     border-radius: 50%;
     width: 45px;
@@ -275,7 +276,7 @@
 			font-family: 'HelveticaNeueCyr';
 			font-style: normal;
 			font-weight: 400;
-			font-size: 24px;
+			font-size: 18px;
 			line-height: 45px;
 			margin: 0px;
 			letter-spacing: 0.02em;
@@ -284,7 +285,8 @@
 		}
 	
 		.textButton {
-			font-size: 24px;
+			font-size: 18px;
+			text-decoration: underline;
 			margin: 0px;
 			padding: 0px;
 			color: #B9C3C8;
@@ -296,12 +298,12 @@
 		}
 
 	.info {
-		max-width: 515px;
-		padding-top: 100px;
+		max-width: 500px;
 	}
 
 	.landingHeader {
-		padding-bottom: 50px;
+		margin: 0px;
+		padding-bottom: 30px;
 		color: #00D7FF;
 		font-family: 'HelveticaNeueCyr';
 			font-style: normal;
@@ -312,11 +314,11 @@
 	}
 
 	.landingParagraph {
-		max-width: 375px;
+		max-width: 400px;
 		text-align: left;
 		font-family: 'HelveticaNeueCyr';
 		font-style: normal;
-		font-size: 33px;
+		font-size: 24px;
 		line-height: 45px;
 		letter-spacing: 0.02em;
 		font-weight: 700;
@@ -326,35 +328,35 @@
 	}
 
 	.info {
-		padding-top: 100px;
-		padding-bottom: 25px;
+		padding-top: 50px;
+		padding-bottom: 10px;
 	}
 
-	.input__form {
-    width: 200px;
-    margin-bottom: 10px;
-	border-color: #00D7FF;
-}
-
-.container__form {
-	margin: 50px;
-    padding: 20px 0;
-    width: 200px;
-    z-index: 2;
-	font-family: 'HelveticaNeueCyr';
-;
-}
-
-.paragraph__form {
-    font-size: 25px;
-    margin-bottom: 15px;
-    font-weight: 700;
-    text-align: center;
-	color: #00D7FF;
-	font-family: 'HelveticaNeueCyr';
-}
+		.input__form {
+			width: 200px;
+			margin-bottom: 5px;
+			border-color: #00D7FF;
+		}
+	
+		.container__form {
+			margin-left: 80px;
+			width: 200px;
+			z-index: 2;
+			font-family: 'HelveticaNeueCyr';
+			;
+		}
+	
+		.paragraph__form {
+			font-size: 15px;
+			margin-bottom: 15px;
+			text-align: center;
+			color: #00D7FF;
+			font-family: 'HelveticaNeueCyr';
+		}
 
 .buttonGo {
+	margin-top: 5px;
+	margin-left: 70px;
     background-color: #FF851C;
     border-radius: 50%;
     width: 45px;
@@ -400,7 +402,7 @@
 
 	.container {
 		margin: 0px;
-		padding-left: 100px;
+		padding-left: 200px;
 		position: fixed;
 		z-index: 2;
 	}
@@ -413,12 +415,12 @@
 			line-height: 45px;
 			letter-spacing: 0.02em;
 			margin: 0px;
-			padding-bottom: 30px;
 			color: #B9C3C8;
 		}
 	
 		.textButton {
 			font-size: 25px;
+			text-decoration: underline;
 			margin: 0px;
 			padding: 10px;
 			color: #B9C3C8;
@@ -431,16 +433,21 @@
 
 	.info {
 		padding-top: 100px;
-		padding-bottom: 35px;
 		max-width: 562px;
 	}
 
 	.landingHeader {
-		padding-bottom: 70px;
+		font-family: 'HelveticaNeueCyr';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 24px;
+		padding-bottom: 20px;
 		color: #00D7FF;
 	}
 
 	.landingParagraph {
+		margin-bottom: 30px;
 		max-width: 562px;
 		font-size: 36px;
 		font-family: 'HelveticaNeueCyr';
@@ -453,13 +460,12 @@
 	}
 	.input__form {
     width: 200px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 	border-color: #00D7FF;
 }
 
 .container__form {
-	margin: 50px;
-    padding: 20px 0;
+	margin-left: 110px;
     width: 200px;
     z-index: 2;
 	font-family: 'HelveticaNeueCyr';
@@ -467,15 +473,16 @@
 }
 
 .paragraph__form {
-    font-size: 25px;
+    font-size: 15px;
     margin-bottom: 15px;
-    font-weight: 700;
     text-align: center;
 	color: #00D7FF;
 	font-family: 'HelveticaNeueCyr';
 }
 
 .buttonGo {
+	margin-top: 5px;
+	margin-left: 70px;
     background-color: #FF851C;
     border-radius: 50%;
     width: 45px;

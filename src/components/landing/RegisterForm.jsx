@@ -21,9 +21,9 @@ export const RegisterForm = () => {
 	return (
 		<Container className={styles.container__form}>
 			<Form className="border rounded p-4" onSubmit={handleSubmit}>
-				<p className={styles.paragraph__form}>Please Sign up</p>
+				{/* <p className={styles.paragraph__form}>Please Sign up</p> */}
 				<Form.Group className="mb-3" controlId="inputName">
-					<Form.Label>Username</Form.Label>
+					<Form.Label className={styles.paragraph__form}>Username</Form.Label>
 					<Form.Control
 						className={styles.input__form}
 						type="name"
@@ -33,7 +33,7 @@ export const RegisterForm = () => {
 					/>
 				</Form.Group>
 				<Form.Group className="mb-3" controlId="inputEmail">
-					<Form.Label>E-mail</Form.Label>
+					<Form.Label className={styles.paragraph__form}>E-mail</Form.Label>
 					<Form.Control
 						className={styles.input__form}
 						type="email"
@@ -43,13 +43,13 @@ export const RegisterForm = () => {
 					/>
 				</Form.Group>
 				<Form.Group className="mb-3" controlId="inputPassword">
-					<Form.Label>Password</Form.Label>
+					<Form.Label className={styles.paragraph__form}>Password</Form.Label>
 					<Form.Control
 						className={styles.input__form}
 						type="password"
 						name="password"
-						title="Minimum 4 characters"
-						minLength="4"
+						title="Minimum 8 characters"
+						minLength="8"
 						required
 					/>
 				</Form.Group>

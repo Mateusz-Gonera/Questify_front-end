@@ -3,7 +3,7 @@ import styles from "./Landing.module.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const LandingWelcome = () => {
+const LandingWelcome = (props) => {
   const navigate = useNavigate()
 
   return (
@@ -13,8 +13,19 @@ const LandingWelcome = () => {
         Questify will turn your life into a thrilling game full of amazing
         quests and exciting challenges.
       </p>
-      <p className={styles.landingTekst}>Choose your name
-        to <button onClick={() => navigate("/register")} className={styles.textButton}>sign up</button> or <button onClick={() => navigate("/login")} className={styles.textButton}>log in</button> <button onClick={() => navigate("/login")} className={styles.buttonGo}> go! </button></p>
+      <p className={styles.landingTekst}>
+        Choose your name to&nbsp;
+        <button
+          onClick={() => props.onShowRegister()}
+          className={styles.textButton}
+        >sign up</button>
+        &nbsp;or&nbsp;
+        <button
+          onClick={() => props.onShowLogin()}
+          className={styles.textButton}
+        >log in</button>&nbsp;
+        {/* <button className={styles.buttonGo}> go! </button> */}
+      </p>
     </div>
   );
 };
