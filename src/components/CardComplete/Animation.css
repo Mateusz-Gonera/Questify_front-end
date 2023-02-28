@@ -1,0 +1,27 @@
+.arrow-appear {
+   opacity: 0;
+   transform: translate(100%, -90%);
+}
+
+.arrow-appear-active {
+   opacity: 1;
+   transform: translate(0, 0);
+   transition: transform 400ms ease 800ms, opacity 250ms ease-in 1000ms;
+}
+.leftClouds-appear {
+   transform: translateX(-30%);
+}
+
+.leftClouds-appear-active {
+   transform: translateX(0);
+   transition: transform 1000ms ease-in 250ms;
+}
+
+.rightClouds-appear {
+   transform: translateX(30%);
+}
+
+.rightClouds-appear-active {
+   transform: translateX(0);
+   transition: transform 1000ms ease-in 250ms;
+}
