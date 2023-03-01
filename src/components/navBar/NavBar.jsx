@@ -12,7 +12,7 @@ export const NavBar = () => {
   const { user } = useAuth();
   const { data } = useGetAllCardsQuery();
 
-  const onlyChallenge = data.cards.some((card) => card.type === "Challenge");
+  const onlyChallenge = data.cards.some((card) => card.type === "Challenge" && card.status === "Incomplete");
 
   return (
     <>
