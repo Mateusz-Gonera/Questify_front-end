@@ -66,6 +66,17 @@
   }
 }
 
+@media screen and (min-width: 481px) {
+  .userMenu {
+    margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%)
+  }
+}
+
 @media screen and (min-device-width: 481px) and (max-device-width: 766px) {
   .userName {
     margin-left: 10px;
@@ -88,8 +99,12 @@
     line-height: 17px;
     letter-spacing: 0.02em;
     color: #7b8aa4;
-    position: absolute;
-    left: 294px;
+    margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%)
   }
 
   .challengeIcon {
@@ -107,7 +122,5 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .userMenu {
-    left: 550px;
-  }
+  
 }
