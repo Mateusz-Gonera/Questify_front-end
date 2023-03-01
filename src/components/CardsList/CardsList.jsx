@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { Form, Formik, Field } from "formik";
+import React, { useState, useEffect } from 'react';
+import { Form, Formik, Field } from 'formik';
 
-import style from "./CardsList.module.css";
-import Card from "../Cards/Card";
-import { useCreateCardMutation } from "../../redux/api/questifyApi";
+import style from './CardsList.module.css';
+import Card from '../Cards/Card';
+import { useCreateCardMutation } from '../../redux/api/questifyApi';
 
-import IconButton from "@mui/material/IconButton";
-import AddIcon from "@mui/icons-material/Add";
-import DoneList from "../Cards/CardsDone";
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+import DoneList from '../Cards/CardsDone';
 
 const CardsList = ({ cards }) => {
   // Create newCard
   const [addCard] = useCreateCardMutation();
 
   // CardsSorted
-  const inCompletedCards = cards.filter((card) => card.status === "Incomplete");
-  const CompletedCards = cards.filter((card) => card.status === "Complete");
+  const inCompletedCards = cards.filter(card => card.status === 'Incomplete');
+  const CompletedCards = cards.filter(card => card.status === 'Complete');
 
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
   const [isOpenCreateCardForm, setIsOpenCreateCardForm] = useState(false);
 
-  const filteredCards = inCompletedCards.filter((card) => {
+  const filteredCards = inCompletedCards.filter(card => {
     const cardDate = new Date(card.date);
     return (
       cardDate.getFullYear() === currentDate.getFullYear() &&
@@ -48,7 +48,7 @@ const CardsList = ({ cards }) => {
     }, 60000);
   }, []);
 
-  const filteredTomorrowCards = inCompletedCards.filter((card) => {
+  const filteredTomorrowCards = inCompletedCards.filter(card => {
     const cardDate = new Date(card.date);
     return (
       cardDate.getFullYear() === tomorrowDate.getFullYear() &&
@@ -70,7 +70,7 @@ const CardsList = ({ cards }) => {
   });
 
   function timeStringToMs(cards) {
-    const [hours, minutes] = cards.split("-");
+    const [hours, minutes] = cards.split('-');
     const date = new Date();
     date.setHours(hours);
     date.setMinutes(minutes);
@@ -84,7 +84,7 @@ const CardsList = ({ cards }) => {
         <div className={style.todaylist}>
           <h4>TODAY</h4>
           <ul className={style.cardList}>
-            {todayCards.map((card) => (
+            {todayCards.map(card => (
               <Card
                 key={card._id}
                 id={card._id}
@@ -102,7 +102,7 @@ const CardsList = ({ cards }) => {
         <div className={style.tomorrowList}>
           <h4>TOMORROW </h4>
           <ul className={style.cardList}>
-            {tomorrowCards.map((card) => (
+            {tomorrowCards.map(card => (
               <Card
                 key={card._id}
                 id={card._id}
@@ -131,30 +131,30 @@ const CardsList = ({ cards }) => {
           <div>
             <Formik
               initialValues={{
-                title: "",
-                category: "Family",
-                difficulty: "Easy",
-                type: "Task",
+                title: '',
+                category: 'Family',
+                difficulty: 'Easy',
+                type: 'Task',
                 date: `${currentDate.getFullYear()}-${
                   currentDate.getMonth() < 10
-                    ? "0" + currentDate.getMonth()
+                    ? '0' + currentDate.getMonth()
                     : currentDate.getMonth()
                 }-${
                   currentDate.getDate() < 10
-                    ? "0" + currentDate.getDate()
+                    ? '0' + currentDate.getDate()
                     : currentDate.getDate()
                 }`,
                 time: `${
                   currentDate.getHours() < 10
-                    ? "0" + currentDate.getHours()
+                    ? '0' + currentDate.getHours()
                     : currentDate.getHours()
                 }:${
                   currentDate.getMinutes() < 10
-                    ? "0" + currentDate.getMinutes()
+                    ? '0' + currentDate.getMinutes()
                     : currentDate.getMinutes()
                 }`,
               }}
-              onSubmit={async (values) => {
+              onSubmit={async values => {
                 addCard(values);
                 setIsOpenCreateCardForm(false);
               }}
@@ -164,12 +164,7 @@ const CardsList = ({ cards }) => {
                   <>
                     <div className={style.modal_add_level_name}>
                       <Field as="select" name="difficulty">
-                        <option
-                          className={style.modal_add_level_name}
-                          value="Easy"
-                        >
-                          Easy
-                        </option>
+                        <option value="Easy">Easy</option>
                         <option
                           className={style.modal_add_level_name}
                           value="Normal"
@@ -190,22 +185,29 @@ const CardsList = ({ cards }) => {
                       </Field>
                     </div>
                   </>
-                  <Field
-                    className={style.modal_add_name}
-                    name="title"
-                    type="text"
-                  />
-
-                  <Field name="date" type="date" />
-                  <Field name="time" type="time" />
-                  <Field as="select" name="category">
-                    <option value="Stuff">Stuff</option>
-                    <option value="Family">Family</option>
-                    <option value="Health">Health</option>
-                    <option value="Learning">Learning</option>
-                    <option value="Leisure">Leisure</option>
-                    <option value="Work">Work</option>
-                  </Field>
+                  <div className={style.modal_add_name_div}>
+                    <Field
+                      className={style.modal_add_name}
+                      name="title"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <Field name="date" type="date" />
+                  </div>
+                  <div>
+                    <Field name="time" type="time" />
+                  </div>
+                  <div>
+                    <Field as="select" name="category">
+                      <option value="Stuff">Stuff</option>
+                      <option value="Family">Family</option>
+                      <option value="Health">Health</option>
+                      <option value="Learning">Learning</option>
+                      <option value="Leisure">Leisure</option>
+                      <option value="Work">Work</option>
+                    </Field>
+                  </div>
                   <div>
                     <button type="submit">X</button>
 

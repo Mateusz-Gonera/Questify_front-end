@@ -41,14 +41,15 @@ select {
   right: 45px;
   border: 0px;
   border-radius: 10px 10px 10px 10px;
-  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
   width: 52px;
   height: 52px;
   background-color: #ff851c;
   bottom: 50px;
   fill: #ff851c;
-    stroke: white;
-    stroke-width: 2px;
+  stroke: white;
+  stroke-width: 2px;
 }
 .btn_add_card {
   position: absolute;
@@ -60,30 +61,32 @@ select {
   background-color: white;
   stroke: #ff851c;
   fill: #ff851c;
-  
 }
 .modal_add_container {
   display: flex;
   flex-direction: column;
-  text-align: center;
-
+  justify-content: center;
+  margin-left: 15px;
   height: 199px;
   width: 205px;
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
     3px 4px 4px rgba(21, 57, 90, 0.03);
   border-radius: 10px;
   background-color: white;
-}
-.modal_add_name {
-  width: 163px;
-  border-bottom: solid 1px #00D7FF;
+  margin-bottom: 50px;
 }
 .modal_add_level_name {
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
   font-size: 14px;
   color: #b9c3c8;
   letter-spacing: 2%;
   margin: 0;
-  padding: 0;
+  padding-top: 12px;
+  padding-left: 21px;
+  padding-right: 21px;
 }
 .add_modal_list {
   font-family: Arial, Helvetica, sans-serif;
@@ -93,4 +96,18 @@ select {
 }
 .trophyIcon {
   filter: drop-shadow(0px 4px 4px rgba(0, 215, 255, 0.25));
+}
+.modal_add_name {
+  font-size: 16px;
+  font-weight: 700;
+  width: 163px;
+  border-bottom: solid 1px #00d7ff;
+  color: black;
+  text-align: center;
+}
+.modal_add_name_div {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
