@@ -122,12 +122,7 @@ const CardsList = ({ cards }) => {
                         <>
                           <div className={style.modal_add_level_name}>
                             <Field as="select" name="difficulty">
-                              <option
-                                className={style.modal_add_level_name}
-                                value="Easy"
-                              >
-                                Easy
-                              </option>
+                              <option value="Easy">Easy</option>
                               <option
                                 className={style.modal_add_level_name}
                                 value="Normal"
@@ -148,26 +143,52 @@ const CardsList = ({ cards }) => {
                             </Field>
                           </div>
                         </>
-                        <Field
-                          className={style.modal_add_name}
-                          name="title"
-                          type="text"
-                        />
+                        <div className={style.modal_add_name_div}>
+                          <Field
+                            className={style.modal_add_name}
+                            name="title"
+                            type="text"
+                          />
+                        </div>
+                        <div className={style.modal_add_date_div}>
+                          <Field
+                            className={style.modal_add_date}
+                            name="date"
+                            type="date"
+                          />
+                        </div>
+                        <div className={style.modal_add_time_div}>
+                          <Field
+                            className={style.modal_add_time}
+                            name="time"
+                            type="time"
+                          />
+                        </div>
+                        <div className={style.modal_add_category_button}>
+                          <div className={style.modal_add_category_style_div}>
+                            <Field
+                              className={style.modal_add_category_style}
+                              as="select"
+                              name="category"
+                            >
+                              <option value="Stuff">STUFF</option>
+                              <option value="Family">FAMILY</option>
+                              <option value="Health">HEALTH</option>
+                              <option value="Learning">LEARNING</option>
+                              <option value="Leisure">LEISURE</option>
+                              <option value="Work">WORK</option>
+                            </Field>
+                          </div>
+                          <div className={style.modal_add_btn_div}>
+                            <button type="submit">X</button>
 
-                        <Field name="date" type="date" />
-                        <Field name="time" type="time" />
-                        <Field as="select" name="category">
-                          <option value="Stuff">Stuff</option>
-                          <option value="Family">Family</option>
-                          <option value="Health">Health</option>
-                          <option value="Learning">Learning</option>
-                          <option value="Leisure">Leisure</option>
-                          <option value="Work">Work</option>
-                        </Field>
-                        <div>
-                          <button type="submit">X</button>
-
-                          <button type="submit">CREATE</button>
+                            <button
+                              className={style.modal_add_btn_create}
+                              type="submit"
+                            >
+                              | START
+                            </button>
+                          </div>
                         </div>
                       </Form>
                     </div>
