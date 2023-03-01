@@ -4,7 +4,6 @@
   line-height: 18px;
   display: flex;
   align-items: center;
-  /* identical to box height */
   letter-spacing: 0.02em;
   color: #00d7ff;
 }
@@ -13,6 +12,23 @@
   display: flex;
   align-items: center;
   margin-left: auto;
+  justify-content: space-around;
+}
+
+.trophyBg {
+  background-color: #7b8aa4;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 30px;
+  height: 30px;
+}
+
+.trophyIcon {
+  margin-top: 5px;
+  width: 14px;
+  height: 14px;
 }
 
 .userMenu {
@@ -23,17 +39,25 @@
 
 .avatar {
   display: flex;
-  margin-right: 10px;
+  width: 30px;
+  height: 30px;
 }
 
 .avatarImg {
   border-radius: 50%;
   width: 30px;
 }
-
+.trophyBg {
+  margin-right: 10px;
+  margin-left: 10px;
+}
 .btn {
   background-color: transparent;
   padding: 0;
+}
+.logoutIcon {
+  width: 21.58px;
+  height: 16.05px;
 }
 
 @media screen and (max-width: 480px) {
@@ -42,30 +66,47 @@
   }
 }
 
+@media screen and (min-device-width: 481px) and (max-device-width: 766px) {
+  .userName {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
 @media screen and (min-width: 767px) {
   .logo {
     font-size: 21px;
     line-height: 21px;
-    /* identical to box height */
+  }
+
+  .userName {
+    margin-left: 10px;
   }
 
   .userMenu {
     font-size: 17px;
     line-height: 17px;
-    /* identical to box height */
     letter-spacing: 0.02em;
     color: #7b8aa4;
-    width: 179px;
     position: absolute;
     left: 294px;
   }
 
   .challengeIcon {
-    margin-right: 38px;
+    margin-right: 20px;
+  }
+
+  .trophyBg {
+    margin-right: 20px;
+  }
+  .logo {
+    font-size: 21px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1200px) {
   .userMenu {
     left: 550px;
   }
