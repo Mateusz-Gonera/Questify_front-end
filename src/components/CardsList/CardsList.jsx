@@ -93,20 +93,24 @@ const CardsList = ({ cards }) => {
                       category: "Family",
                       difficulty: "Easy",
                       type: "Task",
-                      date: `${currentDate.getFullYear()}-${currentDate.getMonth() < 10
-                        ? "0" + currentDate.getMonth()
-                        : currentDate.getMonth()
-                        }-${currentDate.getDate() < 10
+                      date: `${currentDate.getFullYear()}-${
+                        currentDate.getMonth() < 10
+                          ? "0" + currentDate.getMonth()
+                          : currentDate.getMonth()
+                      }-${
+                        currentDate.getDate() < 10
                           ? "0" + currentDate.getDate()
                           : currentDate.getDate()
-                        }`,
-                      time: `${currentDate.getHours() < 10
-                        ? "0" + currentDate.getHours()
-                        : currentDate.getHours()
-                        }:${currentDate.getMinutes() < 10
+                      }`,
+                      time: `${
+                        currentDate.getHours() < 10
+                          ? "0" + currentDate.getHours()
+                          : currentDate.getHours()
+                      }:${
+                        currentDate.getMinutes() < 10
                           ? "0" + currentDate.getMinutes()
                           : currentDate.getMinutes()
-                        }`,
+                      }`,
                     }}
                     onSubmit={async (values) => {
                       addCard(values);
@@ -170,13 +174,8 @@ const CardsList = ({ cards }) => {
                   </Formik>
                 </div>
               )}
-
-
-
-
             </li>
             {todayCards.map((card) => (
-      
               <Card
                 key={card._id}
                 id={card._id}
@@ -190,7 +189,6 @@ const CardsList = ({ cards }) => {
               />
             ))}
           </ul>
-         
         </div>
         <div className={style.tomorrowList}>
           <h4>TOMORROW </h4>
