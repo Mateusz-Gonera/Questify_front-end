@@ -84,7 +84,99 @@ const CardsList = ({ cards }) => {
         <div className={style.todaylist}>
           <h4>TODAY</h4>
           <ul className={style.cardList}>
+            <li>
+              {isOpenCreateCardForm && (
+                <div>
+                  <Formik
+                    initialValues={{
+                      title: "",
+                      category: "Family",
+                      difficulty: "Easy",
+                      type: "Task",
+                      date: `${currentDate.getFullYear()}-${currentDate.getMonth() < 10
+                        ? "0" + currentDate.getMonth()
+                        : currentDate.getMonth()
+                        }-${currentDate.getDate() < 10
+                          ? "0" + currentDate.getDate()
+                          : currentDate.getDate()
+                        }`,
+                      time: `${currentDate.getHours() < 10
+                        ? "0" + currentDate.getHours()
+                        : currentDate.getHours()
+                        }:${currentDate.getMinutes() < 10
+                          ? "0" + currentDate.getMinutes()
+                          : currentDate.getMinutes()
+                        }`,
+                    }}
+                    onSubmit={async (values) => {
+                      addCard(values);
+                      setIsOpenCreateCardForm(false);
+                    }}
+                  >
+                    <div className={style.add_modal_list}>
+                      <Form className={style.modal_add_container}>
+                        <>
+                          <div className={style.modal_add_level_name}>
+                            <Field as="select" name="difficulty">
+                              <option
+                                className={style.modal_add_level_name}
+                                value="Easy"
+                              >
+                                Easy
+                              </option>
+                              <option
+                                className={style.modal_add_level_name}
+                                value="Normal"
+                              >
+                                Normal
+                              </option>
+                              <option
+                                className={style.modal_add_level_name}
+                                value="Hard"
+                              >
+                                Hard
+                              </option>
+                            </Field>
+
+                            <Field as="select" name="type">
+                              <option value="Task">Task</option>
+                              <option value="Challenge">Challenge</option>
+                            </Field>
+                          </div>
+                        </>
+                        <Field
+                          className={style.modal_add_name}
+                          name="title"
+                          type="text"
+                        />
+
+                        <Field name="date" type="date" />
+                        <Field name="time" type="time" />
+                        <Field as="select" name="category">
+                          <option value="Stuff">Stuff</option>
+                          <option value="Family">Family</option>
+                          <option value="Health">Health</option>
+                          <option value="Learning">Learning</option>
+                          <option value="Leisure">Leisure</option>
+                          <option value="Work">Work</option>
+                        </Field>
+                        <div>
+                          <button type="submit">X</button>
+
+                          <button type="submit">CREATE</button>
+                        </div>
+                      </Form>
+                    </div>
+                  </Formik>
+                </div>
+              )}
+
+
+
+
+            </li>
             {todayCards.map((card) => (
+      
               <Card
                 key={card._id}
                 id={card._id}
@@ -98,91 +190,7 @@ const CardsList = ({ cards }) => {
               />
             ))}
           </ul>
-          {isOpenCreateCardForm && (
-            <div>
-              <Formik
-                initialValues={{
-                  title: "",
-                  category: "Family",
-                  difficulty: "Easy",
-                  type: "Task",
-                  date: `${currentDate.getFullYear()}-${currentDate.getMonth() < 10
-                      ? "0" + currentDate.getMonth()
-                      : currentDate.getMonth()
-                    }-${currentDate.getDate() < 10
-                      ? "0" + currentDate.getDate()
-                      : currentDate.getDate()
-                    }`,
-                  time: `${currentDate.getHours() < 10
-                      ? "0" + currentDate.getHours()
-                      : currentDate.getHours()
-                    }:${currentDate.getMinutes() < 10
-                      ? "0" + currentDate.getMinutes()
-                      : currentDate.getMinutes()
-                    }`,
-                }}
-                onSubmit={async (values) => {
-                  addCard(values);
-                  setIsOpenCreateCardForm(false);
-                }}
-              >
-                <div className={style.add_modal_list}>
-                  <Form className={style.modal_add_container}>
-                    <>
-                      <div className={style.modal_add_level_name}>
-                        <Field as="select" name="difficulty">
-                          <option
-                            className={style.modal_add_level_name}
-                            value="Easy"
-                          >
-                            Easy
-                          </option>
-                          <option
-                            className={style.modal_add_level_name}
-                            value="Normal"
-                          >
-                            Normal
-                          </option>
-                          <option
-                            className={style.modal_add_level_name}
-                            value="Hard"
-                          >
-                            Hard
-                          </option>
-                        </Field>
-
-                        <Field as="select" name="type">
-                          <option value="Task">Task</option>
-                          <option value="Challenge">Challenge</option>
-                        </Field>
-                      </div>
-                    </>
-                    <Field
-                      className={style.modal_add_name}
-                      name="title"
-                      type="text"
-                    />
-
-                    <Field name="date" type="date" />
-                    <Field name="time" type="time" />
-                    <Field as="select" name="category">
-                      <option value="Stuff">Stuff</option>
-                      <option value="Family">Family</option>
-                      <option value="Health">Health</option>
-                      <option value="Learning">Learning</option>
-                      <option value="Leisure">Leisure</option>
-                      <option value="Work">Work</option>
-                    </Field>
-                    <div>
-                      <button type="submit">X</button>
-
-                      <button type="submit">CREATE</button>
-                    </div>
-                  </Form>
-                </div>
-              </Formik>
-            </div>
-          )}
+         
         </div>
         <div className={style.tomorrowList}>
           <h4>TOMORROW </h4>
