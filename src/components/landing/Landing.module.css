@@ -1,25 +1,31 @@
+.wrap {
+	height: 100vh;
+	width: 100%;
+}
+.container {
+	position: relative;
+	top: 15%;
+}
+
+
 /*----------------------MOBILE VERTICAL------------------------- */
 @media screen and (max-width: 767px) {
 
 	.container {
-		max-width: 320px;
-		padding-left: 15px;
-		padding-right: 15px;
-		margin-left: auto;
-		margin-right: auto;
-		position: relative;
-		z-index: 2;
+		max-width: 300px;
+		margin: 15px;
 	}
 
 	.wrap {
-		max-width: 320px;
-		position: relative;
+		background: url('../../imagesLanding/mobileBG.jpg') no-repeat;
+		background-position: bottom 0;
+		background-size: contain;
+		overflow: hidden;
 	}
 
-	.info {
-		max-width: 281px;
+	/* .info {
 		padding-top: 50px;
-	}
+	} */
 
 	.landingHeader {
 		font-family: 'HelveticaNeueCyr';
@@ -73,24 +79,31 @@
 	}
 
 	.input__form {
-		width: 150px;
-		margin-bottom: 5px;
+		max-width: 150px;
+		margin-bottom: 0px;
 		border-color: #00D7FF;
 	}
 
 	.container__form {
-		margin: 5px 0px 10px 50px;
+		margin: 0px 0px 10px 50px;
 		width: 150px;
 		z-index: 2;
 		font-family: 'HelveticaNeueCyr';
 	}
 
 	.paragraph__form {
-		font-size: 15px;
+		font-size: 10px;
 		margin-bottom: 15px;
 		text-align: center;
 		color: #00D7FF;
 		font-family: 'HelveticaNeueCyr';
+	}
+
+	.password__form {
+		font-size: 8px;
+		font-family: 'HelveticaNeueCyr';
+		color: #15395A;
+		line-height: 1px;
 	}
 
 	.buttonGo {
@@ -118,7 +131,7 @@
 		box-shadow: 0px 5px 50px rgba(238, 107, 7, 0.6);
 	}
 
-	.landingBgImage1 {
+	/* .landingBgImage1 {
 		position: absolute;
 		left: -15px;
 		bottom: -30px;
@@ -128,7 +141,7 @@
 		position: absolute;
 		left: -48px;
 		bottom: 0px;
-	}
+	} */
 }
 
 
@@ -136,17 +149,19 @@
 
 /*----------------------TABLET VERTICAL------------------------- */
 
-@media screen and (min-width: 768px) and (max-width: 1019px) {
+@media screen and (min-width: 768px) 
+/* and (max-width: 1019px)  */
+{
 	.wrap {
-		height: 100vh;
+		background: url('../../imagesLanding/tabletBg.jpg') no-repeat;
+		background-size: cover;
+		background-position: bottom 0 right 0;
+		overflow: hidden;
 	}
 
 	.container {
-		max-width: 375px;
-		padding: 0;
-		margin-left: 50px;
-		position: fixed;
-		z-index: 2;
+		max-width: 350px;
+		left: 50px;
 	}
 
 	.landingHeader {
@@ -156,7 +171,8 @@
 		font-size: 20px;
 		line-height: 20px;
 		letter-spacing: 0.02em;
-		padding-bottom: 40px;
+		padding-bottom: 20px;
+		margin: 0;
 		color: #00D7FF;
 	}
 
@@ -178,7 +194,7 @@
 		line-height: 45px;
 		letter-spacing: 0.02em;
 		margin: 0px;
-		padding-bottom: 30px;
+		padding: 0px;
 		color: #B9C3C8;
 	}
 
@@ -196,18 +212,17 @@
 	}
 
 	.info {
-		max-width: 375px;
-		padding-top: 200px;
+		max-width: 350px;
 	}
 
 	.input__form {
 		width: 200px;
-		margin-bottom: 5px;
+		margin-bottom: 0px;
 		border-color: #00D7FF;
 	}
 
 	.container__form {
-		margin-left: 90px;
+		margin-left: 60px;
 		width: 200px;
 		z-index: 2;
 		font-family: 'HelveticaNeueCyr';
@@ -215,15 +230,20 @@
 	}
 
 	.paragraph__form {
-		font-size: 15px;
-		margin-bottom: 15px;
+		font-size: 12px;
+		margin-bottom: 5px;
 		text-align: center;
 		color: #00D7FF;
 		font-family: 'HelveticaNeueCyr';
 	}
+	.password__form {
+		font-size: 8px;
+		font-family: 'HelveticaNeueCyr';
+		color: #15395A;
+		line-height: 1px;
+	}
 
 	.buttonGo {
-		margin-top: 5px;
 		margin-left: 70px;
 		background-color: #FF851C;
 		border-radius: 50%;
@@ -247,7 +267,7 @@
 		box-shadow: 0px 5px 50px rgba(238, 107, 7, 0.6);
 	}
 
-	.landingBgImage1 {
+	/* .landingBgImage1 {
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -257,12 +277,12 @@
 		position: fixed;
 		bottom: 0;
 		right: 0;
-	}
+	} */
 }
 
 
 /*----------------------TABLET HORIZONTAL------------------------- */
-
+/* 
 @media screen and (min-width: 1020px) and (max-width: 1279px) {
 	.wrap {
 		height: 100vh;
@@ -283,7 +303,7 @@
 		line-height: 45px;
 		margin: 0px;
 		letter-spacing: 0.02em;
-		padding-top: 30px;
+		padding-top: 10px;
 		color: #B9C3C8;
 	}
 
@@ -332,12 +352,12 @@
 
 	.info {
 		padding-top: 50px;
-		padding-bottom: 10px;
+		padding-bottom: 0px;
 	}
 
 	.input__form {
 		width: 200px;
-		margin-bottom: 5px;
+		margin-bottom: 1px;
 		border-color: #00D7FF;
 	}
 
@@ -355,6 +375,13 @@
 		text-align: center;
 		color: #00D7FF;
 		font-family: 'HelveticaNeueCyr';
+	}
+
+	.password__form {
+		font-size: 8px;
+		font-family: 'HelveticaNeueCyr';
+		color: #15395A;
+		line-height: 1px;
 	}
 
 	.buttonGo {
@@ -393,21 +420,22 @@
 		bottom: 0;
 		right: 0;
 	}
-}
+} */
 
 
 /*----------------------DESKTOP------------------------- */
 
 @media screen and (min-width: 1280px) {
 	.wrap {
-		height: 100vh;
+		background: url('../../imagesLanding/desktopBg.jpg') no-repeat;
+		background-size: cover;
+		background-position: bottom 0 right 0;
+		overflow: hidden;
 	}
 
 	.container {
-		margin: 0px;
-		padding-left: 200px;
-		position: fixed;
-		z-index: 2;
+		max-width: 564px;
+		left: 229px;
 	}
 
 	.landingTekst {
@@ -435,8 +463,7 @@
 	}
 
 	.info {
-		padding-top: 100px;
-		max-width: 562px;
+		max-width: 525px;
 	}
 
 	.landingHeader {
@@ -450,7 +477,7 @@
 	}
 
 	.landingParagraph {
-		margin-bottom: 30px;
+		margin-bottom: 10px;
 		max-width: 562px;
 		font-size: 36px;
 		font-family: 'HelveticaNeueCyr';
@@ -484,6 +511,13 @@
 		font-family: 'HelveticaNeueCyr';
 	}
 
+	.password__form {
+		font-size: 8px;
+		font-family: 'HelveticaNeueCyr';
+		color: #15395A;
+		line-height: 1px;
+	}
+
 	.buttonGo {
 		margin-top: 5px;
 		margin-left: 70px;
@@ -509,7 +543,7 @@
 		box-shadow: 0px 5px 50px rgba(238, 107, 7, 0.6);
 	}
 
-	.landingBgImage1 {
+	/* .landingBgImage1 {
 		position: fixed;
 		right: -7px;
 		top: -84px;
@@ -519,5 +553,5 @@
 		position: fixed;
 		right: 0;
 		bottom: 0;
-	}
+	} */
 }

@@ -55,13 +55,14 @@ export const RegisterForm = () => {
 						className={styles.input__form}
 						type="password"
 						name="password"
-						title="Minimum 8 characters"
-						minLength="8"
+						title="Minimum 4 characters"
+						minLength="4"
 						required
 					/>
-					<Form.Text className="text-muted">
-						Your passowrd should consist of at least four characters and contain any letters from a to z and any numbers from 0 through 9.
-					</Form.Text>
+						<small id="passwordHelpBlock" className={styles.password__form}>
+ 	 						Your password must be 4-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+						</small>
+					
 				</Form.Group>
 				<Button className={styles.buttonGo} type="submit">
 					go!

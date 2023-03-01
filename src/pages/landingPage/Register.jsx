@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { RegisterForm } from "../../components/landing/RegisterForm";;
 import LandingWelcome from "../../components/landing/LandingWelcome";  
-import Background from "../../components/landing/Background";
+// import Background from "../../components/landing/Background";
 import styles from "../../components/landing/Landing.module.css";
 
 
 const Register = () => {
-  useEffect(() => {
-    document.body.style.backgroundColor = "white";
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.backgroundColor = "white";
+  // }, []);
 
   return (
     <div className={styles.wrap}>
@@ -16,7 +16,7 @@ const Register = () => {
         <LandingWelcome></LandingWelcome>
         <RegisterForm></RegisterForm>
       </div>
-      <Background></Background>
+      {/* <Background></Background> */}
     </div>
   );
 };
