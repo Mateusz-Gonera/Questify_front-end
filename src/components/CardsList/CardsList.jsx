@@ -81,7 +81,6 @@ const CardsList = ({ cards }) => {
 
 
 
-
   return (
     <>
       <div className={style.sectionCards}>

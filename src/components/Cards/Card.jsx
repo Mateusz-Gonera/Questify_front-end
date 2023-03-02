@@ -29,7 +29,6 @@ function Card({
 			setEdit(true);
 		}
 	}
-
 	return edit ? (
 		<EditCard
 			id={id}

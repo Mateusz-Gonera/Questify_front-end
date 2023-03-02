@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import {
 	useCompleteCardMutation,
 	useDeleteCardMutation,
@@ -8,6 +8,8 @@ import CardComplete from "../CardComplete/CardComplete";
 import Loader from "../../utils/loader/Loader";
 import Icon from "../Icon";
 import style from "./Cards.module.css";
+import DatePicker from "react-datepicker";
+import TimePicker from "react-time-picker";
 
 function EditCard({
 	difficulty,
@@ -34,6 +36,30 @@ function EditCard({
 	const [isTask, setIsTask] = useState(type);
 	const [Challenge, setChallenge] = useState(isChallenge);
 	const [isCompleted, setIsCompleted] = useState(isDone);
+   const [changeDate, setChangeDate] =  useState(new Date());
+   const [changeTime, setChangeTime] = useState(dueTime);
+
+   const [startDate, setStartDate] = useState(new Date());
+   const [isOpen, setIsOpen] = useState(false);
+
+   //console.log("Change Date :" + changeDate)
+   //console.log("Change Time :" + changeTime)
+
+//const cardDate = new Date(changeDate);
+//console.log(cardDate.getFullYear());
+//console.log("month :" + cardDate.getMonth())
+//console.log(cardDate.getDate())
+//console.log(cardDate.getHours())
+//console.log(cardDate.getMinutes())
+
+
+const currentDate = new Date (changeDate);
+const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+const dateOnly = currentDate.toLocaleDateString('uk-UA', options);
+console.log("DATEONLY " + dateOnly)
+
+
+
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -44,6 +70,8 @@ function EditCard({
 				difficulty: selectedDifficulty,
 				category: selectedGroup,
 				type: isTask,
+            date:changeDate,
+            time:changeTime
 			});
 			console.log(result);
 			hideCard();
@@ -73,33 +101,28 @@ function EditCard({
 		setShowGroupDropdown(!showGroupDropdown);
 	};
 
-	function handleEndDateChange(event) {
-		event.preventDefault();
-		console.log(event.target.value);
-		setEndDate(event.target.value);
-	}
-
-	function handleEndDateSubmit(event) {
-		event.preventDefault();
-		// tutaj można wykorzystać wartość endDate
-	}
-
-  function handleResetEndDate() {
-    setEndDate(null);
-   }
-   /////////
-  const handleCompleted = () => {
-   setIsCompleted(true)
-   };
-   const cancelComplete = () => {
-      setIsCompleted(false)
-   }
-
+	/////////
+	const handleCompleted = () => {
+		setIsCompleted(true);
+	};
+	const cancelComplete = () => {
+		setIsCompleted(false);
+	};
 
 	const handleChangeType = () => {
 		Challenge ? setIsTask("Task") : setIsTask("Challenge");
 		Challenge ? setChallenge(false) : setChallenge(true);
 	};
+   //Calendar
+   const handleChange = (e) =>{
+      setIsOpen(!isOpen);
+      setStartDate(e);
+   }
+   const handleBtnClick = (e) => {
+      e.preventDefault();
+      setIsOpen(!isOpen);
+   }
+ 
 
 	// Change date to string Today or Tomorrow
 	const today = new Date();
@@ -119,46 +142,44 @@ function EditCard({
 		}
 	};
 
-  return (
-     <li>
-        
-      <div
-        className={Challenge ? style.challengeContainer : style.cardContainer}
-      >{isCompleted && (
-          <CardComplete
-               title={title}
-                 close={() => isComplete(id)}
-                 cancel={()=> cancelComplete()}
-          />
-        )}
-        
+	return (
+		<li>
+			<div
+				className={Challenge ? style.challengeContainer : style.cardContainer}
+			>
+				{isCompleted && (
+					<CardComplete
+						title={title}
+						close={() => isComplete(id)}
+						cancel={() => cancelComplete()}
+					/>
+				)}
 
-        <div className={style.difficultyContainer}>
-          <div className={style.difficultyLevel}>
-            {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-            <div className={style[selectedDifficulty]}> </div>
-            <h3 className={style.levelName} onClick={handleDifficultyClick}>
-              {selectedDifficulty}
-            </h3>
-            {showDifficultyDropdown && (
-              <select
-                className={style.difficultyDropdown}
-                value={selectedDifficulty}
-                onChange={handleDifficultyChange}
-                size="3"
-              >
-               <option className={style.easy_list} value="Easy">
-                  <div className={style.Easy}></div>Easy
-                </option>
-                <option className={style.normal_list} value="Normal">
-                  <li>Normal</li>
-                </option>
-                <option className={style.hard_list} value="Hard">
-                  <li>Hard</li>
-                </option>
-              </select>
-            )}
-          </div>
+				<div className={style.difficultyContainer}>
+					<div className={style.difficultyLevel}>
+						<div className={style[selectedDifficulty]}> </div>
+						<h3 className={style.levelName} onClick={handleDifficultyClick}>
+							{selectedDifficulty}
+						</h3>
+						{showDifficultyDropdown && (
+							<select
+								className={style.difficultyDropdown}
+								value={selectedDifficulty}
+								onChange={handleDifficultyChange}
+								size="3"
+							>
+								<option className={style.easy_list} value="Easy">
+									<div className={style.Easy}></div>Easy
+								</option>
+								<option className={style.normal_list} value="Normal">
+									<li>Normal</li>
+								</option>
+								<option className={style.hard_list} value="Hard">
+									<li>Hard</li>
+								</option>
+							</select>
+						)}
+					</div>
 
 					<button onClick={handleChangeType}>
 						{Challenge ? (
@@ -189,30 +210,22 @@ function EditCard({
 						onChange={handleInputChange}
 						className={isChallenge ? style.chalengeName : style.taskName}
 					/>
+					<div className={style.date}>
+                  <button className="style.dateInput"
+                           onClick={handleBtnClick}>
+                              {dueDate}
+                  </button>
+                  {isOpen && (
+                     <DatePicker 
+                        selected = {startDate} 
+                        onChange={handleChange} 
+                        inline />
+                  )}
+                  
 
-					<h5 className={style.date}>
-						{formatDate(new Date(dueDate))} , {dueTime}{" "}
-					</h5>
 
-					<div>
-						{endDate ? (
-							<div>
-								{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-								<p className={style.date} onClick={handleResetEndDate}>
-									{endDate}
-								</p>
-							</div>
-						) : (
-							<form onSubmit={handleEndDateSubmit}>
-								<label>
-									<input type="datetime-local" />
-								</label>
-								{/* <button type="submit">OK</button> */}
-							</form>
-						)}
 					</div>
 				</div>
-				{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
 				<div className={style.bottomContainer}>
 					<div className={style[selectedGroup]} onClick={handleGroupClick}>
 						{selectedGroup}

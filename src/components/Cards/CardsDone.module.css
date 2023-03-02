@@ -1,7 +1,9 @@
 .cardContainer{
    display: flex;
-   gap: 25px;
+   gap: 28px;
    flex-wrap: wrap;
+   margin: 0;
+   padding: 0;
 }
 
 @media screen and (max-width: 766px) {

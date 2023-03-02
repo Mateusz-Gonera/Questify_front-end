@@ -1,6 +1,9 @@
 .sectionCards {
   background-color: rgba(242, 243, 247, 1);
   color: black;
+   width: 1280px;
+   margin: 0 auto;
+   padding: 0 71px 0 71px;
 }
 .cardList {
   display: flex;
@@ -16,13 +19,12 @@
   gap: 15px;
 }
 .todaylist {
-  padding: 15px;
-  font-size: 15px;
-  font-weight: 300;
-  color: rgba(40, 40, 40, 1);
+   margin-top: 15px;
+   font-size: 15px;
+   font-weight: 300;
+   color: rgba(40, 40, 40, 1);
 }
 .tomorrowList {
-  padding: 15px;
   font-size: 15px;
   font-weight: 300;
   color: rgba(40, 40, 40, 1);

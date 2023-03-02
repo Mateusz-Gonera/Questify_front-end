@@ -6,87 +6,59 @@ import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import styles from "./CardsDone.module.css";
-import CardItem from './CardItem';
-import { getCardsType } from './ChallengeCard';
-import { useState, useEffect } from 'react';
+import CardItem from "./CardItem";
 
-export default function DoneList({
-   item,
-}) {
-   const [open, setOpen] = React.useState(true);
-  const handleClick = () => {
-    setOpen(!open);
-  };
-   
-//////////////Sortowanie
-   const [currentDate, setCurrentDate] = React.useState(new Date());
+export default function DoneList({ item }) {
+	const [open, setOpen] = React.useState(true);
+	const handleClick = () => {
+		setOpen(!open);
+	};
 
-  const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
-  const [isOpenCreateCardForm, setIsOpenCreateCardForm] = React.useState(false);
+	//////////////Sortowanie
+	const [currentDate, setCurrentDate] = React.useState(new Date());
 
-  const filteredCards = item.filter(card => {
-    const cardDate = new Date(card.date);
-    return (
-      cardDate.getFullYear() === currentDate.getFullYear() &&
-      cardDate.getMonth() === currentDate.getMonth() &&
-      cardDate.getDate() === currentDate.getDate()
-    );
-  });
-  const doneCards = item.sort((a, b) => {
-    const timeA = timeStringToMs(a.time);
-    const timeB = timeStringToMs(b.time);
-    if (timeA < timeB) {
-      return -1;
-    } else if (timeA > timeB) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
+	const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
+	const [isOpenCreateCardForm, setIsOpenCreateCardForm] = React.useState(false);
 
-   function timeStringToMs(cards) {
-    const [hours, minutes] = cards.split('-');
-    const date = new Date();
-    date.setHours(hours);
-    date.setMinutes(minutes);
-    return date.getTime();
-   }
+	const doneCards = item.sort((a, b) => {
+		const dateA = a.date + " " + a.time;
+		const dateB = b.date + " " + b.time;
+		if (dateA < dateB) {
+			return -1;
+		} else if (dateA > dateB) {
+			return 1;
+		} else {
+			return 0;
+		}
+	});
 
-
-
-
-  return (
-    <List
-      sx={{ width: '100%', maxWidth: 1280 }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-    >
-      <ListItemButton onClick={handleClick}>
-        <ListItemText primary="Done" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-           <List component="ul" disablePadding className={styles.cardContainer}>
-              {doneCards.map(card => (
-                  <CardItem
-                     key={card._id}
-                     id={card._id}
-                     title={card.title}
-                     type={card.type}
-                     dueDate={card.date}
-                     dueTime={card.time}
-                     difficulty={card.difficulty}
-                     category={card.category}
-                     status={card.status}
-                  />
-               ))}
-              {/*<ListItemButton sx={{ pl: 5 }}>
-               <div className={styles.containerDone} >   
-               
-                    </div>
-              </ListItemButton>*/}
-        </List>
-      </Collapse>
-    </List>
-  );
+	return (
+		<List
+			sx={{ width: "100%", maxWidth: 1280 }}
+			component="nav"
+			aria-labelledby="nested-list-subheader"
+		>
+			<ListItemButton onClick={handleClick}>
+				<ListItemText primary="Done" />
+				{open ? <ExpandLess /> : <ExpandMore />}
+			</ListItemButton>
+			<Collapse in={open} timeout="auto" unmountOnExit>
+				<ul className={styles.cardContainer}>
+					{doneCards.map((card) => (
+						<CardItem
+							key={card._id}
+							id={card._id}
+							title={card.title}
+							type={card.type}
+							dueDate={card.date}
+							dueTime={card.time}
+							difficulty={card.difficulty}
+							category={card.category}
+							status={card.status}
+						/>
+					))}
+				</ul>
+			</Collapse>
+		</List>
+	);
 }
