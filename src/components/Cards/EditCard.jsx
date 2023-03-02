@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
 	useCompleteCardMutation,
 	useDeleteCardMutation,
@@ -8,8 +8,11 @@ import CardComplete from "../CardComplete/CardComplete";
 import Loader from "../../utils/loader/Loader";
 import Icon from "../Icon";
 import style from "./Cards.module.css";
+
 import DatePicker from "react-datepicker";
-import TimePicker from "react-time-picker";
+import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import moment from "moment/moment";
 
 function EditCard({
 	difficulty,
@@ -32,37 +35,14 @@ function EditCard({
 	const [selectedGroup, setSelectedGroup] = useState(category);
 	const [showDifficultyDropdown, setShowDifficultyDropdown] = useState(false);
 	const [showGroupDropdown, setShowGroupDropdown] = useState(false);
-	const [endDate, setEndDate] = useState(null);
 	const [isTask, setIsTask] = useState(type);
 	const [Challenge, setChallenge] = useState(isChallenge);
 	const [isCompleted, setIsCompleted] = useState(isDone);
-   const [changeDate, setChangeDate] =  useState(new Date());
-   const [changeTime, setChangeTime] = useState(dueTime);
-
-   const [startDate, setStartDate] = useState(new Date());
-   const [isOpen, setIsOpen] = useState(false);
-
-   //console.log("Change Date :" + changeDate)
-   //console.log("Change Time :" + changeTime)
-
-//const cardDate = new Date(changeDate);
-//console.log(cardDate.getFullYear());
-//console.log("month :" + cardDate.getMonth())
-//console.log(cardDate.getDate())
-//console.log(cardDate.getHours())
-//console.log(cardDate.getMinutes())
-
-
-const currentDate = new Date (changeDate);
-const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-const dateOnly = currentDate.toLocaleDateString('uk-UA', options);
-console.log("DATEONLY " + dateOnly)
-
-
-
+	const [startDate, setStartDate] = useState(new Date());
+	const [changeDate, setChangeDate] = useState(dueDate);
+	const [changeTime, setChangeTime] = useState(dueTime);
 
 	const handleSubmit = async (event) => {
-		event.preventDefault();
 		try {
 			const result = await editCard({
 				id,
@@ -70,8 +50,8 @@ console.log("DATEONLY " + dateOnly)
 				difficulty: selectedDifficulty,
 				category: selectedGroup,
 				type: isTask,
-            date:changeDate,
-            time:changeTime
+				time: changeTime,
+				date: changeDate,
 			});
 			console.log(result);
 			hideCard();
@@ -79,7 +59,6 @@ console.log("DATEONLY " + dateOnly)
 			console.log(err);
 		}
 	};
-
 	const handleInputChange = (event) => {
 		setTitle(event.target.value);
 	};
@@ -96,33 +75,31 @@ console.log("DATEONLY " + dateOnly)
 		setSelectedGroup(event.target.value);
 		setShowGroupDropdown(false);
 	};
-
 	const handleGroupClick = () => {
 		setShowGroupDropdown(!showGroupDropdown);
 	};
-
-	/////////
 	const handleCompleted = () => {
 		setIsCompleted(true);
 	};
 	const cancelComplete = () => {
 		setIsCompleted(false);
 	};
-
 	const handleChangeType = () => {
 		Challenge ? setIsTask("Task") : setIsTask("Challenge");
 		Challenge ? setChallenge(false) : setChallenge(true);
 	};
-   //Calendar
-   const handleChange = (e) =>{
-      setIsOpen(!isOpen);
-      setStartDate(e);
-   }
-   const handleBtnClick = (e) => {
-      e.preventDefault();
-      setIsOpen(!isOpen);
-   }
- 
+	//Calendar
+	useEffect(() => {
+		const hour = startDate.getHours();
+		const minute = startDate.getMinutes();
+		const time = moment({ hour, minute }).format("HH:mm");
+		setChangeTime(time);
+		const year = startDate.getFullYear();
+		const month = startDate.getMonth();
+		const day = startDate.getDate();
+		const newDate = moment({ year, month, day }).format("yyy-MM-DD");
+		setChangeDate(newDate);
+	}, [startDate]);
 
 	// Change date to string Today or Tomorrow
 	const today = new Date();
@@ -169,7 +146,7 @@ console.log("DATEONLY " + dateOnly)
 								size="3"
 							>
 								<option className={style.easy_list} value="Easy">
-									<div className={style.Easy}></div>Easy
+                           <li className={style.Easy}> Easy</li>
 								</option>
 								<option className={style.normal_list} value="Normal">
 									<li>Normal</li>
@@ -211,19 +188,21 @@ console.log("DATEONLY " + dateOnly)
 						className={isChallenge ? style.chalengeName : style.taskName}
 					/>
 					<div className={style.date}>
-                  <button className="style.dateInput"
-                           onClick={handleBtnClick}>
-                              {dueDate}
-                  </button>
-                  {isOpen && (
-                     <DatePicker 
-                        selected = {startDate} 
-                        onChange={handleChange} 
-                        inline />
-                  )}
-                  
-
-
+						<DatePicker
+							className={style.datePicker}
+							selected={startDate}
+							dropdownMode="select"
+							dateFormat="yyyy-MM-dd, HH:mm"
+							timeFormat="HH:mm"
+							timeIntervals="5"
+							showTimeSelect="true"
+							value={startDate}
+							withPortal
+							onChange={(date) => setStartDate(date)}
+						/>
+						<button className="example-custom-input">
+							<Icon name="calendar" color="#00D7FF" size={14} />
+						</button>
 					</div>
 				</div>
 				<div className={style.bottomContainer}>
