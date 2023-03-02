@@ -1,3 +1,17 @@
+.sectionCards{
+   margin: 0;
+}
+.cardList{
+   margin: 0;
+   padding: 0;
+}
+
+
+
+
+
+
+
 input {
   all: unset;
 }
@@ -13,9 +27,7 @@ select {
 .sectionCards {
   background-color: rgba(242, 243, 247, 1);
   color: black;
-   width: 1280px;
    margin: 0 auto;
-   padding: 0 71px 0 71px;
 }
 
 .cardList {
@@ -187,4 +199,7 @@ select {
   font-family: HelveticaNeueCyr;
   font-size: 14px;
   font-weight: 400;
+}
+.createContainer{
+
 }

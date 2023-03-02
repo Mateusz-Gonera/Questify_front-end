@@ -325,3 +325,14 @@ button {
    fill: currentColor;
    color: #3c863d;
 }
+.createBTN{
+   color: black;
+   text-transform: uppercase;
+}
+.createStyle{
+
+
+}
+.showCreateContainer{
+   display: flex;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
 	useCompleteCardMutation,
+	useCreateCardMutation,
 	useDeleteCardMutation,
 	useEditCardMutation,
 } from "../../redux/api/questifyApi";
@@ -24,7 +25,9 @@ function EditCard({
 	type,
 	id,
 	hideCard,
-	isDone = false,
+   isDone = false,
+   isShowCreate,
+   isCreateForm
 }) {
 	const [deleteCard] = useDeleteCardMutation();
 	const [editCard, { isLoading, error }] = useEditCardMutation();
@@ -117,13 +120,28 @@ function EditCard({
 				day: "numeric",
 			});
 		}
-	};
+   };
+   
+const [addCard] = useCreateCardMutation();
+   const handleCreateCard = () => {
+    const newCard = {
+      title: title,
+      difficulty: selectedDifficulty,
+       category: selectedGroup,
+      type:isTask,
+      date: changeDate,
+      time:changeTime,
+     };
+      addCard(newCard)
+     isCreateForm()
+ }
 
 	return (
-		<li>
+		<li className={isShowCreate ? style.createStyle : null}>
 			<div
 				className={Challenge ? style.challengeContainer : style.cardContainer}
-			>
+         >
+            
 				{isCompleted && (
 					<CardComplete
 						title={title}
@@ -146,7 +164,7 @@ function EditCard({
 								size="3"
 							>
 								<option className={style.easy_list} value="Easy">
-                           <li className={style.Easy}> Easy</li>
+									<li className={style.Easy}> Easy</li>
 								</option>
 								<option className={style.normal_list} value="Normal">
 									<li>Normal</li>
@@ -163,14 +181,14 @@ function EditCard({
 							<Icon
 								className={style.trophyIcon}
 								name="trophy"
-								color="#00d7ff"
+								color={isShowCreate ? "#B9C3C8" : "#00d7ff"}
 								size={15}
 							/>
 						) : (
 							<Icon
 								className={style.starIcon}
 								name="Star"
-								color="#00d7ff"
+								color={isShowCreate ? "#B9C3C8" : "#00d7ff"}
 								size={15}
 							/>
 						)}
@@ -204,8 +222,8 @@ function EditCard({
 							<Icon name="calendar" color="#00D7FF" size={14} />
 						</button>
 					</div>
-				</div>
-				<div className={style.bottomContainer}>
+            </div>
+            <div className={style.bottomContainer}>
 					<div className={style[selectedGroup]} onClick={handleGroupClick}>
 						{selectedGroup}
 						{showGroupDropdown && (
@@ -224,7 +242,29 @@ function EditCard({
 							</select>
 						)}
 					</div>
-					<div className={style.btnContainer}>
+               {isShowCreate ? (
+                  <div className={style.showCreateContainer}>
+                     <button onClick={isCreateForm} className={style.cancel}>
+                        <Icon
+								className={style.clearIcon}
+								name="clear"
+								color="#DB0837"
+								size={10}
+							/>
+                  </button>
+                  <button
+                  type="button"
+                  onClick={handleCreateCard}
+                  >
+                  <span className={style.createBTN}>Start</span>
+                  </button>
+                  </div>
+                  
+               
+               
+
+            ) : (
+            <div className={style.btnContainer}>
 						<button onClick={handleCompleted}>
 							<Icon
 								className={style.doneIcon}
@@ -256,7 +296,11 @@ function EditCard({
 							)}
 						</button>
 					</div>
+            )}
 				</div>
+            
+				
+            
 			</div>
 		</li>
 	);
