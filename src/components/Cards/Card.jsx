@@ -16,7 +16,7 @@ function Card({
 }) {
 	const { isChallenge } = getCardsType(type);
 	const { isDone } = getCardsStatus(status);
-
+  
 	const [edit, setEdit] = useState(false);
 	const [isDelete, setIsDelete] = useState(false);
 
@@ -28,7 +28,9 @@ function Card({
 		} else if (!isDone) {
 			setEdit(true);
 		}
-	}
+   }
+   
+
 	return edit ? (
 		<EditCard
 			id={id}
@@ -41,7 +43,6 @@ function Card({
          category={category}
          status={status}
 			hideCard={() => setEdit(false)}
-
 		/>
 	) : (
 		<div onClick={cardClick}>

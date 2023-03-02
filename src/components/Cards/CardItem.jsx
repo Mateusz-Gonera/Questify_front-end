@@ -8,8 +8,6 @@ function CardItem({
    dueDate,
    dueTime,
    isChallenge,
-   dateDone,
-   status,
 }) {
   const today = new Date();
   const tomorrow = new Date(today);
