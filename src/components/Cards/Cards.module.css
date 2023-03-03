@@ -29,6 +29,7 @@
   padding: 0 21px;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 .Easy {
   height: 8px;
@@ -112,7 +113,6 @@
   font-weight: 400;
 }
 .chalengeName {
-   width: 90%; 
   font-size: 16px;
   font-weight: 700;
   display: flex;
@@ -120,18 +120,37 @@
   text-align: center;
   color: rgba(255, 255, 255, 1);
   margin: 0 auto;
-  border: 0px;
+
 }
+.formTitle{
+font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #B9C3C8;
+}
+
 .taskName {
    width: 90%;
    display: flex;
    justify-content: center;
-   font-weight: bold;
+   font-weight: 700;
    text-align: center;
-   margin: 42px auto 5px;
+   margin-top: 6px;
    color: black;
    font-size: 16px;
-   border: 0px;
+
+}
+
+.taskName:focus{
+  border-bottom: 1px solid #00D7FF;
+}
+.taskName:hover {
+  border-bottom: 1px solid #00D7FF;
+}
+#placeholder{
+  font-size: 5px;
 }
 .Stuff {
   background-color: #b9c3c8;
@@ -240,28 +259,32 @@
   margin: 0;
   border: 0px;
   display: flex;
+  align-items: center;
 }
+
+
 .datePicker{
    font-size: 15px;
    font-weight: 300px;
 
 }
 .difficultyDropdown {
+  z-index: 2;
   width: 80px;
   height: 90px;
   position: absolute;
   top: -10%;
   left: 0;
-  overflow: hidden;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   border: 0px;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 400;
-  padding-left: 12px;
-  padding-top: 14px;
+  padding:12px 10px;
   border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.05), 3px 4px 4px rgba(21, 57, 90, 0.05);
 }
 .difficultyDropdown_category {
   width: 110px;
@@ -279,6 +302,7 @@
   padding-left: 12px;
   padding-top: 9px;
   border-radius: 10px;
+
 }
 .bottomContainer{
    display: flex;
@@ -326,13 +350,27 @@ button {
    color: #3c863d;
 }
 .createBTN{
-   color: black;
-   text-transform: uppercase;
+  padding-left:7px;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: right;
+  letter-spacing: 0.02em;
+  color: #00D7FF;
+  border-left: 1px solid #B9C3C8;
 }
+
+.cancel{
+  padding-right: 7px;
+}
+
 .createStyle{
 
 
 }
 .showCreateContainer{
-   display: flex;
+  display: flex;
+  position: absolute;
+  bottom: 26px;
+  right: 21px;
 }

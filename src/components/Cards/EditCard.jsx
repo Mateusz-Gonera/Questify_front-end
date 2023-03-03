@@ -198,13 +198,16 @@ const [addCard] = useCreateCardMutation();
 					{Challenge && (
 						<button className={style.isChallenge}>Challenge</button>
 					)}
-
-					<input
+					<form className={style.formTitle}>CREATE NEW QUEST
+						<input
 						type="text"
+				        placeholder="Task title"
 						value={title}
 						onChange={handleInputChange}
 						className={isChallenge ? style.chalengeName : style.taskName}
-					/>
+						/>
+					</form>
+					
 					<div className={style.date}>
 						<DatePicker
 							className={style.datePicker}
@@ -218,7 +221,7 @@ const [addCard] = useCreateCardMutation();
 							withPortal
 							onChange={(date) => setStartDate(date)}
 						/>
-						<button className="example-custom-input">
+						<button>
 							<Icon name="calendar" color="#00D7FF" size={14} />
 						</button>
 					</div>
