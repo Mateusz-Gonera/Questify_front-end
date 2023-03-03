@@ -195,16 +195,17 @@ const [addCard] = useCreateCardMutation();
 					</button>
 				</div>
 				<div className={style.titleContainer}>
-					{Challenge && (
-						<button className={style.isChallenge}>Challenge</button>
-					)}
-					<form className={style.formTitle}>CREATE NEW QUEST
+					
+					<form>
+						{Challenge ? (<button className={style.isChallenge}>Challenge</button>)
+							:
+						(<p className={style.isTask}>CREATE NEW QUEST</p>)}
 						<input
 						type="text"
 				        placeholder="Task title"
 						value={title}
 						onChange={handleInputChange}
-						className={isChallenge ? style.chalengeName : style.taskName}
+						className={Challenge ? style.chalengeName : style.taskName}
 						/>
 					</form>
 					
