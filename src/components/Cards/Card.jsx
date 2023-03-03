@@ -3,7 +3,7 @@ import { getCardsType } from "./ChallengeCard";
 import EditCard from "./EditCard";
 import { getCardsStatus } from "./isDone";
 import CardItem from "./CardItem";
-
+import style from "./Cards.module.css";
 function Card({
 	id,
 	difficulty,
@@ -31,7 +31,8 @@ function Card({
    }
    
 
-	return edit ? (
+   return edit ? (
+   <li className={style.liItem}> 
 		<EditCard
 			id={id}
 			isChallenge={isChallenge}
@@ -43,9 +44,10 @@ function Card({
          category={category}
          status={status}
 			hideCard={() => setEdit(false)}
-		/>
+         />
+      </li>
 	) : (
-		<div onClick={cardClick}>
+		<li onClick={cardClick} className={style.liItem}>
 			<CardItem
 				id={id}
 				title={title}
@@ -56,7 +58,7 @@ function Card({
 				category={category}
 				isChallenge={isChallenge}
 			/>
-		</div>
+		</li>
 	);
 }
 export default Card;

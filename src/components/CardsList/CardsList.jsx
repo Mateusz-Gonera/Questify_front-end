@@ -15,7 +15,7 @@ const CardsList = ({ cards }) => {
   // CardsSorted
   const inCompletedCards = cards.filter((card) => card.status === "Incomplete");
   const CompletedCards = cards.filter((card) => card.status === "Complete");
- const [isTrue, setIsTrue] = useState( )
+
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
@@ -67,37 +67,40 @@ const CardsList = ({ cards }) => {
       return 0;
     }
   });
+  ///////////// Lisata Done
+ 
 
   function timeStringToMs(cards) {
-    const [hours, minutes] = cards.split("-");
+    const [hours, minutes] = cards.split(":");
     const date = new Date();
     date.setHours(hours);
     date.setMinutes(minutes);
     return date.getTime();
   }
 
-
   return (
     <>
+  
       <div className={style.sectionCards}>
         <div className={style.listContainer}>
-          <h4>TODAY</h4>
+          <h4 className={style.dayTitle}>TODAY</h4>
           <ul className={style.cardList}>
-              {isOpenCreateCardForm && (
-                <div className={style.createContainer}>
-                  <EditCard
-                     id={15}
-                     isChallenge={false}
-                     title={"Create Title"}
-                     dueDate={currentDate}
-                     dueTime={"15:15"}
-                     type={"Task"}
-                     difficulty={"Easy"}
-                     category={"Family"}
-                     isShowCreate={true}
-                     isCreateForm={() => setIsOpenCreateCardForm(false)} />
-                </div>
-              )}
+            {isOpenCreateCardForm && (
+              <div className={style.createContainer}>
+                <EditCard
+                  id={15}
+                  isChallenge={false}
+                  title={"Create Title"}
+                  dueDate={currentDate}
+                  dueTime={"15:15"}
+                  type={"Task"}
+                  difficulty={"Easy"}
+                  category={"Family"}
+                  isShowCreate={true}
+                  isCreateForm={() => setIsOpenCreateCardForm(false)}
+                />
+              </div>
+            )}
             {todayCards.map((card) => (
               <Card
                 key={card._id}
@@ -114,7 +117,7 @@ const CardsList = ({ cards }) => {
           </ul>
         </div>
         <div className={style.listContainer}>
-          <h4>TOMORROW </h4>
+          <h4 className={style.dayTitle} >TOMORROW </h4>
           <ul className={style.cardList}>
             {tomorrowCards.map((card) => (
               <Card
@@ -140,6 +143,7 @@ const CardsList = ({ cards }) => {
             </IconButton>
           </div>
         </div>
+
         <DoneList item={CompletedCards} />
       </div>
     </>

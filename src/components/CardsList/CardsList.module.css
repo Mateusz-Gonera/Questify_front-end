@@ -5,7 +5,15 @@
    margin: 0;
    padding: 0;
 }
-
+.cardList {
+   display: flex;
+   gap: 28px;
+   flex-wrap: wrap;
+}
+.dayTitle{
+   margin-top: 30px;
+   margin-bottom: 20px;
+}
 
 
 

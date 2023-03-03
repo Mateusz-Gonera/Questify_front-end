@@ -68,9 +68,12 @@ function CardItem({
                  {isChallenge && 'by '}
                  {formatDate(new Date(dueDate))} , {dueTime}{' '}
           </h5>
-        </div>
+           </div>
+           <div className={style.bottomContainer}> 
+              <div className={style[category]}>{category}</div>
+           </div>
 
-        <div className={style[category]}>{category}</div>
+        
       </div>
     </li>
   );
