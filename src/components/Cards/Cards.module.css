@@ -120,9 +120,10 @@
   font-weight: bold;
   text-align: center;
   margin: 42px auto 5px;
-  color: black;
+  color: rgba(40, 40, 40, 1);
   font-size: 16px;
   border: 0px;
+  
 }
 .date {
    color: rgba(185, 195, 200, 1);

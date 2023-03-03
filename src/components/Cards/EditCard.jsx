@@ -137,7 +137,7 @@ function EditCard({
   };
 
   return (
-    <li className={isShowCreate ? style.createStyle : null}>
+    <div className={isShowCreate ? style.createStyle : null}>
       <div
         className={Challenge ? style.challengeContainer : style.cardContainer}
       >
@@ -292,7 +292,7 @@ function EditCard({
           )}
         </div>
       </div>
-    </li>
+    </div>
   );
 }
 

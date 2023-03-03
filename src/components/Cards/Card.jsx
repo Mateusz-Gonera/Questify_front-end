@@ -32,7 +32,7 @@ function Card({
    
 
    return edit ? (
-   <li className={style.liItem}> 
+   <div className={style.liItem}> 
 		<EditCard
 			id={id}
 			isChallenge={isChallenge}
@@ -45,9 +45,9 @@ function Card({
          status={status}
 			hideCard={() => setEdit(false)}
          />
-      </li>
+      </div>
 	) : (
-		<li onClick={cardClick} className={style.liItem}>
+		<div onClick={cardClick} className={style.liItem}>
 			<CardItem
 				id={id}
 				title={title}
@@ -58,7 +58,7 @@ function Card({
 				category={category}
 				isChallenge={isChallenge}
 			/>
-		</li>
+		</div>
 	);
 }
 export default Card;
