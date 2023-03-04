@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../../utils/hooks/useAuth";
 import { useLogoutMutation } from "../../redux/api/questifyApi";
 import ChallengeIcon from "../../assets/header/challengeIcon.svg";
-import Trophy from "../../assets/header/challenge_icon_not_active.png";
+import Trophy from "../../assets/header/trophy1.svg";
 import img from "../../assets/header/trophy.svg";
 import Logout from "../../assets/header/logout.svg";
 import { useGetAllCardsQuery } from "../../redux/api/questifyApi";
