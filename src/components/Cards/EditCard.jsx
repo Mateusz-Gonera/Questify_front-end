@@ -14,6 +14,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
 import moment from "moment/moment";
+import { DeleteModal } from "../deleteModal/DeleteModal";
 
 function EditCard({
   difficulty,
@@ -271,6 +272,7 @@ function EditCard({
                 )}
               </button>
               <div className={style.btnEdit}> </div>
+              <DeleteModal/>
               <button onClick={() => deleteCard(id)}>
                 <Icon
                   className={style.clearIcon}
