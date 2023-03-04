@@ -200,13 +200,13 @@ function EditCard({
 						{Challenge ? (<button className={style.isChallenge}>Challenge</button>)
 							:
 						(<p className={style.isTask}>CREATE NEW QUEST</p>)}
-						<input
-						type="text"
-				      placeholder="Task title"
-						value={title}
-						onChange={handleInputChange}
-						className={Challenge ? style.chalengeName : style.taskName}
-						/>
+                     <input
+                        type="text"
+                        placeholder="Task title"
+                        value={title}
+                        onChange={handleInputChange}
+                        className={Challenge ? style.chalengeName : style.taskName}
+                     />
 					</form>
 					
 					<div className={style.date}>
