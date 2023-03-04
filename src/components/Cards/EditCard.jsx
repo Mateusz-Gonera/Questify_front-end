@@ -176,7 +176,7 @@ const [addCard] = useCreateCardMutation();
 						)}
 					</div>
 
-					<button onClick={handleChangeType}>
+					<button className={style.starIcon} onClick={handleChangeType}>
 						{Challenge ? (
 							<Icon
 								className={style.trophyIcon}
@@ -223,7 +223,7 @@ const [addCard] = useCreateCardMutation();
 							onChange={(date) => setStartDate(date)}
 						/>
 						<button>
-							<Icon name="calendar" color="#00D7FF" size={14} />
+							<Icon name="calendar" color="#00D7FF" size={14} className={ style.calendarIcon} />
 						</button>
 					</div>
             </div>
