@@ -2,7 +2,7 @@ import style from "../navBar/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../utils/hooks/useAuth";
 import { useLogoutMutation } from "../../redux/api/questifyApi";
-import ChallengeIcon from "../../assets/header/challengeIcon.svg";
+import ChallengeIcon from "../../assets/header/challengeIcon1.svg";
 import Trophy from "../../assets/header/trophy1.svg";
 import img from "../../assets/header/trophy.svg";
 import Logout from "../../assets/header/logout.svg";

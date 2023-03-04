@@ -15,20 +15,18 @@
   justify-content: space-around;
 }
 
-.trophyBg {
-  background-color: #7b8aa4;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  width: 30px;
-  height: 30px;
-}
-
 .trophyIcon {
   width: 30px;
   height: 30px;
   margin-right: 38px;
+}
+
+.challengeIcon {
+  margin-right: 38px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 215, 255, 1);
+  -moz-box-shadow: 0px 0px 9px -1px rgba(0, 215, 255, 1);
+  box-shadow: 0px 0px 9px -1px rgba(0, 215, 255, 1);
 }
 
 .userMenu {
@@ -66,6 +64,11 @@
   }
 
   .trophyIcon {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .challengeIcon {
     margin-right: 10px;
     margin-left: 10px;
   }
@@ -110,10 +113,6 @@
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-  }
-
-  .challengeIcon {
-    margin-right: 20px;
   }
 
   .trophyBg {
