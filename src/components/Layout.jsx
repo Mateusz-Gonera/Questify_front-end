@@ -7,7 +7,7 @@ import Loader from "../utils/loader/Loader";
 export const Layout = () => {
 	return (
 		<>
-			<Suspense fallback={null}>
+			<Suspense fallback={<Loader/>}>
 				<Outlet />
 			</Suspense>
 			<ToastContainer autoClose={3000} />

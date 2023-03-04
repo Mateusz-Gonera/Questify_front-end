@@ -6,6 +6,11 @@
   align-items: center;
   letter-spacing: 0.02em;
   color: #00d7ff;
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+}
+
+.logo:hover{
+  color: #ffffff;
 }
 
 .navWrapper {
@@ -58,6 +63,10 @@
 .logoutIcon {
   width: 21.58px;
   height: 16.05px;
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+}
+.logoutIcon:hover {
+      scale: 150%;
 }
 
 @media screen and (max-width: 480px) {

@@ -72,14 +72,27 @@
   margin: 0;
   padding: 0;
 }
+
 .starIcon {
-  filter: drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25));
+   filter: drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25));
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
 }
 
-.trophyIcon {
-  filter: drop-shadow(0px 4px 4px rgba(0, 215, 255, 0.25));
+.starIcon:focus {
+  outline: none;
+  border: none;
 }
-.trophyIcon,
+.trophyIcon {
+   filter: drop-shadow(0px 4px 4px rgba(0, 215, 255, 0.25));
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+}
+
+
+.trophyIcon:hover {
+   fill: currentColor;
+  color: rgba(0, 215, 255, 0.25);
+}
+
 .starIcon:hover {
   fill: currentColor;
   color: rgba(0, 215, 255, 0.25);
@@ -97,6 +110,7 @@
   font-size: 12px;
   color: rgba(185, 195, 200, 1);
   margin-bottom: 10px;
+  margin-top: 20px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2%;
@@ -111,9 +125,41 @@
   text-align: center;
   color: rgba(255, 255, 255, 1);
   margin: 0 auto;
-  border: 0px;
+
 }
+.isTask{
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #B9C3C8;
+  margin-top: 20px;
+  
+}
+
 .taskName {
+   width: 90%;
+   display: flex;
+   justify-content: center;
+   font-weight: 700;
+   text-align: center;
+   margin-top: 6px;
+   color: black;
+   font-size: 16px;
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+
+}
+
+.taskName:focus{
+  border-bottom: 1px solid #00D7FF;
+}
+.taskName:hover {
+  border-bottom: 1px solid #00D7FF;
+}
+.calendarIcon{
+  margin-right: 20px;
+  margin-left: -7px;
   width: 90%;
   display: flex;
   justify-content: center;
@@ -155,6 +201,9 @@
 .Learning,
 .Leisure,
 .Work {
+
+.Stuff {
+  background-color: #b9c3c8;
   width: 88px;
   height: 25px;
   margin: 0;
@@ -186,17 +235,42 @@
 .Work {
   background-color: rgba(211, 246, 206, 1);
 }
+.date {
+  color: rgba(185, 195, 200, 1);
+  margin: 0;
+  border: 0px;
+  display: flex;
+  align-items: center;
+}
 
 
+.datePicker{
+   font-size: 14px;
 
 .difficultyDropdown {
+  z-index: 2;
+  width: 80px;
+  height: 90px;
   display: block;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 88px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 0;
-  z-index: 1;
+  top: -10%;
+  left: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0px;
+  font-size: 11px;
+  font-weight: 400;
+  padding:12px 10px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.05), 3px 4px 4px rgba(21, 57, 90, 0.05);
+}
+.difficultyDropdown_category {
+  width: 110px;
+  height: 90px;
+  position: absolute;
+  bottom: 50%;
   left: 0;
   overflow: hidden;
   appearance: none;
@@ -204,6 +278,10 @@
   -moz-appearance: none;
   border: 0px;
   border-radius: 10px;
+}
+.bottomContainer{
+   display: flex;
+
 }
 
 .btnContainer {
@@ -231,6 +309,10 @@ button {
   fill: currentColor;
   color: #3f93b7;
 }
+.clearIcon{
+    transition: all .5s cubic-bezier(.4, 0, .2, 1);
+}
+
 .clearIcon:hover {
   fill: currentColor;
   color: #c2273f;
@@ -250,13 +332,37 @@ button {
   fill: currentColor;
   color: #3c863d;
 }
+.createBTN{
+  padding-left:7px;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: right;
+  letter-spacing: 0.02em;
+  color: #00D7FF;
+  border-left: 1px solid #B9C3C8;
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
 .createBTN {
   color: black;
   text-transform: uppercase;
 }
 
-.showCreateContainer {
+.createBTN:hover{
+  color: #4da5f2;
+}
+.cancel{
+  padding-right: 7px;
+}
+
+/* .createStyle{
+
+
+} */
+.showCreateContainer{
   display: flex;
+  position: absolute;
+  bottom: 26px;
+  right: 21px;
 }
 
 .liItem {

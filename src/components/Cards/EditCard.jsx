@@ -176,88 +176,98 @@ function EditCard({
             )}
           </div>
 
-          <button onClick={handleChangeType}>
-            {Challenge ? (
-              <Icon
-                className={style.trophyIcon}
-                name="trophy"
-                color={isShowCreate ? "#B9C3C8" : "#00d7ff"}
-                size={15}
-              />
-            ) : (
-              <Icon
-                className={style.starIcon}
-                name="Star"
-                color={isShowCreate ? "#B9C3C8" : "#00d7ff"}
-                size={15}
-              />
-            )}
-          </button>
-        </div>
-        <div className={style.titleContainer}>
-          {Challenge && (
-            <button className={style.isChallenge}>Challenge</button>
-          )}
-
-          <input
-            type="text"
-            value={title}
-            onChange={handleInputChange}
-            className={isChallenge ? style.chalengeName : style.taskName}
-          />
-          <div className={style.date}>
-            <DatePicker
-              className={style.datePicker}
-              selected={startDate}
-              dropdownMode="select"
-              dateFormat="yyyy-MM-dd, HH:mm"
-              timeFormat="HH:mm"
-              timeIntervals="5"
-              showTimeSelect="true"
-              value={startDate}
-              withPortal
-              onChange={(date) => setStartDate(date)}
-            />
-            <button className="example-custom-input">
-              <Icon name="calendar" color="#00D7FF" size={14} />
-            </button>
-          </div>
-        </div>
-        <div className={style.bottomContainer}>
-          <div className={style[selectedGroup]} onClick={handleGroupClick}>
-            {selectedGroup}
-            {showGroupDropdown && (
-              <select
-                className={style.difficultyDropdown}
-                value={selectedGroup}
-                onChange={handleGroupChange}
-                size="6"
-              >
-                <option value="Stuff">Stuff</option>
-                <option value="Family">Family</option>
-                <option value="Health">Health</option>
-                <option value="Learning">Learning</option>
-                <option value="Leisure">Leisure</option>
-                <option value="Work">Work</option>
-              </select>
-            )}
-          </div>
-          {isShowCreate ? (
-            <div className={style.showCreateContainer}>
-              <button onClick={isCreateForm} className={style.cancel}>
-                <Icon
-                  className={style.clearIcon}
-                  name="clear"
-                  color="#DB0837"
-                  size={10}
-                />
-              </button>
-
-              <button type="button" onClick={handleCreateCard}>
-                <span className={style.createBTN}>Start</span>
-              </button>
+					<button className={style.starIcon} onClick={handleChangeType}>
+						{Challenge ? (
+							<Icon
+								className={style.trophyIcon}
+								name="trophy"
+								color={isShowCreate ? "#B9C3C8" : "#00d7ff"}
+								size={15}
+							/>
+						) : (
+							<Icon
+								className={style.starIcon}
+								name="Star"
+								color={isShowCreate ? "#B9C3C8" : "#00d7ff"}
+								size={15}
+							/>
+						)}
+					</button>
+				</div>
+				<div className={style.titleContainer}>
+					
+					<form>
+						{Challenge ? (<button className={style.isChallenge}>Challenge</button>)
+							:
+						(<p className={style.isTask}>CREATE NEW QUEST</p>)}
+						<input
+						type="text"
+				        placeholder="Task title"
+						value={title}
+						onChange={handleInputChange}
+						className={Challenge ? style.chalengeName : style.taskName}
+						/>
+					</form>
+					
+					<div className={style.date}>
+						<DatePicker
+							className={style.datePicker}
+							selected={startDate}
+							dropdownMode="select"
+							dateFormat="yyyy-MM-dd, HH:mm"
+							timeFormat="HH:mm"
+							timeIntervals="5"
+							showTimeSelect="true"
+							value={startDate}
+							withPortal
+							onChange={(date) => setStartDate(date)}
+						/>
+						<button>
+							<Icon name="calendar" color="#00D7FF" size={14} className={ style.calendarIcon} />
+						</button>
+					</div>
             </div>
-          ) : (
+            <div className={style.bottomContainer}>
+					<div className={style[selectedGroup]} onClick={handleGroupClick}>
+						{selectedGroup}
+						{showGroupDropdown && (
+							<select
+								className={style.difficultyDropdown}
+								value={selectedGroup}
+								onChange={handleGroupChange}
+								size="6"
+							>
+								<option value="Stuff">Stuff</option>
+								<option value="Family">Family</option>
+								<option value="Health">Health</option>
+								<option value="Learning">Learning</option>
+								<option value="Leisure">Leisure</option>
+								<option value="Work">Work</option>
+							</select>
+						)}
+					</div>
+               {isShowCreate ? (
+                  <div className={style.showCreateContainer}>
+                     <button onClick={isCreateForm} className={style.cancel}>
+                        <Icon
+								className={style.clearIcon}
+								name="clear"
+								color="#DB0837"
+								size={10}
+							/>
+                  </button>
+                  <button
+                  type="button"
+                  onClick={handleCreateCard}
+                  >
+                  <span className={style.createBTN}>Start</span>
+                  </button>
+                  </div>
+                  
+               
+               
+
+            ) : (
             <div className={style.btnContainer}>
               <button type="submit" disabled={isLoading} onClick={handleSubmit}>
                 {isLoading ? (
