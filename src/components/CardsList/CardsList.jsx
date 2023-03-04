@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import DoneList from "../Cards/CardsDone";
 import EditCard from "../Cards/EditCard";
+import True from "../Cards/True";
 
 const CardsList = ({ cards }) => {
   // Create newCard
@@ -15,7 +16,7 @@ const CardsList = ({ cards }) => {
   // CardsSorted
   const inCompletedCards = cards.filter((card) => card.status === "Incomplete");
   const CompletedCards = cards.filter((card) => card.status === "Complete");
- const [isTrue, setIsTrue] = useState( )
+  const [isTrue, setIsTrue] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
@@ -67,37 +68,47 @@ const CardsList = ({ cards }) => {
       return 0;
     }
   });
+  ///////////// Lisata Done
+// useEffect(() => {
+//    cards.forEach((el) => {
+//      const cTitle = el.title.toLowerCase();
+//      if (cTitle.includes("cucumber")) {
+//        setIsTrue(true);
+//      }
+//    });
+//  });
 
   function timeStringToMs(cards) {
-    const [hours, minutes] = cards.split("-");
+    const [hours, minutes] = cards.split(":");
     const date = new Date();
     date.setHours(hours);
     date.setMinutes(minutes);
     return date.getTime();
   }
 
-
   return (
     <>
+  {isTrue && <True />}
       <div className={style.sectionCards}>
         <div className={style.listContainer}>
-          <h4>TODAY</h4>
-          <ul className={style.cardList}>
-              {isOpenCreateCardForm && (
-                <div className={style.createContainer}>
-                  <EditCard
-                     id={15}
-                     isChallenge={false}
-                     title={"Create Title"}
-                     dueDate={currentDate}
-                     dueTime={"15:15"}
-                     type={"Task"}
-                     difficulty={"Easy"}
-                     category={"Family"}
-                     isShowCreate={true}
-                     isCreateForm={() => setIsOpenCreateCardForm(false)} />
-                </div>
-              )}
+          <h4 className={style.dayTitle}>TODAY</h4>
+          <div className={style.cardList}>
+            {isOpenCreateCardForm && (
+              <div className={style.createContainer}>
+                <EditCard
+                  id={15}
+                  isChallenge={false}
+                  title={"Create Title"}
+                  dueDate={currentDate}
+                  dueTime={"15:15"}
+                  type={"Task"}
+                  difficulty={"Easy"}
+                  category={"Family"}
+                  isShowCreate={true}
+                  isCreateForm={() => setIsOpenCreateCardForm(false)}
+                />
+              </div>
+            )}
             {todayCards.map((card) => (
               <Card
                 key={card._id}
@@ -111,10 +122,10 @@ const CardsList = ({ cards }) => {
                 status={card.status}
               />
             ))}
-          </ul>
+          </div>
         </div>
         <div className={style.listContainer}>
-          <h4>TOMORROW </h4>
+          <h4 className={style.dayTitle} >TOMORROW </h4>
           <ul className={style.cardList}>
             {tomorrowCards.map((card) => (
               <Card
@@ -140,6 +151,7 @@ const CardsList = ({ cards }) => {
             </IconButton>
           </div>
         </div>
+
         <DoneList item={CompletedCards} />
       </div>
     </>

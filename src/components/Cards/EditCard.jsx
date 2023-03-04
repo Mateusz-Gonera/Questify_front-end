@@ -25,9 +25,9 @@ function EditCard({
 	type,
 	id,
 	hideCard,
-   isDone = false,
-   isShowCreate,
-   isCreateForm
+	isDone = false,
+	isShowCreate,
+	isCreateForm,
 }) {
 	const [deleteCard] = useDeleteCardMutation();
 	const [editCard, { isLoading, error }] = useEditCardMutation();
@@ -120,28 +120,27 @@ function EditCard({
 				day: "numeric",
 			});
 		}
-   };
-   
-const [addCard] = useCreateCardMutation();
-   const handleCreateCard = () => {
-    const newCard = {
-      title: title,
-      difficulty: selectedDifficulty,
-       category: selectedGroup,
-      type:isTask,
-      date: changeDate,
-      time:changeTime,
-     };
-      addCard(newCard)
-     isCreateForm()
- }
+	};
+
+	const [addCard] = useCreateCardMutation();
+	const handleCreateCard = () => {
+		const newCard = {
+			title: title,
+			difficulty: selectedDifficulty,
+			category: selectedGroup,
+			type: isTask,
+			date: changeDate,
+			time: changeTime,
+		};
+		addCard(newCard);
+		isCreateForm();
+	};
 
 	return (
-		<li className={isShowCreate ? style.createStyle : null}>
+		<div className={isShowCreate ? style.createStyle : null}>
 			<div
 				className={Challenge ? style.challengeContainer : style.cardContainer}
-         >
-            
+			>
 				{isCompleted && (
 					<CardComplete
 						title={title}
@@ -195,20 +194,20 @@ const [addCard] = useCreateCardMutation();
 					</button>
 				</div>
 				<div className={style.titleContainer}>
-					
 					<form>
-						{Challenge ? (<button className={style.isChallenge}>Challenge</button>)
-							:
-						(<p className={style.isTask}>CREATE NEW QUEST</p>)}
+						{Challenge ? (
+							<button className={style.isChallenge}>Challenge</button>
+						) : (
+							<p className={style.isTask}>CREATE NEW QUEST</p>
+						)}
 						<input
-						type="text"
-				        placeholder="Task title"
-						value={title}
-						onChange={handleInputChange}
-						className={Challenge ? style.chalengeName : style.taskName}
+							type="text"
+							placeholder="Task title"
+							value={title}
+							onChange={handleInputChange}
+							className={Challenge ? style.chalengeName : style.taskName}
 						/>
 					</form>
-					
 					<div className={style.date}>
 						<DatePicker
 							className={style.datePicker}
@@ -222,12 +221,12 @@ const [addCard] = useCreateCardMutation();
 							withPortal
 							onChange={(date) => setStartDate(date)}
 						/>
-						<button>
-							<Icon name="calendar" color="#00D7FF" size={14} className={ style.calendarIcon} />
+						<button className="example-custom-input">
+							<Icon name="calendar" color="#00D7FF" size={14} />
 						</button>
 					</div>
-            </div>
-            <div className={style.bottomContainer}>
+				</div>
+				<div className={style.bottomContainer}>
 					<div className={style[selectedGroup]} onClick={handleGroupClick}>
 						{selectedGroup}
 						{showGroupDropdown && (
@@ -246,67 +245,58 @@ const [addCard] = useCreateCardMutation();
 							</select>
 						)}
 					</div>
-               {isShowCreate ? (
-                  <div className={style.showCreateContainer}>
-                     <button onClick={isCreateForm} className={style.cancel}>
-                        <Icon
-								className={style.clearIcon}
-								name="clear"
-								color="#DB0837"
-								size={10}
-							/>
-                  </button>
-                  <button
-                  type="button"
-                  onClick={handleCreateCard}
-                  >
-                  <span className={style.createBTN}>Start</span>
-                  </button>
-                  </div>
-                  
-               
-               
-
-            ) : (
-            <div className={style.btnContainer}>
-						<button onClick={handleCompleted}>
-							<Icon
-								className={style.doneIcon}
-								name="done"
-								color="#24d40c"
-								size={14}
-							/>
-						</button>
-
-						<button onClick={() => deleteCard(id)}>
-							<Icon
-								className={style.clearIcon}
-								name="clear"
-								color="#DB0837"
-								size={10}
-							/>
-						</button>
-
-						<button type="submit" disabled={isLoading} onClick={handleSubmit}>
-							{isLoading ? (
-								<Loader />
-							) : (
+					{isShowCreate ? (
+						<div className={style.showCreateContainer}>
+							<button onClick={isCreateForm} className={style.cancel}>
 								<Icon
-									className={style.saveIcon}
-									name="save"
-									color="#00d7ff"
+									className={style.clearIcon}
+									name="clear"
+									color="#DB0837"
 									size={10}
 								/>
-							)}
-						</button>
-					</div>
-            )}
+							</button>
+
+							<button type="button" onClick={handleCreateCard}>
+								<span className={style.createBTN}>Start</span>
+							</button>
+						</div>
+					) : (
+						<div className={style.btnContainer}>
+							<button type="submit" disabled={isLoading} onClick={handleSubmit}>
+								{isLoading ? (
+									<Loader />
+								) : (
+									<Icon
+										className={style.saveIcon}
+										name="save"
+										color="#00d7ff"
+										size={10}
+									/>
+								)}
+							</button>
+							<div className={style.btnEdit}> </div>
+							<button onClick={() => deleteCard(id)}>
+								<Icon
+									className={style.clearIcon}
+									name="clear"
+									color="#DB0837"
+									size={10}
+								/>
+							</button>
+							<div className={style.btnEdit}> </div>
+							<button onClick={handleCompleted}>
+								<Icon
+									className={style.doneIcon}
+									name="done"
+									color="#24d40c"
+									size={14}
+								/>
+							</button>
+						</div>
+					)}
 				</div>
-            
-				
-            
 			</div>
-		</li>
+		</div>
 	);
 }
 
