@@ -1,4 +1,4 @@
-import styles from ".deleteModal.module.css";
+import styles from "./deleteModal.module.css";
 
 const DeleteModal = ({ closeMod, deleteMod, handle }) => {
     const { id } = handle;

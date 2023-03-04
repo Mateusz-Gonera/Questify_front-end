@@ -202,7 +202,7 @@ function EditCard({
 						(<p className={style.isTask}>CREATE NEW QUEST</p>)}
 						<input
 						type="text"
-				        placeholder="Task title"
+				      placeholder="Task title"
 						value={title}
 						onChange={handleInputChange}
 						className={Challenge ? style.chalengeName : style.taskName}
@@ -282,7 +282,7 @@ function EditCard({
                 )}
               </button>
               <div className={style.btnEdit}> </div>
-              <DeleteModal/>
+              {/*<DeleteModal/>*/}
               <button onClick={() => deleteCard(id)}>
                 <Icon
                   className={style.clearIcon}
