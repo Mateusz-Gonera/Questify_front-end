@@ -44,7 +44,19 @@ function EditCard({
 	const [startDate, setStartDate] = useState(new Date());
 	const [changeDate, setChangeDate] = useState(dueDate);
 	const [changeTime, setChangeTime] = useState(dueTime);
+	const [showModal, setShowModal] = useState(false);
 
+	const handleClick = () => {
+		setShowModal(true);
+	  };
+
+	  const handleDelete = () => {
+		deleteCard(id);
+		setShowModal(false);
+	  };
+	  const handleCancel = () => {
+		setShowModal(false);
+	  };
 	const handleSubmit = async (event) => {
 		try {
 			const result = await editCard({
@@ -245,9 +257,26 @@ function EditCard({
 							</select>
 						)}
 					</div>
+					{showModal && (
+        <div className={style.modalBackground}>
+          <div className={style.modal}>
+            <div className={style.modalContent}>
+              <p>Delete this Quest ?</p>
+              <div className={style.modalButtons}>
+			  	<button onClick={handleCancel}>CANCEL</button>
+				  <div className={style.modalBtnEdit}> </div>
+                <button onClick={isCreateForm}>DELETE</button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+
 					{isShowCreate ? (
 						<div className={style.showCreateContainer}>
-							<button onClick={isCreateForm} className={style.cancel}>
+							<button onClick={() => setShowModal(true)} className={style.cancel}>
 								<Icon
 									className={style.clearIcon}
 									name="clear"
@@ -255,9 +284,9 @@ function EditCard({
 									size={10}
 								/>
 							</button>
-
+							<div className={style.btnEdit}> </div>
 							<button type="button" onClick={handleCreateCard}>
-								<span className={style.createBTN}>Start</span>
+								<span className={style.createBTN}>CREATE</span>
 							</button>
 						</div>
 					) : (

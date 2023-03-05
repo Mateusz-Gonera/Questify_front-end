@@ -43,23 +43,55 @@
   background-color: #db0837;
 }
 .easy_list {
+  display: flex;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  color: #b9c3c8;
+  align-items: center;
   font-weight: 400;
+}
+
+.easy_list::before {
+
+content: ""; 
+display: inline-block; 
+width: 8px; 
+height: 8px; 
+margin-right: 5px; 
+background-color: #00d7ff;
+border-radius: 50%; 
 }
 .normal_list {
+  display: flex;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  color: #24d40c;
+  align-items: center;
   font-weight: 400;
 }
+.normal_list::before {
+  content: ""; 
+  display: inline-block; 
+  width: 8px; 
+  height: 8px; 
+  margin-right: 5px; 
+  background-color: #24d40c;
+  border-radius: 50%; 
+  }
 .hard_list {
+  display: flex;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  color: #db0837;
+  align-items: center;
   font-weight: 400;
 }
+.hard_list::before {
+  content: ""; 
+  display: inline-block; 
+  width: 8px; 
+  height: 8px; 
+  margin-right: 5px; 
+  background-color: red; 
+  border-radius: 50%; 
+  }
 .difficultyLevel {
   display: flex;
   justify-content: space-between;
@@ -361,4 +393,53 @@ button {
 
 .liItem {
   display: block;
+}
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  width: 300px;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modalButtons button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.modalButtons button:first-child {
+  background-color: #DB0837;
+  color: white;
+}
+.modalBtnEdit{
+  height: 20px;
+  border: solid 1px rgba(185, 195, 200, 1);
+  margin-left: 10px;
 }
