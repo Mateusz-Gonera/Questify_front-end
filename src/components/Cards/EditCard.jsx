@@ -45,7 +45,19 @@ function EditCard({
 	const [startDate, setStartDate] = useState(new Date());
 	const [changeDate, setChangeDate] = useState(dueDate);
 	const [changeTime, setChangeTime] = useState(dueTime);
+	const [showModal, setShowModal] = useState(false);
 
+	const handleClick = () => {
+		setShowModal(true);
+	  };
+
+	  const handleDelete = () => {
+		deleteCard(id);
+		setShowModal(false);
+	  };
+	  const handleCancel = () => {
+		setShowModal(false);
+	  };
 	const handleSubmit = async (event) => {
 		try {
 			const result = await editCard({
@@ -247,63 +259,76 @@ function EditCard({
 							</select>
 						)}
 					</div>
-               {isShowCreate ? (
-                  <div className={style.showCreateContainer}>
-                     <button onClick={isCreateForm} className={style.cancel}>
-                        <Icon
-								className={style.clearIcon}
-								name="clear"
-								color="#DB0837"
-								size={10}
-							/>
-                  </button>
-                  <button
-                  type="button"
-                  onClick={handleCreateCard}
-                  >
-                  <span className={style.createBTN}>Start</span>
-                  </button>
-                  </div>
-                  
-               
-               
-
-            ) : (
-            <div className={style.btnContainer}>
-              <button type="submit" disabled={isLoading} onClick={handleSubmit}>
-                {isLoading ? (
-                  <Loader />
-                ) : (
-                  <Icon
-                    className={style.saveIcon}
-                    name="save"
-                    color="#00d7ff"
-                  />
-                )}
-              </button>
-              <div className={style.btnEdit}> </div>
-              {/*<DeleteModal/>*/}
-              <button onClick={() => deleteCard(id)}>
-                <Icon
-                  className={style.clearIcon}
-                  name="clear"
-                  color="#DB0837"
-                />
-              </button>
-              <div className={style.btnEdit}> </div>
-              <button onClick={handleCompleted}>
-                <Icon
-                  className={style.doneIcon}
-                  name="done"
-                  color="#24d40c"
-                />
-              </button>
+					{showModal && (
+        <div className={style.modalBackground}>
+          <div className={style.modal}>
+            <div className={style.modalContent}>
+              <p>Delete this Quest ?</p>
+              <div className={style.modalButtons}>
+			  	<button onClick={handleCancel}>CANCEL</button>
+				  <div className={style.modalBtnEdit}> </div>
+                <button onClick={isCreateForm}>DELETE</button>
+                
+              </div>
             </div>
-          )}
+          </div>
         </div>
-      </div>
-    </div>
-  );
+      )}
+
+
+					{isShowCreate ? (
+						<div className={style.showCreateContainer}>
+							<button onClick={() => setShowModal(true)} className={style.cancel}>
+								<Icon
+									className={style.clearIcon}
+									name="clear"
+									color="#DB0837"
+									size={10}
+								/>
+							</button>
+							<div className={style.btnEdit}> </div>
+							<button type="button" onClick={handleCreateCard}>
+								<span className={style.createBTN}>CREATE</span>
+							</button>
+						</div>
+					) : (
+						<div className={style.btnContainer}>
+							<button type="submit" disabled={isLoading} onClick={handleSubmit}>
+								{isLoading ? (
+									<Loader />
+								) : (
+									<Icon
+										className={style.saveIcon}
+										name="save"
+										color="#00d7ff"
+										size={10}
+									/>
+								)}
+							</button>
+							<div className={style.btnEdit}> </div>
+							<button onClick={() => deleteCard(id)}>
+								<Icon
+									className={style.clearIcon}
+									name="clear"
+									color="#DB0837"
+									size={10}
+								/>
+							</button>
+							<div className={style.btnEdit}> </div>
+							<button onClick={handleCompleted}>
+								<Icon
+									className={style.doneIcon}
+									name="done"
+									color="#24d40c"
+									size={14}
+								/>
+							</button>
+						</div>
+					)}
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default EditCard;
