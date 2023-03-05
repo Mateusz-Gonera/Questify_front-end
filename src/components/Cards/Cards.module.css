@@ -132,12 +132,6 @@
 .taskName{
    color: black;
 }
-.chalengeName:focus:hover{
-   background-color: red;
-}
-.chalengeName textarea{
-   background-color: red;
-}
 .taskName:focus{
   border-bottom: 1px solid #00D7FF;
 }
