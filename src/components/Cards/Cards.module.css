@@ -1,10 +1,9 @@
 .createStyle {
 }
-
 .challengeContainer,
 .cardContainer {
   display: flex;
-  padding: 21px 21px 21px 21px;
+  padding: 21px 21px 21px 0;
   flex-direction: column;
   justify-content: space-between;
   width: 199px;
@@ -44,55 +43,23 @@
   background-color: #db0837;
 }
 .easy_list {
-  display: flex;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  align-items: center;
+  color: #b9c3c8;
   font-weight: 400;
-}
-
-.easy_list::before {
-
-content: ""; 
-display: inline-block; 
-width: 8px; 
-height: 8px; 
-margin-right: 5px; 
-background-color: #00d7ff;
-border-radius: 50%; 
 }
 .normal_list {
-  display: flex;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  align-items: center;
+  color: #24d40c;
   font-weight: 400;
 }
-.normal_list::before {
-  content: ""; 
-  display: inline-block; 
-  width: 8px; 
-  height: 8px; 
-  margin-right: 5px; 
-  background-color: #24d40c;
-  border-radius: 50%; 
-  }
 .hard_list {
-  display: flex;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  align-items: center;
+  color: #db0837;
   font-weight: 400;
 }
-.hard_list::before {
-  content: ""; 
-  display: inline-block; 
-  width: 8px; 
-  height: 8px; 
-  margin-right: 5px; 
-  background-color: red; 
-  border-radius: 50%; 
-  }
 .difficultyLevel {
   display: flex;
   justify-content: space-between;
@@ -205,7 +172,6 @@ border-radius: 50%;
 .datePicker {
    font-size: 15px;
    font-weight: 300px;
-   width: 95%;
 }
 
 
@@ -279,19 +245,8 @@ border-radius: 50%;
   background-color: #f9f9f9;
   min-width: 88px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-<<<<<<< Updated upstream
   z-index: 1;
   left: 0;
-=======
-<<<<<<< HEAD
-  padding: 5px;
-  z-index: 1;
-  left: 0;
-  top:-5%;
-=======
-  z-index: 1;
-  left: 0;
->>>>>>> Stashed changes
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -309,10 +264,6 @@ border-radius: 50%;
   position: absolute;
   bottom: 50%;
   left: 0;
-<<<<<<< Updated upstream
-=======
->>>>>>> dev
->>>>>>> Stashed changes
   overflow: hidden;
   appearance: none;
   -webkit-appearance: none;
@@ -354,31 +305,16 @@ button {
   fill: currentColor;
   color: #3f93b7;
 }
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-.clearIcon:hover
- {
-=======
->>>>>>> Stashed changes
 .clearIcon{
     transition: all .5s cubic-bezier(.4, 0, .2, 1);
 }
 
 .clearIcon:hover {
->>>>>>> dev
   fill: currentColor;
   color: #c2273f;
- 
-}
-
-.cancel{
-  position: relative;
- 
 }
 
 .clearIcon:active {
-  position: relative;
   fill: currentColor;
   color: #a72536;
 }
@@ -404,21 +340,8 @@ button {
   transition: all .5s cubic-bezier(.4, 0, .2, 1);
 }
 
-<<<<<<< Updated upstream
 .createBTN:hover{
   color: #4da5f2;
-=======
-<<<<<<< HEAD
-.showCreateContainer {
-  display: flex;
-    gap: 8px;
-    height: 16px;
-    align-items: center;
-=======
-.createBTN:hover{
-  color: #4da5f2;
->>>>>>> dev
->>>>>>> Stashed changes
 }
 .cancel{
   padding-right: 7px;
@@ -438,60 +361,4 @@ button {
 
 .liItem {
   display: block;
-}
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
-.modalBackground {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal {
-  background-color: white;
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-  width: 300px;
-}
-
-.modalContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.modalButtons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.modalButtons button {
-  padding: 10px 20px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-}
-
-.modalButtons button:first-child {
-  background-color: #DB0837;
-  color: white;
-<<<<<<< Updated upstream
-}
-.modalBtnEdit{
-  height: 20px;
-  border: solid 1px rgba(185, 195, 200, 1);
-  margin-left: 10px;
-=======
->>>>>>> Stashed changes
 }
