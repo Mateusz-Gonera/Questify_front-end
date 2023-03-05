@@ -9,6 +9,7 @@ import AddIcon from "@mui/icons-material/Add";
 import DoneList from "../Cards/CardsDone";
 import EditCard from "../Cards/EditCard";
 import True from "../Cards/True";
+import Plus from "../../assets/plus.svg"
 
 const CardsList = ({ cards }) => {
   // Create newCard
@@ -142,13 +143,8 @@ const CardsList = ({ cards }) => {
             ))}
           </ul>
           <div className={style.btn_container}>
-            <IconButton
-              aria-label="add"
-              onClick={() => setIsOpenCreateCardForm(true)}
-              className={style.btn_add_card}
-            >
-              <AddIcon />
-            </IconButton>
+            <button onClick={() => setIsOpenCreateCardForm(true)} className={style.btn_add_card}><img src={Plus} />
+            </button>
           </div>
         </div>
 
