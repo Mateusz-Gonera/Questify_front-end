@@ -17,7 +17,7 @@
   background: #15395a;
 }
 .cardContainer {
-  background: white;
+  background: rgba(255, 255, 255, 1);
 }
 .difficultyContainer {
   display: flex;
@@ -128,17 +128,17 @@ border-radius: 50%;
 .trophyIcon {
    filter: drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25));
    transition: all .5s cubic-bezier(.4, 0, .2, 1);
+   height: 14px;
+   width: 14px;
 }
 .starIcon:focus {
   outline: none;
   border: none;
 }
 .trophyIcon:hover {
-   fill: currentColor;
    color: rgba(0, 215, 255, 0.25);
 }
 .starIcon:hover {
-  fill: currentColor;
   color: rgba(0, 215, 255, 0.25);
 }
 .titleContainer {
@@ -159,8 +159,16 @@ border-radius: 50%;
   font-weight: 400;
 }
 .chalengeName {
-  color: rgba(255, 255, 255, 1);
-
+   color: rgba(255, 255, 255, 1);
+   background-color: transparent;
+   border: none;
+   transition: all .5s cubic-bezier(.4, 0, .2, 1);
+}
+.chalengeName:focus {
+   border-bottom: 1px solid #00D7FF;
+}
+.chalengeName:hover {
+   border-bottom: 1px solid #00D7FF;
 }
 .isTask{
   font-weight: 700;
@@ -181,7 +189,7 @@ border-radius: 50%;
    margin-top: 6px;
    font-size: 16px;
   transition: all .5s cubic-bezier(.4, 0, .2, 1);
-   border:unset;
+   border:none;
 }
 .taskName{
    color: black;
@@ -204,11 +212,7 @@ border-radius: 50%;
    align-items: center;
 }
 .datePicker {
-   width: 100%;
    font-size: 14px;
-   font-weight: 300px;
-   border: unset;
-   text-align: center;
 }
 .bottomContainer {
   display: flex;
@@ -289,6 +293,7 @@ option:active{
   gap: 8px;
   height: 16px;
   align-items: center;
+  position: relative;
 }
 .btnEdit {
   height: 16px;
@@ -363,8 +368,9 @@ button {
 .liItem {
   display: block;
 }
+/* /////// */
 .modalBackground {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -378,30 +384,28 @@ button {
 
 .modal {
   background-color: white;
-  padding: 20px;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-  width: 300px;
+  width: 163px;
+  height: 77px;
 }
 
 .modalContent {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 12px;
 }
 
 .modalButtons {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+}
+.btnCancel{
+
 }
 
-.modalButtons button {
-  padding: 10px 20px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-}
+
 
 /*----------------------MOBILE VERTICAL------------------------- */
 @media screen and (max-width: 767px){
@@ -411,10 +415,21 @@ width: 290px;
 height: 260px;
 
 }
+.Easy,
+.Normal,
+.Hard {
+   height: 10px;
+   width: 10px;
+}
 .easy_list,
 .normal_list,
 .hard_list {
    font-size: 16px;
+}
+.starIcon,
+.trophyIcon {
+   height: 18px;
+   width: 18px;
 }
 .isTask {
    font-size: 14px;
@@ -429,8 +444,19 @@ font-size: 20px;
 font-size: 18px;
 
 }
+.datePicker {
+   font-size: 18px;
+   line-height: 18px;
+   letter-spacing: 0.02em;
+   color: #B9C3C8;
+   background-color: transparent;
+   border: none;
+}
 .bottomContainer {
    height: 35px;
+}
+.categoryDropdown{
+   font-size: 14px;
 }
 .category,
 .Stuff,

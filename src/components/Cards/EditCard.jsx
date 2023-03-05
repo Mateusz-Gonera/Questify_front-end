@@ -49,15 +49,15 @@ function EditCard({
 
 	const handleClick = () => {
 		setShowModal(true);
-	  };
+	};
 
-	  const handleDelete = () => {
+	const handleDelete = () => {
 		deleteCard(id);
 		setShowModal(false);
-	  };
-	  const handleCancel = () => {
+	};
+	const handleCancel = () => {
 		setShowModal(false);
-	  };
+	};
 	const handleSubmit = async (event) => {
 		try {
 			const result = await editCard({
@@ -154,6 +154,25 @@ function EditCard({
 			<div
 				className={Challenge ? style.challengeContainer : style.cardContainer}
 			>
+				{showModal && (
+					<div className={style.modalBackground}>
+						<div className={style.modal}>
+							<div className={style.modalContent}>
+								<p>Delete this Quest ?</p>
+								<div className={style.modalButtons}>
+									<button onClick={handleCancel} className={style.btnCancel}>
+                              CANCEL
+                              </button>
+									<div className={style.modalBtnEdit}> </div>
+									<button onClick={handleDelete}
+                           className={style.btnCancel}>
+										DELETE
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				)}
 				{isCompleted && (
 					<CardComplete
 						title={title}
@@ -162,34 +181,34 @@ function EditCard({
 					/>
 				)}
 
-        <div className={style.difficultyContainer}>
-          <div className={style.difficultyLevel}>
-            <div className={style[selectedDifficulty]}> </div>
-            <h3 className={style.levelName} onClick={handleDifficultyClick}>
-              {selectedDifficulty}
-            </h3>
-            {showDifficultyDropdown && (
-              <select
-                className={style.difficultyDropdown}
-                value={selectedDifficulty}
-                onChange={handleDifficultyChange}
-                size="3"
-              >
-                <option className={style.easy_list} value="Easy">
-                  <div className={style.Easy}> </div>
-                  Easy
-                </option>
-                <option className={style.normal_list} value="Normal">
-                  <div className={style.Normal}> </div>
-                  <li>Normal</li>
-                </option>
-                <option className={style.hard_list} value="Hard">
-                  <div className={style.Hard}> </div>
-                  <li>Hard</li>
-                </option>
-              </select>
-            )}
-          </div>
+				<div className={style.difficultyContainer}>
+					<div className={style.difficultyLevel}>
+						<div className={style[selectedDifficulty]}> </div>
+						<h3 className={style.levelName} onClick={handleDifficultyClick}>
+							{selectedDifficulty}
+						</h3>
+						{showDifficultyDropdown && (
+							<select
+								className={style.difficultyDropdown}
+								value={selectedDifficulty}
+								onChange={handleDifficultyChange}
+								size="3"
+							>
+								<option className={style.easy_list} value="Easy">
+									<div className={style.Easy}> </div>
+									Easy
+								</option>
+								<option className={style.normal_list} value="Normal">
+									<div className={style.Normal}> </div>
+									<li>Normal</li>
+								</option>
+								<option className={style.hard_list} value="Hard">
+									<div className={style.Hard}> </div>
+									<li>Hard</li>
+								</option>
+							</select>
+						)}
+					</div>
 
 					<button className={style.starIcon} onClick={handleChangeType}>
 						{Challenge ? (
@@ -197,30 +216,30 @@ function EditCard({
 								className={style.trophyIcon}
 								name="trophy"
 								color={isShowCreate ? "#B9C3C8" : "#00D7FF"}
-								size={15}
 							/>
 						) : (
 							<Icon
 								className={style.starIcon}
 								name="Star"
 								color={isShowCreate ? "#B9C3C8" : "#00D7FF"}
-								size={15}
 							/>
 						)}
 					</button>
 				</div>
 				<div className={style.titleContainer}>
 					<form>
-						{Challenge ? (<button className={style.isChallenge}>Challenge</button>)
-							:
-						(<p className={style.isTask}>CREATE NEW QUEST</p>)}
-                     <input
-                        type="text"
-                        placeholder="Task title"
-                        value={title}
-                        onChange={handleInputChange}
-                        className={Challenge ? style.chalengeName : style.taskName}
-                     />
+						{Challenge ? (
+							<button className={style.isChallenge}>Challenge</button>
+						) : (
+							<p className={style.isTask}>CREATE NEW QUEST</p>
+						)}
+						<input
+							type="text"
+							placeholder="Task title"
+							value={title}
+							onChange={handleInputChange}
+							className={Challenge ? style.chalengeName : style.taskName}
+						/>
 					</form>
 					<div className={style.date}>
 						<DatePicker
@@ -235,13 +254,18 @@ function EditCard({
 							withPortal
 							onChange={(date) => setStartDate(date)}
 						/>
-						<div  className="example-custom-input">
+						<div className="example-custom-input">
 							<Icon name="calendar" color="#00D7FF" size={14} />
 						</div>
 					</div>
 				</div>
 				<div className={style.bottomContainer}>
-					<div className={style[selectedGroup]} style={{cursor:'pointer'}} onClick={handleGroupClick}>
+					{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+<div
+						className={style[selectedGroup]}
+						style={{ cursor: "pointer" }}
+						onClick={handleGroupClick}
+					>
 						{selectedGroup}
 						{showGroupDropdown && (
 							<select
@@ -259,26 +283,13 @@ function EditCard({
 							</select>
 						)}
 					</div>
-					{showModal && (
-        <div className={style.modalBackground}>
-          <div className={style.modal}>
-            <div className={style.modalContent}>
-              <p>Delete this Quest ?</p>
-              <div className={style.modalButtons}>
-			  	<button onClick={handleCancel}>CANCEL</button>
-				  <div className={style.modalBtnEdit}> </div>
-                <button onClick={isCreateForm}>DELETE</button>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
 
 					{isShowCreate ? (
 						<div className={style.showCreateContainer}>
-							<button onClick={() => setShowModal(true)} className={style.cancel}>
+							<button
+								onClick={() => setShowModal(true)}
+								className={style.cancel}
+							>
 								<Icon
 									className={style.clearIcon}
 									name="clear"
@@ -306,7 +317,7 @@ function EditCard({
 								)}
 							</button>
 							<div className={style.btnEdit}> </div>
-							<button onClick={() => deleteCard(id)}>
+							<button onClick={() => setShowModal(true)}>
 								<Icon
 									className={style.clearIcon}
 									name="clear"

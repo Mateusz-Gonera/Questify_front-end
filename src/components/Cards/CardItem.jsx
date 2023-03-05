@@ -70,7 +70,7 @@ function CardItem({
           </div>
            </div>
            <div className={style.bottomContainer}> 
-              <div className={style[category]}>{category}</div>
+              <div style={{cursor:'default'}} className={style[category]}>{category}</div>
            </div>
 
         
