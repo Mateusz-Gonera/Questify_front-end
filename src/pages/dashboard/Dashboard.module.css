@@ -3,13 +3,16 @@
 }
 .dashboard_container_cards {
   margin: 0;
+  display: flex;
   padding-left: 71px;
   padding-right: 72px;
+  padding-bottom: 21px;
 }
-@media screen and (min-device-width: 481px) and (max-device-width: 766px) {
+@media screen and (max-device-width: 766px) {
   .dashboard_container_cards {
-    padding-left: 15px;
-    padding-right: 15px;
+    justify-content: center;
+    padding-left: auto;
+    padding-right: auto;
   }
 }
 @media screen and (min-device-width: 767px) and (max-device-width: 1200px) {

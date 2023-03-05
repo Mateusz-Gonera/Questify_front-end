@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .cardContainer_done {
   display: flex;
   gap: 28px;
@@ -5,13 +10,19 @@
   margin: 0;
   padding: 0;
 }
+@media screen and (max-width: 766px) {
+  .cardContainer_done {
+    justify-content: center;
+    margin: 0;
+  }
+}
 
 @media screen and (max-width: 766px) {
   .containerDone {
     max-width: 290px;
-    margin: 20px 15px 80px;
+    margin: auto;
     display: flex;
-    justify-content: start;
+    justify-content: center;
   }
 }
 
@@ -40,4 +51,11 @@
     display: flex;
     justify-content: start;
   }
+}
+.title_done {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding-left: 0;
 }

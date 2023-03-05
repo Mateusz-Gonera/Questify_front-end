@@ -39,7 +39,7 @@ export default function DoneList({ item }) {
       aria-labelledby="nested-list-subheader"
     >
       <ListItemButton onClick={handleClick}>
-        <ListItemText primary="Done" />
+        <ListItemText className={style.title_done} primary={<h4>DONE</h4>} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>

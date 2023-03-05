@@ -26,11 +26,23 @@
   gap: 28px;
   flex-wrap: wrap;
 }
+@media screen and (max-device-width: 766px) {
+  .cardList {
+    margin: auto;
+    padding: auto;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 .createContainer {
 }
 .btn_container {
+  z-index: 120;
   position: absolute;
-  right: 45px;
+  right: 46px;
+  bottom: 40px;
   border: 0px;
   border-radius: 10px 10px 10px 10px;
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
@@ -43,7 +55,12 @@
   stroke: white;
   stroke-width: 2px;
 }
-
+@media screen and (max-device-width: 766px) {
+  .btn_container {
+    right: 0%;
+    bottom: 33px;
+  }
+}
 .btn_container:hover {
   color: #ff851c;
   background-color: white;

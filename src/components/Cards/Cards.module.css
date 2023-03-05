@@ -4,17 +4,19 @@
   padding: 21px 21px 21px 0;
   flex-direction: column;
   justify-content: space-between;
-  width: 199px;
-  height: 205px;
+  width: 100vw;
+  height: 100vw;
+  max-width: 199px;
+  max-height: 205px;
   align-items: center;
   border-radius: 10px;
   position: relative;
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
 }
-@media screen and (min-device-width: 481px) and (max-device-width: 766px) {
+@media screen and (max-device-width: 766px) {
   .cardContainer {
-    width: 290px;
-    height: 260px;
+    max-width: 290px;
+    max-height: 260px;
   }
 }
 
