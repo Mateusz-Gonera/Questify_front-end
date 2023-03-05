@@ -1,4 +1,4 @@
-.cardContainer {
+.cardContainer_cards_complete {
   position: absolute;
   top: 0;
   left: 0;
@@ -11,18 +11,11 @@
   font-size: 12px;
   line-height: 1;
   z-index: 90;
-  width: 199px;
-  height: 205px;
   align-items: center;
   background: white;
   border-radius: 10px;
 }
-@media screen and (min-device-width: 481px) and (max-device-width: 766px) {
-  .cardContainer {
-    width: 290px;
-    height: 260px;
-  }
-}
+
 .contentBox {
   display: flex;
   align-items: center;

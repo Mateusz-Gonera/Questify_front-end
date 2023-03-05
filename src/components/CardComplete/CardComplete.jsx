@@ -1,21 +1,20 @@
-import Icons from "../../Images/icons.svg";
-import Icon from "../Icon";
-import style from "./CardComplete.module.css";
-import './Animation.css'
-import { CSSTransition } from 'react-transition-group'
+import Icons from '../../Images/icons.svg';
+import Icon from '../Icon';
+import style from './CardComplete.module.css';
+import './Animation.css';
+import { CSSTransition } from 'react-transition-group';
 
-const CardComplete = ({ title, close, cancel}) => {
-   
-
+const CardComplete = ({ title, close, cancel }) => {
   return (
-    <div className={style.cardContainer}>
+    <div className={style.cardContainer_cards_complete}>
       <div className={style.contentBox}>
         <p className={style.content}>COMPLETED:</p>
-           <p className={style.link} onClick={cancel}>{title}</p>
+        <p className={style.link} onClick={cancel}>
+          {title}
+        </p>
       </div>
-        <div className={style.awardBox}>
-           
-          <CSSTransition
+      <div className={style.awardBox}>
+        <CSSTransition
           in={true}
           appear={true}
           timeout={1250}
@@ -25,8 +24,8 @@ const CardComplete = ({ title, close, cancel}) => {
           <svg className={style.leftClouds}>
             <use xlinkHref={`${Icons}#icon-left-clouds`} />
           </svg>
-           </CSSTransition>
-           
+        </CSSTransition>
+
         <CSSTransition
           in={true}
           appear={true}
@@ -43,10 +42,10 @@ const CardComplete = ({ title, close, cancel}) => {
         </svg>
 
         <div>
-            <svg className={style.iconTarget}>
-              <use xlinkHref={`${Icons}#icon-target`} />
-            </svg>
-            <CSSTransition
+          <svg className={style.iconTarget}>
+            <use xlinkHref={`${Icons}#icon-target`} />
+          </svg>
+          <CSSTransition
             in={true}
             appear={true}
             timeout={2000}
@@ -62,7 +61,7 @@ const CardComplete = ({ title, close, cancel}) => {
 
       <button onClick={close} className={style.button}>
         <span>Continue</span>
-        <Icon className={style.arrow} name={"arrow-right"} size={7} />
+        <Icon className={style.arrow} name={'arrow-right'} size={7} />
       </button>
     </div>
   );
