@@ -44,14 +44,14 @@ function CardItem({
                   className={style.trophyIcon}
                   name="trophy"
                   color="#00d7ff"
-                  size={15}
+                  style={{filter: "drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25))"}}
                />
                ) : (
                <Icon
                   className={style.starIcon}
                   name="Star"
                   color="#00d7ff"
-                  size={15}
+                  style={{filter: "drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25))"}}
                />
             )}
          </button>
@@ -66,7 +66,7 @@ function CardItem({
 
           <div className={style.date}>
                  {isChallenge && 'by '}
-                 {formatDate(new Date(dueDate))} , {dueTime}{' '}
+                 {formatDate(new Date(dueDate))}, {dueTime}{' '}
           </div>
            </div>
            <div className={style.bottomContainer}> 

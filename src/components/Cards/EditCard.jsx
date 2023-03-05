@@ -29,7 +29,9 @@ function EditCard({
 	isDone = false,
 	isShowCreate,
 	isCreateForm,
+
 }) {
+
 	const [deleteCard] = useDeleteCardMutation();
 	const [editCard, { isLoading, error }] = useEditCardMutation();
 	const [isComplete] = useCompleteCardMutation();
@@ -47,6 +49,7 @@ function EditCard({
 	const [changeTime, setChangeTime] = useState(dueTime);
 	const [showModal, setShowModal] = useState(false);
 
+
 	const handleClick = () => {
 		setShowModal(true);
 	};
@@ -54,9 +57,11 @@ function EditCard({
 	const handleDelete = () => {
 		deleteCard(id);
 		setShowModal(false);
+      
 	};
 	const handleCancel = () => {
 		setShowModal(false);
+      hideCard();
 	};
 	const handleSubmit = async (event) => {
 		try {
@@ -157,17 +162,16 @@ function EditCard({
 				{showModal && (
 					<div className={style.modalBackground}>
 						<div className={style.modal}>
-								<p>Delete this Quest ?</p>
-								<div className={style.modalButtons}>
-									<button onClick={handleCancel} className={style.btnCancel}>
-                              CANCEL
-                              </button>
-									<div className={style.btnEdit}> </div>
-									<button onClick={handleDelete}
-                           className={style.btnDelete}>
-										DELETE
-									</button>
-							   </div>
+							<p>Delete this Quest ?</p>
+							<div className={style.modalButtons}>
+								<button onClick={handleCancel} className={style.btnCancel}>
+									CANCEL
+								</button>
+								<div className={style.btnEdit}> </div>
+								<button onClick={handleDelete} className={style.btnDelete}>
+									DELETE
+								</button>
+							</div>
 						</div>
 					</div>
 				)}
@@ -193,16 +197,16 @@ function EditCard({
 								size="3"
 							>
 								<option className={style.easy_list} value="Easy">
-									<div className={style.Easy}> </div>
+									{/*<span className={style.Easy}> </span>*/}
 									Easy
 								</option>
 								<option className={style.normal_list} value="Normal">
-									<div className={style.Normal}> </div>
-									<li>Normal</li>
+									{/*<span className={style.Normal}> </span>*/}
+									Normal
 								</option>
 								<option className={style.hard_list} value="Hard">
-									<div className={style.Hard}> </div>
-									<li>Hard</li>
+									{/*<span className={style.Hard}> </span>*/}
+									Hard
 								</option>
 							</select>
 						)}
@@ -213,13 +217,14 @@ function EditCard({
 							<Icon
 								className={style.trophyIcon}
 								name="trophy"
-								color={isShowCreate ? "#B9C3C8" : "#00D7FF"}
+								color="#B9C3C8"
+                        
 							/>
 						) : (
 							<Icon
 								className={style.starIcon}
 								name="Star"
-								color={isShowCreate ? "#B9C3C8" : "#00D7FF"}
+								color="#B9C3C8"
 							/>
 						)}
 					</button>
@@ -227,10 +232,15 @@ function EditCard({
 				<div className={style.titleContainer}>
 					<form>
 						{Challenge ? (
-							<button className={style.isChallenge}>Challenge</button>
-						) : (
+							<button className={style.isChallenge}>Edit Challenge</button>
+						):(
+							<p className={style.isTask}>EDIT QUEST</p>
+						)
+                  }
+						{isShowCreate && (
 							<p className={style.isTask}>CREATE NEW QUEST</p>
-						)}
+						) }
+
 						<input
 							type="text"
 							placeholder="Task title"
@@ -252,12 +262,17 @@ function EditCard({
 							withPortal
 							onChange={(date) => setStartDate(date)}
 						/>
-                  <Icon name="calendar" color="#00D7FF" size={14} className={style.calendarIcon}/>
+						<Icon
+							name="calendar"
+							color="#00D7FF"
+							size={14}
+							className={style.calendarIcon}
+						/>
 					</div>
 				</div>
 				<div className={style.bottomContainer}>
 					{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-<div
+					<div
 						className={style[selectedGroup]}
 						style={{ cursor: "pointer" }}
 						onClick={handleGroupClick}
@@ -282,10 +297,7 @@ function EditCard({
 
 					{isShowCreate ? (
 						<div className={style.showCreateContainer}>
-							<button
-								onClick={isCreateForm}
-								className={style.cancel}
-							>
+							<button onClick={isCreateForm} className={style.cancel}>
 								<Icon
 									className={style.clearIcon}
 									name="clear"

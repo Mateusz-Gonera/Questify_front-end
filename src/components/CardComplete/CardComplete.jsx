@@ -62,7 +62,7 @@ const CardComplete = ({ title, close, cancel}) => {
 
       <button onClick={close} className={style.button}>
         <span>Continue</span>
-        <Icon className={style.arrow} name={"arrow-right"} size={7} />
+        <Icon className={style.arrow} name={"arrow-right"} />
       </button>
     </div>
   );

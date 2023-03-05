@@ -99,8 +99,9 @@ const CardsList = ({ cards }) => {
                   id={15}
                   isChallenge={false}
                   title={"Create Title"}
-                  dueDate={currentDate}
-                  dueTime={"15:15"}
+                  //dueDate={currentDate}
+                  //dueTime={"15:15"}
+                  startDate={currentDate}
                   type={"Task"}
                   difficulty={"Easy"}
                   category={"Family"}

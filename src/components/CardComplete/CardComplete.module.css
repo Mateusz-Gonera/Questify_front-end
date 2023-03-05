@@ -52,8 +52,16 @@
    align-items: center;
    justify-content: space-between;
    margin: 0 auto;
+   margin-top: 10px;
    width: 63px;
    line-height: 1;
+   color: rgba(185, 195, 200, 1);
+   font-size: 12px;
+   font-weight: 400;
+}
+.arrow{
+   fill:rgba(0, 215, 255, 1);
+   margin-top: 2.5px;
 }
 .awardBox {
    position: relative;
@@ -121,4 +129,62 @@
    border: 0;
    padding: 0;
    overflow: hidden;
+}
+.arrow{
+   width: 7px;
+   height: 7px;
+}
+@media screen and (max-width: 767px) {
+.cardContainer {
+width: 290px;
+height: 260px;
+}
+.content,
+.link {
+   font-size: 14px;
+}
+.awardBox {
+   width: 220px;
+   height: 170px;
+}
+.leftClouds,
+.rightClouds {
+   width: 220px;
+   height: 170px;
+}
+.iconBase {
+   bottom: 0;
+   left: 50%;
+   width: 95px;
+   height: 55px;
+}
+.iconTarget {
+   bottom: 55px;
+   left: 70px;
+   width: 90px;
+   height: 90px;
+}
+
+.iconArrow {
+   top: 35px;
+   left: 50%;
+   width: 60px;
+   height: 40px;
+}
+
+.iconFirst {
+   top: 5px;
+   right: 50px;
+   width: 46px;
+   height: 50px;
+   z-index: 11;
+}
+.button{
+   font-size: 16px;
+   width: 90px;
+}
+.arrow{
+   height: 12px;
+   width: 12px;
+}
 }
