@@ -205,15 +205,20 @@ border-radius: 50%;
    outline: none;       
 }
 .calendarIcon{
-   margin-right: 20px;
-   margin-left: -7px;
-   margin-top: 6px;
+   position: absolute;
+   z-index: 1;
+   right: 22.84%;
+   bottom: 37.55%;
 }
 .date {
+   /*display: flex;*/
    color: rgba(185, 195, 200, 1);
    border: 0px;
    overflow: hidden;
    align-items: center;
+}
+.calendarContainer{
+
 }
 .datePicker {
    font-size: 14px;
@@ -223,6 +228,7 @@ border-radius: 50%;
    background-color: transparent;
    border: none;
    outline: none;
+   z-index: 3;
 }
 .bottomContainer {
   display: flex;
@@ -455,10 +461,10 @@ font-size: 20px;
 .date,
 .datePicker{
 font-size: 18px;
-
 }
-.datePicker {
-   font-size: 18px;
+.calendarIcon {
+   right: 17%;
+   bottom: 37.55%;
 }
 .bottomContainer {
    height: 35px;
@@ -492,6 +498,8 @@ font-size: 18px;
 
 }
 
+
+
 /*----------------------TABLET VERTICAL------------------------- */
 
 @media screen and (min-width: 768px){
@@ -505,5 +513,9 @@ font-size: 18px;
 .doneIcon {
    height: 12px;
    width: 14px;
+}
+.calendarIcon {
+   right: 13%;
+   bottom: 33%;
 }
 }

@@ -252,9 +252,7 @@ function EditCard({
 							withPortal
 							onChange={(date) => setStartDate(date)}
 						/>
-						<div className="example-custom-input">
-							<Icon name="calendar" color="#00D7FF" size={14} />
-						</div>
+                  <Icon name="calendar" color="#00D7FF" size={14} className={style.calendarIcon}/>
 					</div>
 				</div>
 				<div className={style.bottomContainer}>
@@ -314,7 +312,7 @@ function EditCard({
 									/>
 								)}
 							</button>
-							{/*<div className={style.btnEdit}> </div>*/}
+							<div className={style.btnEdit}> </div>
 							<button onClick={() => setShowModal(true)}>
 								<Icon
 									className={style.clearIcon}
@@ -323,7 +321,7 @@ function EditCard({
 									size={10}
 								/>
 							</button>
-							{/*<div className={style.btnEdit}> </div>*/}
+							<div className={style.btnEdit}> </div>
 							<button onClick={handleCompleted}>
 								<Icon
 									className={style.doneIcon}
