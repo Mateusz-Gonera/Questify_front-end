@@ -1,18 +1,25 @@
-.createStyle {
-}
 .challengeContainer,
 .cardContainer {
   display: flex;
   padding: 21px 21px 21px 0;
   flex-direction: column;
   justify-content: space-between;
-  width: 199px;
-  height: 205px;
+  width: 100vw;
+  height: 100vw;
+  max-width: 199px;
+  max-height: 205px;
   align-items: center;
   border-radius: 10px;
   position: relative;
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
 }
+@media screen and (max-device-width: 766px) {
+  .cardContainer {
+    max-width: 290px;
+    max-height: 260px;
+  }
+}
+
 .challengeContainer {
   background: #15395a;
 }
@@ -106,8 +113,8 @@ border-radius: 50%;
 }
 
 .starIcon {
-   filter: drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25));
-  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+  filter: drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25));
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .starIcon:focus {
@@ -115,13 +122,12 @@ border-radius: 50%;
   border: none;
 }
 .trophyIcon {
-   filter: drop-shadow(0px 4px 4px rgba(0, 215, 255, 0.25));
-  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+  filter: drop-shadow(0px 4px 4px rgba(0, 215, 255, 0.25));
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
 .trophyIcon:hover {
-   fill: currentColor;
+  fill: currentColor;
   color: rgba(0, 215, 255, 0.25);
 }
 
@@ -157,29 +163,27 @@ border-radius: 50%;
   text-align: center;
   color: rgba(255, 255, 255, 1);
   margin: 0 auto;
-
 }
-.isTask{
+.isTask {
   font-weight: 700;
   font-size: 12px;
   line-height: 12px;
   text-align: center;
   letter-spacing: 0.02em;
-  color: #B9C3C8;
+  color: #b9c3c8;
   margin-top: 20px;
-  
 }
 
 .taskName {
-   width: 90%;
-   display: flex;
-   justify-content: center;
-   font-weight: 700;
-   text-align: center;
-   margin-top: 6px;
-   color: black;
-   font-size: 16px;
-  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 6px;
+  color: black;
+  font-size: 16px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   width: 90%;
   display: flex;
@@ -190,23 +194,20 @@ border-radius: 50%;
   color: rgba(40, 40, 40, 1);
   font-size: 16px;
   border: 0px;
-  
 }
 .date {
-   color: rgba(185, 195, 200, 1);
-   margin: 0;
-   border: 0px;
-   display: flex;
-   overflow: hidden;
-   width: 100%;
-   text-align: center;
+  color: rgba(185, 195, 200, 1);
+  margin: 0;
+  border: 0px;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
 }
 .datePicker {
-   font-size: 15px;
-   font-weight: 300px;
+  font-size: 15px;
+  font-weight: 300px;
 }
-
-
 
 .bottomContainer {
   display: flex;
@@ -236,13 +237,13 @@ border-radius: 50%;
   position: relative;
 }
 
-.taskName:focus{
-  border-bottom: 1px solid #00D7FF;
+.taskName:focus {
+  border-bottom: 1px solid #00d7ff;
 }
 .taskName:hover {
-  border-bottom: 1px solid #00D7FF;
+  border-bottom: 1px solid #00d7ff;
 }
-.calendarIcon{
+.calendarIcon {
   margin-right: 20px;
   margin-left: -7px;
 }
@@ -266,8 +267,6 @@ border-radius: 50%;
   background-color: rgba(211, 246, 206, 1);
 }
 
-
-
 .difficultyDropdown {
   z-index: 2;
   width: 80px;
@@ -285,10 +284,11 @@ border-radius: 50%;
   border: 0px;
   font-size: 11px;
   font-weight: 400;
-  padding:12px 10px;
+  padding: 12px 10px;
   border-radius: 10px;
   background-color: #ffffff;
-  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.05), 3px 4px 4px rgba(21, 57, 90, 0.05);
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.05),
+    3px 4px 4px rgba(21, 57, 90, 0.05);
 }
 .difficultyDropdown_category {
   width: 110px;
@@ -306,10 +306,9 @@ border-radius: 50%;
   padding-left: 12px;
   padding-top: 9px;
   border-radius: 10px;
-
 }
 .bottomContainer {
-   display: flex;
+  display: flex;
 }
 
 .btnContainer {
@@ -337,8 +336,8 @@ button {
   fill: currentColor;
   color: #3f93b7;
 }
-.clearIcon{
-    transition: all .5s cubic-bezier(.4, 0, .2, 1);
+.clearIcon {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clearIcon:hover {
@@ -360,22 +359,22 @@ button {
   fill: currentColor;
   color: #3c863d;
 }
-.createBTN{
-  padding-left:7px;
+.createBTN {
+  padding-left: 7px;
   text-transform: uppercase;
   font-size: 14px;
   line-height: 14px;
   text-align: right;
   letter-spacing: 0.02em;
-  color: #00D7FF;
-  border-left: 1px solid #B9C3C8;
-  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+  color: #00d7ff;
+  border-left: 1px solid #b9c3c8;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.createBTN:hover{
+.createBTN:hover {
   color: #4da5f2;
 }
-.cancel{
+.cancel {
   padding-right: 7px;
 }
 
@@ -383,13 +382,12 @@ button {
 
 
 } */
-.showCreateContainer{
+.showCreateContainer {
   display: flex;
   position: absolute;
   bottom: 26px;
   right: 21px;
 }
-
 
 .liItem {
   display: block;

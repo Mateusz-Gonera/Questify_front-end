@@ -1,0 +1,22 @@
+.dashboard_container {
+  margin: 0;
+}
+.dashboard_container_cards {
+  margin: 0;
+  display: flex;
+  padding-left: 10%;
+  padding-right: 72px;
+  padding-bottom: 21px;
+}
+@media screen and (max-device-width: 766px) {
+  .dashboard_container_cards {
+    justify-content: center;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+@media screen and (min-device-width: 767px) and (max-device-width: 1200px) {
+  .dashboard_container_cards {
+    padding-right: 51px;
+  }
+}

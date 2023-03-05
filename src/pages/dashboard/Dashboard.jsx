@@ -1,6 +1,7 @@
 import CardList from '../../components/CardsList/CardsList';
 import { AppBar } from '../../components/appBar/AppBar';
 import { useGetAllCardsQuery } from '../../redux/api/questifyApi';
+import style from './Dashboard.module.css';
 
 const Dashboard = () => {
   //    const cards = [
@@ -16,9 +17,11 @@ const Dashboard = () => {
   const cards = [...data.cards].reverse();
 
   return (
-    <div>
+    <div className={style.dashboard_container}>
       <AppBar />
-      <CardList cards={cards} />
+      <div className={style.dashboard_container_cards}>
+        <CardList cards={cards} />
+      </div>
     </div>
   );
 };
