@@ -99,9 +99,8 @@ const CardsList = ({ cards }) => {
                   id={15}
                   isChallenge={false}
                   title={"Create Title"}
-                  //dueDate={currentDate}
-                  //dueTime={"15:15"}
-                  startDate={currentDate}
+                  dueDate={currentDate}
+                  dueTime={" "}
                   type={"Task"}
                   difficulty={"Easy"}
                   category={"Family"}
@@ -155,8 +154,7 @@ const CardsList = ({ cards }) => {
 
           <DoneList item={CompletedCards} />
         </div>
-      </div>
-    </>
+      </>
   );
 };
 
