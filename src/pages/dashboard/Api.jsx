@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-
 function MyDataFetcher() {
   const [data, setData] = useState(null);
   useEffect(() => {
@@ -8,7 +7,8 @@ function MyDataFetcher() {
       const response = await fetch('http://localhost:3000/card');
       const data = await response.json();
       setData(data);
-    } fetchData();
+    }
+    fetchData();
   }, []);
 
   if (!data) {

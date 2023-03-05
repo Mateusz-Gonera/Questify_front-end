@@ -1,0 +1,15 @@
+.dashboard_dashboard_container {
+  margin: 0;
+  padding-left: 71px;
+  padding-right: 72px;
+
+  @media (max-width: 1200px) {
+    padding-left: 50px;
+    padding-right: 51px;
+  }
+
+  @media (max-width: 767px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

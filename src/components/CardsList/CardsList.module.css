@@ -1,47 +1,58 @@
-.sectionCards{
-   margin: 0;
-}
-.listContainer{
+.sectionCards {
+  /* margin: 0;
+  padding-left: 71px;
+  padding-right: 72px;
 
+  @media (max-width: 1200px) {
+    padding-left: 50px;
+    padding-right: 51px;
+  }
+
+  @media (max-width: 767px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  } */
+}
+.listContainer {
 }
 .dayTitle {
-   margin-top: 30px;
-   margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
-.cardList{
-   margin: 0;
-   padding: 0;
-   display: flex;
-   gap: 28px;
-   flex-wrap: wrap;
+.cardList {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
 }
-.createContainer{
-
+.createContainer {
 }
 .btn_container {
-   position: absolute;
-   right: 45px;
-   border: 0px;
-   border-radius: 10px 10px 10px 10px;
-   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
-      3px 4px 4px rgba(21, 57, 90, 0.03);
-   width: 52px;
-   height: 52px;
-   background-color: #ff851c;
-   bottom: 50px;
-   fill: #ff851c;
-   stroke: white;
-   stroke-width: 2px;
+  position: absolute;
+  right: 45px;
+  border: 0px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
+  width: 52px;
+  height: 52px;
+  background-color: #ff851c;
+  bottom: 50px;
+  fill: #ff851c;
+  stroke: white;
+  stroke-width: 2px;
 }
 
 .btn_container:hover {
-   color: #ff851c;
-   background-color: white;
-   stroke: #ff851c;
-   fill: #ff851c;
+  color: #ff851c;
+  background-color: white;
+  stroke: #ff851c;
+  fill: #ff851c;
 }
 .btn_add_card {
-   position: absolute;
-   left: 12.5%;
-   top: 12.5%;
+  z-index: 100;
+  position: absolute;
+  left: 12.5%;
+  top: 12.5%;
 }
