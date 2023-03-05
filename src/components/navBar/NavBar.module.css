@@ -1,3 +1,8 @@
+.navBar_container {
+  display: flex;
+  position: sticky;
+  width: 100vw;
+}
 .logo {
   font-weight: 700;
   font-size: 18px;
@@ -6,10 +11,10 @@
   align-items: center;
   letter-spacing: 0.02em;
   color: #00d7ff;
-  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logo:hover{
+.logo:hover {
   color: #ffffff;
 }
 
@@ -61,10 +66,10 @@
 .logoutIcon {
   width: 21.58px;
   height: 16.05px;
-  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .logoutIcon:hover {
-      scale: 150%;
+  scale: 150%;
 }
 
 @media screen and (max-width: 480px) {

@@ -19,7 +19,9 @@ const Dashboard = () => {
   return (
     <div className={style.dashboard_container}>
       <AppBar />
-      <CardList cards={cards} />
+      <div className={style.dashboard_container_cards}>
+        <CardList cards={cards} />
+      </div>
     </div>
   );
 };

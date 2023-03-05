@@ -88,7 +88,7 @@ const CardsList = ({ cards }) => {
 
   return (
     <>
-      <div className="style.dashboard_container">
+      <div>
         {isTrue && <True />}
 
         <div className={style.sectionCards}>

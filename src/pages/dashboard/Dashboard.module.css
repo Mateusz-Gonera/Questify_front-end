@@ -1,15 +1,20 @@
 .dashboard_container {
   margin: 0;
+}
+.dashboard_container_cards {
+  margin: 0;
   padding-left: 71px;
   padding-right: 72px;
-
-  @media (max-width: 1200px) {
-    padding-left: 50px;
-    padding-right: 51px;
-  }
-
-  @media (max-width: 767px) {
+}
+@media screen and (min-device-width: 481px) and (max-device-width: 766px) {
+  .dashboard_container_cards {
     padding-left: 15px;
     padding-right: 15px;
+  }
+}
+@media screen and (min-device-width: 767px) and (max-device-width: 1200px) {
+  .dashboard_container_cards {
+    padding-left: 50px;
+    padding-right: 51px;
   }
 }
