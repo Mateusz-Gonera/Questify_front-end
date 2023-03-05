@@ -157,19 +157,17 @@ function EditCard({
 				{showModal && (
 					<div className={style.modalBackground}>
 						<div className={style.modal}>
-							<div className={style.modalContent}>
 								<p>Delete this Quest ?</p>
 								<div className={style.modalButtons}>
 									<button onClick={handleCancel} className={style.btnCancel}>
                               CANCEL
                               </button>
-									<div className={style.modalBtnEdit}> </div>
+									<div className={style.btnEdit}> </div>
 									<button onClick={handleDelete}
-                           className={style.btnCancel}>
+                           className={style.btnDelete}>
 										DELETE
 									</button>
-								</div>
-							</div>
+							   </div>
 						</div>
 					</div>
 				)}
@@ -287,7 +285,7 @@ function EditCard({
 					{isShowCreate ? (
 						<div className={style.showCreateContainer}>
 							<button
-								onClick={() => setShowModal(true)}
+								onClick={isCreateForm}
 								className={style.cancel}
 							>
 								<Icon
@@ -297,7 +295,7 @@ function EditCard({
 									size={10}
 								/>
 							</button>
-							<div className={style.btnEdit}> </div>
+							{/*<div className={style.btnEdit}> </div>*/}
 							<button type="button" onClick={handleCreateCard}>
 								<span className={style.createBTN}>CREATE</span>
 							</button>
@@ -316,7 +314,7 @@ function EditCard({
 									/>
 								)}
 							</button>
-							<div className={style.btnEdit}> </div>
+							{/*<div className={style.btnEdit}> </div>*/}
 							<button onClick={() => setShowModal(true)}>
 								<Icon
 									className={style.clearIcon}
@@ -325,7 +323,7 @@ function EditCard({
 									size={10}
 								/>
 							</button>
-							<div className={style.btnEdit}> </div>
+							{/*<div className={style.btnEdit}> </div>*/}
 							<button onClick={handleCompleted}>
 								<Icon
 									className={style.doneIcon}
