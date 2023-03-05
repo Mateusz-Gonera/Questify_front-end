@@ -181,14 +181,14 @@ function EditCard({
 							<Icon
 								className={style.trophyIcon}
 								name="trophy"
-								color={isShowCreate ? "#B9C3C8" : "#00d7ff"}
+								color={isShowCreate ? "#B9C3C8" : "#00D7FF"}
 								size={15}
 							/>
 						) : (
 							<Icon
 								className={style.starIcon}
 								name="Star"
-								color={isShowCreate ? "#B9C3C8" : "#00d7ff"}
+								color={isShowCreate ? "#B9C3C8" : "#00D7FF"}
 								size={15}
 							/>
 						)}

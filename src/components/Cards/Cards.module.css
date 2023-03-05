@@ -353,6 +353,9 @@ font-size: 20px;
 font-size: 18px;
 
 }
+.bottomContainer {
+   height: 35px;
+}
 .category,
 .Stuff,
 .Family,
