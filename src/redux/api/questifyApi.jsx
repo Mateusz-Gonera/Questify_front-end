@@ -1,7 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const API_BASE_URL = 'http://localhost:3000/.netlify/functions/app/';
-const API_GOIT_URL = 'https://questify-backend.goit.global/';
+const API_BASE_URL = "http://localhost:3000/.netlify/functions/app/";
+const API_GOIT_URL = "https://questify-backend.goit.global/";
+const NEW_URL = "https://questify-grupa3.netlify.app/.netlify/functions/app/";
+
 
 export const questifyApi = createApi({
   reducerPath: 'questifyApi',

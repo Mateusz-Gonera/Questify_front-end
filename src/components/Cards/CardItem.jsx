@@ -8,8 +8,6 @@ function CardItem({
    dueDate,
    dueTime,
    isChallenge,
-   dateDone,
-   status,
 }) {
   const today = new Date();
   const tomorrow = new Date(today);
@@ -66,13 +64,16 @@ function CardItem({
             {title}
           </h2>
 
-          <h5 className={style.date}>
+          <div className={style.date}>
                  {isChallenge && 'by '}
                  {formatDate(new Date(dueDate))} , {dueTime}{' '}
-          </h5>
-        </div>
+          </div>
+           </div>
+           <div className={style.bottomContainer}> 
+              <div className={style[category]}>{category}</div>
+           </div>
 
-        <div className={style[category]}>{category}</div>
+        
       </div>
     </li>
   );

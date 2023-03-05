@@ -1,55 +1,46 @@
-.challengeContainer {
+.createStyle {
+}
+.challengeContainer,
+.cardContainer {
   display: flex;
-  padding: 21px;
+  padding: 21px 21px 21px 0;
   flex-direction: column;
+  justify-content: space-between;
   width: 199px;
   height: 205px;
   align-items: center;
-  background: #15395a;
   border-radius: 10px;
   position: relative;
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
 }
+.challengeContainer {
+  background: #15395a;
+}
 .cardContainer {
-  display: flex;
-  padding: 21px;
-  flex-direction: column;
-  width: 199px;
-  height: 205px;
-  align-items: center;
   background: white;
-  border-radius: 10px;
-  position: relative;
-  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
 }
 .difficultyContainer {
   display: flex;
-  flex-direction: row;
-  width: inherit;
-  padding: 0 21px;
+  padding-left: 21px;
+  width: 100%;
   justify-content: space-between;
-  align-items: center;
 }
-.Easy {
-  height: 8px;
-  width: 8px;
-  background-color: #00d7ff;
-  border-radius: 50%;
-  margin-right: 7px;
-}
-.Normal {
-  height: 8px;
-  width: 8px;
-  background-color: #24d40c;
-  border-radius: 50%;
-  margin-right: 7px;
-}
+.Easy,
+.Normal,
 .Hard {
   height: 8px;
   width: 8px;
-  background-color: #db0837;
   border-radius: 50%;
   margin-right: 7px;
+}
+.Easy {
+  background-color: #00d7ff;
+}
+.Normal {
+  background-color: #24d40c;
+}
+.Hard {
+  background-color: #db0837;
 }
 .easy_list {
   font-family: Arial, Helvetica, sans-serif;
@@ -81,38 +72,52 @@
   margin: 0;
   padding: 0;
 }
+
 .starIcon {
    filter: drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25));
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
 }
 
+.starIcon:focus {
+  outline: none;
+  border: none;
+}
 .trophyIcon {
    filter: drop-shadow(0px 4px 4px rgba(0, 215, 255, 0.25));
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
 }
+
+
 .trophyIcon:hover {
    fill: currentColor;
   color: rgba(0, 215, 255, 0.25);
 }
 
 .starIcon:hover {
-   fill: currentColor;
+  fill: currentColor;
   color: rgba(0, 215, 255, 0.25);
 }
 
 .titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  width: 100%;
 }
 
 .isChallenge {
   font-size: 12px;
   color: rgba(185, 195, 200, 1);
   margin-bottom: 10px;
+  margin-top: 20px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2%;
   font-weight: 400;
 }
 .chalengeName {
-   width: 90%; 
+  width: 90%;
   font-size: 16px;
   font-weight: 700;
   display: flex;
@@ -120,21 +125,71 @@
   text-align: center;
   color: rgba(255, 255, 255, 1);
   margin: 0 auto;
-  border: 0px;
+
 }
+.isTask{
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #B9C3C8;
+  margin-top: 20px;
+  
+}
+
 .taskName {
    width: 90%;
    display: flex;
    justify-content: center;
-   font-weight: bold;
+   font-weight: 700;
    text-align: center;
-   margin: 42px auto 5px;
+   margin-top: 6px;
    color: black;
    font-size: 16px;
-   border: 0px;
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+  margin: 42px auto 5px;
+  color: rgba(40, 40, 40, 1);
+  font-size: 16px;
+  border: 0px;
+  
 }
-.Stuff {
-  background-color: #b9c3c8;
+.date {
+   color: rgba(185, 195, 200, 1);
+   margin: 0;
+   border: 0px;
+   display: flex;
+   overflow: hidden;
+   width: 100%;
+   text-align: center;
+}
+.datePicker {
+   font-size: 15px;
+   font-weight: 300px;
+}
+
+
+
+.bottomContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category,
+.Stuff,
+.Family,
+.Health,
+.Learning,
+.Leisure,
+.Work {
   width: 88px;
   height: 25px;
   margin: 0;
@@ -145,117 +200,63 @@
   text-transform: uppercase;
   align-items: center;
   border-radius: 0px 25px 25px 0px;
-  position: absolute;
-  bottom: 21px;
-  left: 0;
   color: rgba(40, 40, 40, 1);
+  position: relative;
+}
+
+.taskName:focus{
+  border-bottom: 1px solid #00D7FF;
+}
+.taskName:hover {
+  border-bottom: 1px solid #00D7FF;
+}
+.calendarIcon{
+  margin-right: 20px;
+  margin-left: -7px;
+}
+
+.Stuff {
+  background-color: #b9c3c8;
 }
 .Family {
   background-color: rgba(255, 230, 211, 1);
-  width: 88px;
-  height: 25px;
-  margin: 0;
-  font-size: 11px;
-  font-weight: 400;
-  padding-left: 21px;
-  display: flex;
-  text-transform: uppercase;
-  align-items: center;
-  border-radius: 0px 25px 25px 0px;
-  position: absolute;
-  bottom: 21px;
-  left: 0;
-  color: rgba(40, 40, 40, 1);
 }
 .Health {
   background-color: rgba(205, 247, 255, 1);
-  width: 88px;
-  height: 25px;
-  margin: 0;
-  font-size: 11px;
-  font-weight: 400;
-  padding-left: 21px;
-  display: flex;
-  text-transform: uppercase;
-  align-items: center;
-  border-radius: 0px 25px 25px 0px;
-  position: absolute;
-  bottom: 21px;
-  left: 0;
-  color: rgba(40, 40, 40, 1);
 }
 .Learning {
   background-color: rgba(255, 246, 192, 1);
-  width: 88px;
-  height: 25px;
-  margin: 0;
-  font-size: 11px;
-  font-weight: 400;
-  padding-left: 21px;
-  display: flex;
-  text-transform: uppercase;
-  align-items: center;
-  border-radius: 0px 25px 25px 0px;
-  position: absolute;
-  bottom: 21px;
-  left: 0;
-  color: rgba(40, 40, 40, 1);
 }
 .Leisure {
   background-color: rgba(248, 210, 255, 1);
-  width: 88px;
-  height: 25px;
-  margin: 0;
-  font-size: 11px;
-  font-weight: 400;
-  padding-left: 21px;
-  display: flex;
-  text-transform: uppercase;
-  align-items: center;
-  border-radius: 0px 25px 25px 0px;
-  position: absolute;
-  bottom: 21px;
-  left: 0;
-  color: rgba(40, 40, 40, 1);
 }
 .Work {
   background-color: rgba(211, 246, 206, 1);
-  width: 88px;
-  height: 25px;
-  margin: 0;
-  font-size: 11px;
-  font-weight: 400;
-  padding-left: 21px;
-  display: flex;
-  text-transform: uppercase;
-  align-items: center;
-  border-radius: 0px 25px 25px 0px;
-  position: absolute;
-  bottom: 21px;
-  left: 0;
-  color: rgba(40, 40, 40, 1);
 }
-.date {
-  color: rgba(185, 195, 200, 1);
-  margin: 0;
-  border: 0px;
-}
+
+
+
 .difficultyDropdown {
+  z-index: 2;
   width: 80px;
   height: 90px;
+  display: block;
   position: absolute;
-  top: -10%;
+  background-color: #f9f9f9;
+  min-width: 88px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
   left: 0;
-  overflow: hidden;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   border: 0px;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 400;
-  padding-left: 12px;
-  padding-top: 14px;
+  padding:12px 10px;
   border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.05), 3px 4px 4px rgba(21, 57, 90, 0.05);
 }
 .difficultyDropdown_category {
   width: 110px;
@@ -273,49 +274,91 @@
   padding-left: 12px;
   padding-top: 9px;
   border-radius: 10px;
-}
-.bottomContainer{
-   display: flex;
 
 }
+.bottomContainer {
+   display: flex;
+}
+
 .btnContainer {
-   display: flex;
-   margin-top: 30px;
-   margin-left: 90px;   
-   gap: 15px;
+  display: flex;
+  gap: 8px;
+  height: 16px;
+  align-items: center;
 }
-
+.btnEdit {
+  height: 16px;
+  border: solid 1px rgba(185, 195, 200, 1);
+}
 button {
-   background-color: transparent;
-   cursor: pointer;
-   border: none;
-   padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding: 0;
 }
 .saveIcon:hover {
-   fill: currentColor;
-   color: #47aad5;
+  fill: currentColor;
+  color: #47aad5;
 }
 
 .saveIcon:active {
-   fill: currentColor;
-   color: #3f93b7;
+  fill: currentColor;
+  color: #3f93b7;
 }
+.clearIcon{
+    transition: all .5s cubic-bezier(.4, 0, .2, 1);
+}
+
 .clearIcon:hover {
-   fill: currentColor;
-   color: #c2273f;
+  fill: currentColor;
+  color: #c2273f;
 }
 
 .clearIcon:active {
-   fill: currentColor;
-   color: #a72536;
+  fill: currentColor;
+  color: #a72536;
 }
 
 .doneIcon:hover {
-   fill: currentColor;
-   color:#439945;
+  fill: currentColor;
+  color: #439945;
 }
 
 .doneIcon:active {
-   fill: currentColor;
-   color: #3c863d;
+  fill: currentColor;
+  color: #3c863d;
+}
+.createBTN{
+  padding-left:7px;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: right;
+  letter-spacing: 0.02em;
+  color: #00D7FF;
+  border-left: 1px solid #B9C3C8;
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+}
+
+.createBTN:hover{
+  color: #4da5f2;
+}
+.cancel{
+  padding-right: 7px;
+}
+
+/* .createStyle{
+
+
+} */
+.showCreateContainer{
+  display: flex;
+  position: absolute;
+  bottom: 26px;
+  right: 21px;
+}
+
+
+.liItem {
+  display: block;
 }

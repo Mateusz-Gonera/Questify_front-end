@@ -74,50 +74,56 @@
 
   .textButton:hover {
     color: #00d7ff;
+    border: #fff;
   }
 
   .input__form {
-    max-width: 150px;
-    margin-bottom: 0px;
+    width: 200px;
+    margin-bottom: 20px;
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
     border-color: #00d7ff;
+    caret-color: #00d7ff;
+    outline: none;
+  }
+
+  .input__form::placeholder {
+    color: #00d7ff;
   }
 
   .container__form {
-    margin: 0px 0px 10px 50px;
-    width: 150px;
+    margin: 0px;
+    width: 450px;
     z-index: 2;
     font-family: "HelveticaNeueCyr";
   }
 
-  .paragraph__form {
-    font-size: 10px;
-    margin-bottom: 15px;
-    text-align: center;
-    color: #00d7ff;
-    font-family: "HelveticaNeueCyr";
-  }
-
   .password__form {
-    font-size: 8px;
+    display: block;
+    width: 200px;
+    font-size: 12px;
     font-family: "HelveticaNeueCyr";
+    text-align: center;
     color: #15395a;
-    line-height: 1px;
+    line-height: 15px;
   }
 
   .buttonGo {
     margin-top: 5px;
-    margin-left: 50px;
+    margin-left: 70px;
     background-color: #ff851c;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 52px;
+    height: 52px;
     justify-content: center;
-    padding: 0;
+    padding: 0px 0px 4px 0px;
     font-family: "HelveticaNeueCyr";
     color: white;
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 24px;
+    line-height: 24px;
     text-align: center;
     letter-spacing: 0.02em;
     box-shadow: 0px 5px 20px rgba(238, 107, 7, 0.6);
@@ -190,6 +196,7 @@
 
   .textButton:hover {
     color: #00d7ff;
+    border: #fff;
   }
 
   .info {
@@ -198,44 +205,51 @@
 
   .input__form {
     width: 200px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
     border-color: #00d7ff;
+    caret-color: #00d7ff;
+    outline: none;
+  }
+
+  .input__form::placeholder {
+    color: #00d7ff;
   }
 
   .container__form {
-    margin-left: 60px;
-    width: 200px;
+    margin: 0px;
+    width: 450px;
     z-index: 2;
     font-family: "HelveticaNeueCyr";
   }
 
-  .paragraph__form {
-    font-size: 12px;
-    margin-bottom: 5px;
-    text-align: center;
-    color: #00d7ff;
-    font-family: "HelveticaNeueCyr";
-  }
   .password__form {
-    font-size: 8px;
+    display: block;
+    width: 200px;
+    font-size: 12px;
     font-family: "HelveticaNeueCyr";
+    text-align: center;
     color: #15395a;
-    line-height: 1px;
+    line-height: 15px;
   }
 
   .buttonGo {
+    margin-top: 5px;
     margin-left: 70px;
     background-color: #ff851c;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 52px;
+    height: 52px;
     justify-content: center;
-    padding: 0;
+    padding: 0px 0px 4px 0px;
     font-family: "HelveticaNeueCyr";
     color: white;
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 24px;
+    line-height: 24px;
     text-align: center;
     letter-spacing: 0.02em;
     box-shadow: 0px 5px 20px rgba(238, 107, 7, 0.6);
@@ -261,6 +275,7 @@
   .container {
     max-width: 564px;
     left: 229px;
+    top: 0px;
   }
 
   .landingTekst {
@@ -278,13 +293,14 @@
     font-size: 25px;
     text-decoration: underline;
     margin: 0px;
-    padding: 10px;
+    padding: 0px;
     color: #b9c3c8;
     background-color: #fff;
   }
 
   .textButton:hover {
     color: #00d7ff;
+    border: #fff;
   }
 
   .info {
@@ -315,30 +331,34 @@
 
   .input__form {
     width: 200px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
     border-color: #00d7ff;
+    caret-color: #00d7ff;
+    outline: none;
+  }
+
+  .input__form::placeholder {
+    color: #00d7ff;
   }
 
   .container__form {
-    margin-left: 110px;
-    width: 200px;
+    margin: 0px;
+    width: 450px;
     z-index: 2;
     font-family: "HelveticaNeueCyr";
   }
 
-  .paragraph__form {
-    font-size: 15px;
-    margin-bottom: 15px;
-    text-align: center;
-    color: #00d7ff;
-    font-family: "HelveticaNeueCyr";
-  }
-
   .password__form {
-    font-size: 8px;
+    display: block;
+    width: 200px;
+    font-size: 12px;
     font-family: "HelveticaNeueCyr";
+    text-align: center;
     color: #15395a;
-    line-height: 1px;
+    line-height: 15px;
   }
 
   .buttonGo {
@@ -346,15 +366,16 @@
     margin-left: 70px;
     background-color: #ff851c;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 52px;
+    height: 52px;
     justify-content: center;
-    padding: 0;
+    padding: 0px 0px 4px 0px;
     font-family: "HelveticaNeueCyr";
     color: white;
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 24px;
+    line-height: 24px;
     text-align: center;
     letter-spacing: 0.02em;
     box-shadow: 0px 5px 20px rgba(238, 107, 7, 0.6);

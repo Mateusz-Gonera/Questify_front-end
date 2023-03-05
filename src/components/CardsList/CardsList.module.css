@@ -1,40 +1,22 @@
-input {
-  all: unset;
+.sectionCards{
+   margin: 0;
 }
-form {
-  all: unset;
+.listContainer{
+
 }
-select {
-  all: unset;
+.dayTitle {
+   margin-top: 30px;
+   margin-bottom: 20px;
 }
-.sectionCards {
-  background-color: rgba(242, 243, 247, 1);
-  color: black;
+.cardList{
+   margin: 0;
+   padding: 0;
+   display: flex;
+   gap: 28px;
+   flex-wrap: wrap;
 }
-.cardList {
-  display: flex;
-  gap: 28px;
-  margin: 0;
-  padding: 0;
-}
-.cardsListItem {
-  margin: 0 auto;
-}
-.clockContainer {
-  display: flex;
-  gap: 15px;
-}
-.todaylist {
-  padding: 15px;
-  font-size: 15px;
-  font-weight: 300;
-  color: rgba(40, 40, 40, 1);
-}
-.tomorrowList {
-  padding: 15px;
-  font-size: 15px;
-  font-weight: 300;
-  color: rgba(40, 40, 40, 1);
+.createContainer{
+
 }
 .btn_container {
   position: absolute;
@@ -161,4 +143,29 @@ font-size: 11px;
     font-family: HelveticaNeueCyr;
     font-size: 14px;
     font-weight: 400;
+   position: absolute;
+   right: 45px;
+   border: 0px;
+   border-radius: 10px 10px 10px 10px;
+   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+      3px 4px 4px rgba(21, 57, 90, 0.03);
+   width: 52px;
+   height: 52px;
+   background-color: #ff851c;
+   bottom: 50px;
+   fill: #ff851c;
+   stroke: white;
+   stroke-width: 2px;
+}
+
+.btn_container:hover {
+   color: #ff851c;
+   background-color: white;
+   stroke: #ff851c;
+   fill: #ff851c;
+}
+.btn_add_card {
+   position: absolute;
+   left: 12.5%;
+   top: 12.5%;
 }
