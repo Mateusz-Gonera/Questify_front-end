@@ -68,15 +68,15 @@ const CardsList = ({ cards }) => {
       return 0;
     }
   });
-  ///////////// Lisata Done
-// useEffect(() => {
-//    cards.forEach((el) => {
-//      const cTitle = el.title.toLowerCase();
-//      if (cTitle.includes("cucumber")) {
-//        setIsTrue(true);
-//      }
-//    });
-//  });
+  /////////// Lisata Done
+ useEffect(() => {
+    cards.forEach((el) => {
+      const cTitle = el.title.toLowerCase();
+      if (cTitle.includes("cucumber")) {
+        setIsTrue(true);
+      }
+    });
+  });
 
   function timeStringToMs(cards) {
     const [hours, minutes] = cards.split(":");
