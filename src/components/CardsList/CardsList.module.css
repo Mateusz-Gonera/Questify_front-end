@@ -13,11 +13,6 @@
     padding-right: 15px;
   } */
 }
-.listContainer {
-}
-  margin: 0;
-}
-
 .dayTitle {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -39,17 +34,11 @@
     justify-content: center;
   }
 }
-.createContainer {
-}
 .btn_container {
-  z-index: 120;
   position: absolute;
+  z-index: 120;
   right: 46px;
   bottom: 40px;
-
-.btn_container {
-  position: absolute;
-  right: 45px;
   border: 0px;
   border-radius: 10px 10px 10px 10px;
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
