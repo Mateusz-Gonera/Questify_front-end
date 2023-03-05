@@ -36,36 +36,49 @@
 }
 .btn_container {
   position: absolute;
-  z-index: 120;
-  right: 46px;
-  bottom: 40px;
-  border: 0px;
-  border-radius: 10px 10px 10px 10px;
+  z-index: 2;
+  right: 45px;
+  border-radius: 50%;
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
     3px 4px 4px rgba(21, 57, 90, 0.03);
   width: 52px;
   height: 52px;
   background-color: #ff851c;
   bottom: 50px;
-  fill: #ff851c;
-  stroke: white;
-  stroke-width: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media screen and (max-device-width: 766px) {
   .btn_container {
     right: 0%;
-    bottom: 33px;
+    bottom: 15px;
   }
 }
-.btn_container:hover {
-  color: #ff851c;
-  background-color: white;
-  stroke: #ff851c;
-  fill: #ff851c;
-}
+
 .btn_add_card {
-  z-index: 100;
-  position: absolute;
-  left: 12.5%;
-  top: 12.5%;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 10px 0px #ff851c;
+  -moz-box-shadow: 0px 0px 10px 0px #ff851c;
+  box-shadow: 0px 0px 10px 0px #ff851c;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn_add_card:focus {
+  outline: none;
+  background-color: #47aad5;
+  -webkit-box-shadow: 0px 0px 10px 0px #47aad5;
+  -moz-box-shadow: 0px 0px 10px 0px #47aad5;
+  box-shadow: 0px 0px 10px 0px #47aad5;
+}
+
+.btn_add_card:hover {
+  outline: none;
+  background-color: #00d7ff;
+  -webkit-box-shadow: 0px 0px 10px 0px #00d7ff;
+  -moz-box-shadow: 0px 0px 10px 0px #00d7ff;
+  box-shadow: 0px 0px 10px 0px #00d7ff;
 }
