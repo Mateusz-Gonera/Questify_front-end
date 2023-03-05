@@ -27,14 +27,14 @@ const App = () => {
             <RestrictedRoute redirectTo="/dashboard" component={<Login />} />
           }
         />
-        {/* <div className="style.dashboard_container"> */}
+
         <Route
           path="dashboard"
           element={
             <PrivateRoute redirectTo="/login" component={<Dashboard />} />
           }
         />
-        {/* </div> */}
+
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

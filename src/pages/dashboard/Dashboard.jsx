@@ -1,7 +1,8 @@
 import CardList from '../../components/CardsList/CardsList';
 import { AppBar } from '../../components/appBar/AppBar';
 import { useGetAllCardsQuery } from '../../redux/api/questifyApi';
-import style from '../dashboard/Api.module.css';
+import style from './Dashboard.module.css';
+
 const Dashboard = () => {
   //    const cards = [
   //    { id: 1, title: "Buy the gift for Mary", date: "2023-02-23",time:"08-10", isChallenge: true, difficulty:"Normal", category:"Stuff" },
@@ -16,12 +17,10 @@ const Dashboard = () => {
   const cards = [...data.cards].reverse();
 
   return (
-    <>
-      <div className={style.dashboard_container}>
-        <AppBar />
-        <CardList cards={cards} />
-      </div>
-    </>
+    <div className={style.dashboard_container}>
+      <AppBar />
+      <CardList cards={cards} />
+    </div>
   );
 };
 
