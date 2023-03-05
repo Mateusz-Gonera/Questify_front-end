@@ -9,13 +9,22 @@ border:none;
   padding: 21px ;
   flex-direction: column;
   justify-content: space-between;
-  width: 199px;
-  height: 205px;
+  width: 100vw;
+  height: 100vw;
+  max-width: 199px;
+  max-height: 205px;
   align-items: center;
   border-radius: 10px;
   position: relative;
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
 }
+@media screen and (max-device-width: 766px) {
+  .cardContainer {
+    max-width: 290px;
+    max-height: 260px;
+  }
+}
+
 .challengeContainer {
   background: #15395a;
 }
@@ -174,7 +183,7 @@ border-radius: 50%;
    border-bottom: 1px solid #00D7FF;
    outline: none;
 }
-.isTask{
+.isTask {
   font-weight: 700;
   font-size: 12px;
   text-align: center;
@@ -331,8 +340,8 @@ button {
   fill: currentColor;
   color: #3f93b7;
 }
-.clearIcon{
-    transition: all .5s cubic-bezier(.4, 0, .2, 1);
+.clearIcon {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clearIcon:hover {
@@ -354,21 +363,21 @@ button {
   fill: currentColor;
   color: #3c863d;
 }
-.createBTN{
-  padding-left:7px;
+.createBTN {
+  padding-left: 7px;
   text-transform: uppercase;
   font-size: 14px;
   line-height: 14px;
   text-align: right;
   letter-spacing: 0.02em;
-  color: #00D7FF;
-  border-left: 1px solid #B9C3C8;
-  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+  color: #00d7ff;
+  border-left: 1px solid #b9c3c8;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .createBTN:hover{
   color: #4da5f2;
 }
-.cancel{
+.cancel {
   padding-right: 7px;
 }
 
@@ -376,7 +385,7 @@ button {
 
 
 } */
-.showCreateContainer{
+.showCreateContainer {
   display: flex;
   position: absolute;
   bottom: 26px;

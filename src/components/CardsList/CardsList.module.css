@@ -1,7 +1,18 @@
 .sectionCards {
-  margin: 0;
-}
+  /* margin: 0;
+  padding-left: 71px;
+  padding-right: 72px;
 
+  @media (max-width: 1200px) {
+    padding-left: 50px;
+    padding-right: 51px;
+  }
+
+  @media (max-width: 767px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  } */
+}
 .dayTitle {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -13,10 +24,21 @@
   gap: 28px;
   flex-wrap: wrap;
 }
-
+@media screen and (max-device-width: 766px) {
+  .cardList {
+    margin: auto;
+    padding: auto;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 .btn_container {
   position: absolute;
-  right: 45px;
+  z-index: 120;
+  right: 46px;
+  bottom: 40px;
   border: 0px;
   border-radius: 10px 10px 10px 10px;
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
@@ -29,7 +51,12 @@
   stroke: white;
   stroke-width: 2px;
 }
-
+@media screen and (max-device-width: 766px) {
+  .btn_container {
+    right: 0%;
+    bottom: 33px;
+  }
+}
 .btn_container:hover {
   color: #ff851c;
   background-color: white;
@@ -37,6 +64,7 @@
   fill: #ff851c;
 }
 .btn_add_card {
+  z-index: 100;
   position: absolute;
   left: 12.5%;
   top: 12.5%;

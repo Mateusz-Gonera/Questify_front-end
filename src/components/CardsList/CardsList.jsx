@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { Form, Formik, Field } from "formik";
+import React, { useState, useEffect } from 'react';
+import { Form, Formik, Field } from 'formik';
 
-import style from "./CardsList.module.css";
-import Card from "../Cards/Card";
+import style from './CardsList.module.css';
+import Card from '../Cards/Card';
 
-import IconButton from "@mui/material/IconButton";
-import AddIcon from "@mui/icons-material/Add";
-import DoneList from "../Cards/CardsDone";
-import EditCard from "../Cards/EditCard";
-import True from "../Cards/True";
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+import DoneList from '../Cards/CardsDone';
+import EditCard from '../Cards/EditCard';
+import True from '../Cards/True';
 
 const CardsList = ({ cards }) => {
   // Create newCard
 
   // CardsSorted
-  const inCompletedCards = cards.filter((card) => card.status === "Incomplete");
-  const CompletedCards = cards.filter((card) => card.status === "Complete");
+  const inCompletedCards = cards.filter(card => card.status === 'Incomplete');
+  const CompletedCards = cards.filter(card => card.status === 'Complete');
   const [isTrue, setIsTrue] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
   const [isOpenCreateCardForm, setIsOpenCreateCardForm] = useState(false);
 
-  const filteredCards = inCompletedCards.filter((card) => {
+  const filteredCards = inCompletedCards.filter(card => {
     const cardDate = new Date(card.date);
     return (
       cardDate.getFullYear() === currentDate.getFullYear() &&
@@ -48,7 +48,7 @@ const CardsList = ({ cards }) => {
     }, 60000);
   }, []);
 
-  const filteredTomorrowCards = inCompletedCards.filter((card) => {
+  const filteredTomorrowCards = inCompletedCards.filter(card => {
     const cardDate = new Date(card.date);
     return (
       cardDate.getFullYear() === tomorrowDate.getFullYear() &&
@@ -79,7 +79,7 @@ const CardsList = ({ cards }) => {
   });
 
   function timeStringToMs(cards) {
-    const [hours, minutes] = cards.split(":");
+    const [hours, minutes] = cards.split(':');
     const date = new Date();
     date.setHours(hours);
     date.setMinutes(minutes);
@@ -153,7 +153,8 @@ const CardsList = ({ cards }) => {
           </div>
         </div>
 
-        <DoneList item={CompletedCards} />
+          <DoneList item={CompletedCards} />
+        </div>
       </div>
     </>
   );
