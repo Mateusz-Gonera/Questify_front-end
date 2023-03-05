@@ -1,22 +1,20 @@
-.sectionCards{
-   margin: 0;
+.sectionCards {
+  margin: 0;
 }
-.listContainer{
-
+.listContainer {
 }
 .dayTitle {
-   margin-top: 30px;
-   margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
-.cardList{
-   margin: 0;
-   padding: 0;
-   display: flex;
-   gap: 28px;
-   flex-wrap: wrap;
+.cardList {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
 }
-.createContainer{
-
+.createContainer {
 }
 .btn_container {
   position: absolute;
@@ -93,15 +91,15 @@
   margin-top: 20px;
   margin-bottom: 5px;
 }
-.modal_add_date_div{
+.modal_add_date_div {
   display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 .modal_add_date {
-color: #282828;
-font-size: 14px;
-font-weight: 400;
+  color: #282828;
+  font-size: 14px;
+  font-weight: 400;
 }
 .modal_add_time_div {
   display: flex;
@@ -116,56 +114,42 @@ font-weight: 400;
 .modal_add_category_button {
   display: flex;
   justify-content: space-between;
-
 }
 .modal_add_category_style {
   color: #282828;
   padding-left: 21px;
-
 }
 .modal_add_category_style_div {
   width: 88px;
   height: 25px;
-  background-color: #B9C3C8;
+  background-color: #b9c3c8;
   border-radius: 0px 15px 15px 0px;
   display: flex;
   align-items: center;
-font-family: HelveticaNeueCyr;
-font-size: 11px;
+  font-family: HelveticaNeueCyr;
+  font-size: 11px;
 }
 .modal_add_btn_create {
-  color: #00D7FF;
+  color: #00d7ff;
   padding-right: 21px;
 }
 .modal_add_btn_div {
   display: flex;
-    align-items: center;
-    font-family: HelveticaNeueCyr;
-    font-size: 14px;
-    font-weight: 400;
-   position: absolute;
-   right: 45px;
-   border: 0px;
-   border-radius: 10px 10px 10px 10px;
-   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
-      3px 4px 4px rgba(21, 57, 90, 0.03);
-   width: 52px;
-   height: 52px;
-   background-color: #ff851c;
-   bottom: 50px;
-   fill: #ff851c;
-   stroke: white;
-   stroke-width: 2px;
-}
-
-.btn_container:hover {
-   color: #ff851c;
-   background-color: white;
-   stroke: #ff851c;
-   fill: #ff851c;
-}
-.btn_add_card {
-   position: absolute;
-   left: 12.5%;
-   top: 12.5%;
+  align-items: center;
+  font-family: HelveticaNeueCyr;
+  font-size: 14px;
+  font-weight: 400;
+  position: absolute;
+  right: 45px;
+  border: 0px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
+  width: 52px;
+  height: 52px;
+  background-color: #ff851c;
+  bottom: 50px;
+  fill: #ff851c;
+  stroke: white;
+  stroke-width: 2px;
 }
