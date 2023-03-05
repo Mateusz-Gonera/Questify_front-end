@@ -166,9 +166,11 @@ border-radius: 50%;
 }
 .chalengeName:focus {
    border-bottom: 1px solid #00D7FF;
+   outline: none;
 }
 .chalengeName:hover {
    border-bottom: 1px solid #00D7FF;
+   outline: none;
 }
 .isTask{
   font-weight: 700;
@@ -196,9 +198,11 @@ border-radius: 50%;
 }
 .taskName:focus{
   border-bottom: 1px solid #00D7FF;
+  outline: none;
 }
 .taskName:hover {
-  border-bottom: 1px solid #00D7FF;
+   border-bottom: 1px solid #00D7FF;
+   outline: none;       
 }
 .calendarIcon{
    margin-right: 20px;
@@ -213,6 +217,12 @@ border-radius: 50%;
 }
 .datePicker {
    font-size: 14px;
+   line-height: 18px;
+   letter-spacing: 0.02em;
+   color: #B9C3C8;
+   background-color: transparent;
+   border: none;
+   outline: none;
 }
 .bottomContainer {
   display: flex;
@@ -449,11 +459,6 @@ font-size: 18px;
 }
 .datePicker {
    font-size: 18px;
-   line-height: 18px;
-   letter-spacing: 0.02em;
-   color: #B9C3C8;
-   background-color: transparent;
-   border: none;
 }
 .bottomContainer {
    height: 35px;
