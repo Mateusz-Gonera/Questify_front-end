@@ -20,20 +20,18 @@
   justify-content: space-around;
 }
 
-.trophyBg {
-  background-color: #7b8aa4;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
+.trophyIcon {
   width: 30px;
   height: 30px;
+  margin-right: 38px;
 }
 
-.trophyIcon {
-  margin-top: 5px;
-  width: 14px;
-  height: 14px;
+.challengeIcon {
+  margin-right: 38px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 215, 255, 1);
+  -moz-box-shadow: 0px 0px 9px -1px rgba(0, 215, 255, 1);
+  box-shadow: 0px 0px 9px -1px rgba(0, 215, 255, 1);
 }
 
 .userMenu {
@@ -73,16 +71,26 @@
   .userName {
     display: none;
   }
+
+  .trophyIcon {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .challengeIcon {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
 }
 
 @media screen and (min-width: 481px) {
   .userMenu {
     margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%)
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -109,15 +117,11 @@
     letter-spacing: 0.02em;
     color: #7b8aa4;
     margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%)
-  }
-
-  .challengeIcon {
-    margin-right: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
   }
 
   .trophyBg {
@@ -131,5 +135,4 @@
 }
 
 @media screen and (min-width: 1200px) {
-  
 }

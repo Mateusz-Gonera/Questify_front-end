@@ -218,7 +218,10 @@
   height: 90px;
   display: block;
   position: absolute;
-  top: -10%;
+  background-color: #f9f9f9;
+  min-width: 88px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
   left: 0;
   appearance: none;
   -webkit-appearance: none;
@@ -244,7 +247,7 @@
   border: 0px;
   border-radius: 10px;
 }
-.bottomContainer{
+.bottomContainer {
    display: flex;
    justify-content: end;
    height: 25px;
