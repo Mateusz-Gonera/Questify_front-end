@@ -164,12 +164,15 @@ function EditCard({
                 size="3"
               >
                 <option className={style.easy_list} value="Easy">
-                  <li className={style.Easy}> Easy</li>
+                  <div className={style.Easy}> </div>
+                  Easy
                 </option>
                 <option className={style.normal_list} value="Normal">
+                  <div className={style.Normal}> </div>
                   <li>Normal</li>
                 </option>
                 <option className={style.hard_list} value="Hard">
+                  <div className={style.Hard}> </div>
                   <li>Hard</li>
                 </option>
               </select>
@@ -220,17 +223,17 @@ function EditCard({
 							withPortal
 							onChange={(date) => setStartDate(date)}
 						/>
-						<button className="example-custom-input">
+						<div  className="example-custom-input">
 							<Icon name="calendar" color="#00D7FF" size={14} />
-						</button>
+						</div>
 					</div>
 				</div>
 				<div className={style.bottomContainer}>
-					<div className={style[selectedGroup]} onClick={handleGroupClick}>
+					<div className={style[selectedGroup]} style={{cursor:'pointer'}} onClick={handleGroupClick}>
 						{selectedGroup}
 						{showGroupDropdown && (
 							<select
-								className={style.difficultyDropdown}
+								className={style.categoryDropdown}
 								value={selectedGroup}
 								onChange={handleGroupChange}
 								size="6"
@@ -275,7 +278,6 @@ function EditCard({
                     className={style.saveIcon}
                     name="save"
                     color="#00d7ff"
-                    size={10}
                   />
                 )}
               </button>
@@ -286,7 +288,6 @@ function EditCard({
                   className={style.clearIcon}
                   name="clear"
                   color="#DB0837"
-                  size={10}
                 />
               </button>
               <div className={style.btnEdit}> </div>
@@ -295,7 +296,6 @@ function EditCard({
                   className={style.doneIcon}
                   name="done"
                   color="#24d40c"
-                  size={14}
                 />
               </button>
             </div>
