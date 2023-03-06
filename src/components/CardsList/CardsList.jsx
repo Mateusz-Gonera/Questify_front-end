@@ -16,13 +16,20 @@ const CardsList = ({ cards }) => {
   // CardsSorted
   const inCompletedCards = cards.filter(card => card.status === 'Incomplete');
   const CompletedCards = cards.filter(card => card.status === 'Complete');
+  const challengeCards = inCompletedCards.filter(card => card.type === 'Challenge');
+  const taskCards = inCompletedCards.filter(card => card.type === 'Task');
+  
   const [isTrue, setIsTrue] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
+   const nexWeek = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000 * 6);
+
+console.log(nexWeek)
+
   const [isOpenCreateCardForm, setIsOpenCreateCardForm] = useState(false);
 
-  const filteredCards = inCompletedCards.filter(card => {
+  const filteredCards = taskCards.filter(card => {
     const cardDate = new Date(card.date);
     return (
       cardDate.getFullYear() === currentDate.getFullYear() &&
@@ -48,7 +55,7 @@ const CardsList = ({ cards }) => {
     }, 60000);
   }, []);
 
-  const filteredTomorrowCards = inCompletedCards.filter(card => {
+  const filteredTomorrowCards = taskCards.filter(card => {
     const cardDate = new Date(card.date);
     return (
       cardDate.getFullYear() === tomorrowDate.getFullYear() &&
@@ -85,6 +92,18 @@ const CardsList = ({ cards }) => {
     date.setMinutes(minutes);
     return date.getTime();
   }
+//  Lista Challenge
+ const challengeSort = challengeCards.sort((a, b) => {
+    const dateA = a.date + ' ' + a.time;
+    const dateB = b.date + ' ' + b.time;
+    if (dateA < dateB) {
+      return -1;
+    } else if (dateA > dateB) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
 
   return (
     <>
@@ -111,6 +130,19 @@ const CardsList = ({ cards }) => {
             )}
             {todayCards.map((card) => (
               <Card
+                key={card._id}
+                id={card._id}
+                title={card.title}
+                dueDate={card.date}
+                dueTime={card.time}
+                type={card.type}
+                difficulty={card.difficulty}
+                category={card.category}
+                status={card.status}
+              />
+            ))}
+            {challengeSort.map((card)=>(
+               <Card
                 key={card._id}
                 id={card._id}
                 title={card.title}

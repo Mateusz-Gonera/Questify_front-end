@@ -234,13 +234,9 @@ function EditCard({
 						{Challenge ? (
 							<button className={style.isChallenge}>Edit Challenge</button>
 						):(
-							<p className={style.isTask}>EDIT QUEST</p>
+							<p className={style.isTask}>{isShowCreate ? ("CREATE NEW QUEST") : ("EDIT QUEST")}</p>
 						)
                   }
-						{isShowCreate && (
-							<p className={style.isTask}>CREATE NEW QUEST</p>
-						) }
-
 						<input
 							type="text"
 							placeholder="Task title"
