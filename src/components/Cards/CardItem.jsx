@@ -19,9 +19,10 @@ function CardItem({
       return 'Tomorrow';
     } else {
       return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
+      //  year: 'numeric',
+      //  month: 'short',
+      //  day: 'numeric',
+        weekday: 'long'
       });
     }
    };
