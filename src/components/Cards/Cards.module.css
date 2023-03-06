@@ -1,30 +1,24 @@
-button:focus{
-border:none;
+button:focus {
+  border: none;
 }
 .createStyle {
+   
 }
 .challengeContainer,
 .cardContainer {
   display: flex;
-  padding: 21px ;
+  padding: 21px;
   flex-direction: column;
   justify-content: space-between;
-  width: 100vw;
+  /*width: 100vw;
   height: 100vw;
   max-width: 199px;
-  max-height: 205px;
+  max-height: 205px;*/
   align-items: center;
   border-radius: 10px;
   position: relative;
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
 }
-@media screen and (max-device-width: 766px) {
-  .cardContainer {
-    max-width: 290px;
-    max-height: 260px;
-  }
-}
-
 .challengeContainer {
   background: #15395a;
 }
@@ -60,16 +54,14 @@ border:none;
   align-items: center;
   font-weight: 400;
 }
-
 .easy_list::before {
-
-content: ""; 
-display: inline-block; 
-width: 8px; 
-height: 8px; 
-margin-right: 5px; 
-background-color: #00d7ff;
-border-radius: 50%; 
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+  background-color: #00d7ff;
+  border-radius: 50%;
 }
 .normal_list {
   display: flex;
@@ -79,14 +71,14 @@ border-radius: 50%;
   font-weight: 400;
 }
 .normal_list::before {
-  content: ""; 
-  display: inline-block; 
-  width: 8px; 
-  height: 8px; 
-  margin-right: 5px; 
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
   background-color: #24d40c;
-  border-radius: 50%; 
-  }
+  border-radius: 50%;
+}
 .hard_list {
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
@@ -95,14 +87,14 @@ border-radius: 50%;
   font-weight: 400;
 }
 .hard_list::before {
-  content: ""; 
-  display: inline-block; 
-  width: 8px; 
-  height: 8px; 
-  margin-right: 5px; 
-  background-color: red; 
-  border-radius: 50%; 
-  }
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+  background-color: red;
+  border-radius: 50%;
+}
 .difficultyLevel {
   display: flex;
   justify-content: space-between;
@@ -114,47 +106,49 @@ border-radius: 50%;
   letter-spacing: 2%;
   margin: 0;
   padding: 0;
+  font-weight: 400;
 }
 .difficultyDropdown {
-   z-index: 2;
-   width: 90px;
-   height: 80px;
-   min-width: 80px;
-   position: absolute;
-   background-color: #f9f9f9;
-   left: 0;
-   top: -20px;
-   appearance: none;
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   font-size: 11px;
-   font-weight: 400;
-   padding: 12px 10px;
-   border-radius: 10px;
-   border: 0;
-   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.05), 3px 4px 4px rgba(21, 57, 90, 0.05);
-   overflow: hidden;
+  z-index: 2;
+  width: 90px;
+  height: 80px;
+  min-width: 80px;
+  position: absolute;
+  background-color: #f9f9f9;
+  left: 0;
+  top: -20px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 11px;
+  font-weight: 400;
+  padding: 12px 10px;
+  border-radius: 10px;
+  border: 0;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.05),
+    3px 4px 4px rgba(21, 57, 90, 0.05);
+  overflow: hidden;
 }
 
 .starIcon,
 .trophyIcon {
-   /*filter: drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25));*/
-   transition: all .5s cubic-bezier(.4, 0, .2, 1);
-   height: 14px;
-   width: 14px;
+  /*filter: drop-shadow(0px 3px 4px rgba(0, 215, 255, 0.25));*/
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 14px;
+  width: 14px;
 }
 .starIcon:focus {
   outline: none;
   border: none;
 }
 .trophyIcon:hover {
-   color: rgba(0, 215, 255, 0.25);
+  color: rgba(0, 215, 255, 0.25);
 }
 .starIcon:hover {
   color: rgba(0, 215, 255, 0.25);
 }
 .titleContainer {
-   text-align: center;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -170,76 +164,84 @@ border-radius: 50%;
   font-weight: 400;
 }
 .chalengeName {
-   color: rgba(255, 255, 255, 1);
-   background-color: transparent;
-   border: none;
-   transition: all .5s cubic-bezier(.4, 0, .2, 1);
+  color: rgba(255, 255, 255, 1);
+  background-color: transparent;
+  border: none;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .chalengeName:focus {
-   border-bottom: 1px solid #00D7FF;
-   outline: none;
+  border-bottom: 1px solid #00d7ff;
+  outline: none;
 }
 .chalengeName:hover {
-   border-bottom: 1px solid #00D7FF;
-   outline: none;
+  border-bottom: 1px solid #00d7ff;
+  outline: none;
 }
 .isTask {
   font-weight: 700;
   font-size: 12px;
   text-align: center;
   letter-spacing: 0.02em;
-  color: #B9C3C8;
+  color: #b9c3c8;
   margin: 0;
 }
 .chalengeName,
 .taskName {
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   font-weight: 700;
-   text-align: center;
-   margin-top: 6px;
-   margin-bottom: 6px;
-   font-size: 16px;
-  transition: all .5s cubic-bezier(.4, 0, .2, 1);
-   border:none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  text-align: center;
+   margin: 6px auto;
+  font-size: 16px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
 }
-.taskName{
-   color: black;
+.taskName {
+  color: rgba(40, 40, 40, 1);
 }
-.taskName:focus{
-  border-bottom: 1px solid #00D7FF;
+.taskName:focus {
+  border-bottom: 1px solid #00d7ff;
   outline: none;
 }
 .taskName:hover {
-   border-bottom: 1px solid #00D7FF;
-   outline: none;       
+  border-bottom: 1px solid #00d7ff;
+  outline: none;
 }
-.calendarIcon{
-   position: absolute;
-   z-index: 1;
-   right: 22.84%;
-   bottom: 37.55%;
+.taskName:focus-visible {
+   outline: none;
+}
+.calendarIcon {
+  position: absolute;
+  z-index: 1;
+  /*right: 22.84%;
+  bottom: 37.55%;*/
 }
 .date {
-   /*display: flex;*/
-   color: rgba(185, 195, 200, 1);
-   border: 0px;
-   overflow: hidden;
-   align-items: center;
+  display: flex;
+  color: rgba(185, 195, 200, 1);
+  border: 0px;
+  overflow: hidden;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
-.calendarContainer{
-
+.calendarContainer {
 }
 .datePicker {
-   font-size: 14px;
-   line-height: 18px;
-   letter-spacing: 0.02em;
-   color: #B9C3C8;
-   background-color: transparent;
-   border: none;
-   outline: none;
-   z-index: 3;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  color: #b9c3c8;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  z-index: 3;
+text-align: center;
+  /*width: 100%;*/
+}
+.react-datepicker__input-container{
+
 }
 .bottomContainer {
   display: flex;
@@ -289,8 +291,8 @@ border-radius: 50%;
   background-color: rgba(211, 246, 206, 1);
 }
 .categoryDropdown {
-   font-size: 11px;
-   color: rgba(40, 40, 40, 1);
+  font-size: 11px;
+  color: rgba(40, 40, 40, 1);
   width: 90px;
   height: 110px;
   position: absolute;
@@ -304,15 +306,19 @@ border-radius: 50%;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 1);
   cursor: pointer;
+   text-transform: uppercase;
 }
-.categoryDropdown 
-option:active{
-   color: #a72536;
+ select option:checked {
+   background-color:  transparent;
+   color: rgba(185, 195, 200, 1);
+}
+.categoryDropdown option:active {
+  color: #a72536;
 }
 .bottomContainer {
-   display: flex;
-   justify-content: end;
-   height: 25px;
+  display: flex;
+  justify-content: end;
+  height: 25px;
 }
 
 .btnContainer {
@@ -374,7 +380,7 @@ button {
   border-left: 1px solid #b9c3c8;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.createBTN:hover{
+.createBTN:hover {
   color: #4da5f2;
 }
 .cancel {
@@ -407,7 +413,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-   border-radius: 10px;
+  border-radius: 10px;
 }
 
 .modal {
@@ -416,123 +422,135 @@ button {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
   width: 163px;
   height: 77px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   font-size: 12px;
-   font-weight: 550;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  gap: 13px;
+  font-size: 12px;
+  font-weight: 550;
+  color: rgba(40, 40, 40, 1);
 }
+
 .modalButtons {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 .btnCancel,
-.btnDelete{
-   font-size: 10px;
-   font-weight: 700;
+.btnDelete {
+  font-size: 10px;
+  font-weight: 700;
 }
-.btnCancel{
-color: rgba(36, 212, 12, 1);
+.btnCancel {
+  color: rgba(36, 212, 12, 1);
 }
-.btnDelete{
-   color: rgba(219, 9, 56, 1);
+.btnDelete {
+  color: rgba(219, 9, 56, 1);
 }
-
 
 /*----------------------MOBILE VERTICAL------------------------- */
-@media screen and (max-width: 767px){
-.challengeContainer,
-.cardContainer{
-width: 290px;
-height: 260px;
-
+@media screen and (max-width: 767px) {
+  .challengeContainer,
+  .cardContainer {
+   display: flex;
+   padding: 21px;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 290px;
+   height: 260px;
+   align-items: center;
+   border-radius: 10px;
+   position: relative;
+   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
+  }
+  .Easy,
+  .Normal,
+  .Hard {
+    height: 10px;
+    width: 10px;
+  }
+  .levelName {
+    font-size: 16px;
+  }
+  .easy_list,
+  .normal_list,
+  .hard_list {
+    font-size: 16px;
+  }
+  .starIcon,
+  .trophyIcon {
+    height: 19px;
+    width: 19px;
+  }
+  .isTask {
+    font-size: 14px;
+  }
+  .chalengeName,
+  .taskName {
+    font-size: 20px;
+  }
+  .date,
+  .datePicker {
+    font-size: 18px;
+  }
+  .calendarIcon {
+    right: 27%;
+    bottom: 37.55%;
+  }
+  .bottomContainer {
+    height: 35px;
+  }
+  .categoryDropdown {
+    font-size: 14px;
+  }
+  .category,
+  .Stuff,
+  .Family,
+  .Health,
+  .Learning,
+  .Leisure,
+  .Work {
+    width: 120px;
+    height: 35px;
+    font-size: 14px;
+  }
+  .saveIcon,
+  .clearIcon {
+    height: 12px;
+    width: 12px;
+  }
+  .datePicker{
+   font-size: 18px;
+  }
+  .doneIcon {
+    height: 14px;
+    width: 16px;
+  }
 }
-.Easy,
-.Normal,
-.Hard {
-   height: 10px;
-   width: 10px;
-}
-.levelName {
-   font-size: 16px;
-}
-.easy_list,
-.normal_list,
-.hard_list {
-   font-size: 16px;
-}
-.starIcon,
-.trophyIcon {
-   height: 18px;
-   width: 18px;
-}
-.isTask {
-   font-size: 14px;
-}
-.chalengeName,
-.taskName {
-font-size: 20px;
-
-}
-.date,
-.datePicker{
-font-size: 18px;
-}
-.calendarIcon {
-   right: 17%;
-   bottom: 37.55%;
-}
-.bottomContainer {
-   height: 35px;
-}
-.categoryDropdown{
-   font-size: 14px;
-}
-.category,
-.Stuff,
-.Family,
-.Health,
-.Learning,
-.Leisure,
-.Work {
-   width: 120px;
-   height: 35px;
-   font-size: 14px;
-
-}
-.saveIcon,
-.clearIcon
-{
-   height: 12px;
-   width: 12px;
-}
-.doneIcon{
-   height: 14px;
-   width: 16px;
-}
-
-
-}
-
-
 
 /*----------------------TABLET VERTICAL------------------------- */
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
+.challengeContainer,
+.cardContainer {
+   width: 100vw;
+   height: 100vw;
+   max-width: 199px;
+   max-height: 205px;
+}
+  .saveIcon,
+  .clearIcon {
+    height: 10px;
+    width: 10px;
+  }
 
-.saveIcon,
-.clearIcon {
-   height: 10px;
-   width: 10px;
-}
-
-.doneIcon {
-   height: 12px;
-   width: 14px;
-}
-.calendarIcon {
-   right: 13%;
-   bottom: 33%;
-}
+  .doneIcon {
+    height: 12px;
+    width: 14px;
+  }
+  .calendarIcon {
+    right: 30%;
+    bottom: 34%;
+  }
 }

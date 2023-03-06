@@ -99,7 +99,7 @@ const CardsList = ({ cards }) => {
                 <EditCard
                   id={15}
                   isChallenge={false}
-                  title={"Create Title"}
+                  title={" "}
                   dueDate={currentDate}
                   dueTime={" "}
                   type={"Task"}

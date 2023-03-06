@@ -37,8 +37,9 @@ export default function DoneList({ item }) {
       sx={{ width: '100%', maxWidth: 1280 }}
       component="nav"
       aria-labelledby="nested-list-subheader"
+      style={{padding:'0'}}
     >
-      <ListItemButton onClick={handleClick}>
+      <ListItemButton style={{margin:'30px 0 20px', padding:'0'}} onClick={handleClick}>
         <ListItemText className={style.title_done} primary={<h4>DONE</h4>} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>

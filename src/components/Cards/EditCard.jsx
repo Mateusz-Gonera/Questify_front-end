@@ -29,9 +29,7 @@ function EditCard({
 	isDone = false,
 	isShowCreate,
 	isCreateForm,
-
 }) {
-
 	const [deleteCard] = useDeleteCardMutation();
 	const [editCard, { isLoading, error }] = useEditCardMutation();
 	const [isComplete] = useCompleteCardMutation();
@@ -44,11 +42,10 @@ function EditCard({
 	const [isTask, setIsTask] = useState(type);
 	const [Challenge, setChallenge] = useState(isChallenge);
 	const [isCompleted, setIsCompleted] = useState(isDone);
-	const [startDate, setStartDate] = useState(new Date());
+	const [startDate, setStartDate] = useState(new Date())
 	const [changeDate, setChangeDate] = useState(dueDate);
 	const [changeTime, setChangeTime] = useState(dueTime);
 	const [showModal, setShowModal] = useState(false);
-
 
 	const handleClick = () => {
 		setShowModal(true);
@@ -57,11 +54,10 @@ function EditCard({
 	const handleDelete = () => {
 		deleteCard(id);
 		setShowModal(false);
-      
 	};
 	const handleCancel = () => {
 		setShowModal(false);
-      hideCard();
+		hideCard();
 	};
 	const handleSubmit = async (event) => {
 		try {
@@ -109,6 +105,11 @@ function EditCard({
 		Challenge ? setIsTask("Task") : setIsTask("Challenge");
 		Challenge ? setChallenge(false) : setChallenge(true);
 	};
+
+   useEffect(() => {
+setStartDate(new Date(dueDate + " " + dueTime))
+	}, [dueDate]);
+
 	//Calendar
 	useEffect(() => {
 		const hour = startDate.getHours();
@@ -218,14 +219,9 @@ function EditCard({
 								className={style.trophyIcon}
 								name="trophy"
 								color="#B9C3C8"
-                        
 							/>
 						) : (
-							<Icon
-								className={style.starIcon}
-								name="Star"
-								color="#B9C3C8"
-							/>
+							<Icon className={style.starIcon} name="Star" color="#B9C3C8" />
 						)}
 					</button>
 				</div>
@@ -233,13 +229,11 @@ function EditCard({
 					<form>
 						{Challenge ? (
 							<button className={style.isChallenge}>Edit Challenge</button>
-						):(
-							<p className={style.isTask}>EDIT QUEST</p>
-						)
-                  }
-						{isShowCreate && (
-							<p className={style.isTask}>CREATE NEW QUEST</p>
-						) }
+						) : (
+							<p className={style.isTask}>
+								{isShowCreate ? "CREATE NEW QUEST" : "EDIT QUEST"}
+							</p>
+						)}
 
 						<input
 							type="text"
@@ -258,7 +252,8 @@ function EditCard({
 							timeFormat="HH:mm"
 							timeIntervals="5"
 							showTimeSelect="true"
-							value={startDate}
+                     ////if you want to show full date - value={startDate}
+							value={formatDate(new Date(dueDate))}
 							withPortal
 							onChange={(date) => setStartDate(date)}
 						/>
@@ -307,7 +302,7 @@ function EditCard({
 							</button>
 							{/*<div className={style.btnEdit}> </div>*/}
 							<button type="button" onClick={handleCreateCard}>
-								<span className={style.createBTN}>CREATE</span>
+								<span className={style.createBTN}>START</span>
 							</button>
 						</div>
 					) : (
@@ -320,7 +315,7 @@ function EditCard({
 										className={style.saveIcon}
 										name="save"
 										color="#00d7ff"
-										size={10}
+										//size={10}
 									/>
 								)}
 							</button>
@@ -330,7 +325,7 @@ function EditCard({
 									className={style.clearIcon}
 									name="clear"
 									color="#DB0837"
-									size={10}
+									//size={10}
 								/>
 							</button>
 							<div className={style.btnEdit}> </div>
@@ -339,7 +334,7 @@ function EditCard({
 									className={style.doneIcon}
 									name="done"
 									color="#24d40c"
-									size={14}
+									//size={14}
 								/>
 							</button>
 						</div>
