@@ -15,13 +15,19 @@ const CardsList = ({ cards }) => {
   // Create newCard
 
   // CardsSorted
-  const inCompletedCards = cards.filter((card) => card.status === "Incomplete");
-  const CompletedCards = cards.filter((card) => card.status === "Complete");
-  const [isTrue, setIsTrue] = useState(false);
-  const [currentDate, setCurrentDate] = useState(new Date());
+   const inCompletedCards = cards.filter((card) => card.status === "Incomplete");
+   const CompletedCards = cards.filter((card) => card.status === "Complete");
+   const challengeCards = inCompletedCards.filter(card => card.type === 'Challenge');
+   const taskCards = inCompletedCards.filter(card => card.type === 'Task');
+
+   const [isTrue, setIsTrue] = useState(false);
+   const [currentDate, setCurrentDate] = useState(new Date());
+   const [isOpenCreateCardForm, setIsOpenCreateCardForm] = useState(false);
 
   const tomorrowDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
-  const [isOpenCreateCardForm, setIsOpenCreateCardForm] = useState(false);
+  const nexWeek = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000 * 6);
+
+
 
   const filteredCards = inCompletedCards.filter((card) => {
     const cardDate = new Date(card.date);
@@ -87,6 +93,8 @@ const CardsList = ({ cards }) => {
     return date.getTime();
   }
 
+  //  Lista Challenge
+
   return (
     <>
   {isTrue && <True />}
@@ -123,6 +131,7 @@ const CardsList = ({ cards }) => {
                 status={card.status}
               />
             ))}
+           
           </div>
           <div className={style.listContainer}>
             <h4 className={style.dayTitle}>TOMORROW </h4>
