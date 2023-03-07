@@ -42,7 +42,7 @@ function EditCard({
 	const [isTask, setIsTask] = useState(type);
 	const [Challenge, setChallenge] = useState(isChallenge);
 	const [isCompleted, setIsCompleted] = useState(isDone);
-	const [startDate, setStartDate] = useState(new Date())
+	const [startDate, setStartDate] = useState(new Date());
 	const [changeDate, setChangeDate] = useState(dueDate);
 	const [changeTime, setChangeTime] = useState(dueTime);
 	const [showModal, setShowModal] = useState(false);
@@ -70,7 +70,6 @@ function EditCard({
 				time: changeTime,
 				date: changeDate,
 			});
-			console.log(result);
 			hideCard();
 		} catch (err) {
 			console.log(err);
@@ -106,8 +105,8 @@ function EditCard({
 		Challenge ? setChallenge(false) : setChallenge(true);
 	};
 
-   useEffect(() => {
-setStartDate(new Date(dueDate + " " + dueTime))
+	useEffect(() => {
+		setStartDate(new Date(dueDate + " " + dueTime));
 	}, [dueDate]);
 
 	//Calendar
@@ -252,7 +251,7 @@ setStartDate(new Date(dueDate + " " + dueTime))
 							timeFormat="HH:mm"
 							timeIntervals="5"
 							showTimeSelect="true"
-                     ////if you want to show full date - value={startDate}
+							////if you want to show full date - value={startDate}
 							value={formatDate(new Date(dueDate))}
 							withPortal
 							onChange={(date) => setStartDate(date)}

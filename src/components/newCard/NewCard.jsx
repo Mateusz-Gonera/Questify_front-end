@@ -53,7 +53,6 @@ function EditCard({
 				time: changeTime,
 				date: changeDate,
 			});
-			console.log(result);
 			hideCard();
 		} catch (err) {
 			console.log(err);
