@@ -2,7 +2,6 @@ button:focus {
   border: none;
 }
 .createStyle {
-   
 }
 .challengeContainer,
 .cardContainer {
@@ -29,6 +28,7 @@ button:focus {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  cursor: pointer;
 }
 .Easy,
 .Normal,
@@ -192,7 +192,7 @@ button:focus {
   justify-content: center;
   font-weight: 700;
   text-align: center;
-   margin: 6px auto;
+  margin: 6px auto;
   font-size: 16px;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
@@ -209,13 +209,11 @@ button:focus {
   outline: none;
 }
 .taskName:focus-visible {
-   outline: none;
+  outline: none;
 }
 .calendarIcon {
   position: absolute;
   z-index: 1;
-  /*right: 22.84%;
-  bottom: 37.55%;*/
 }
 .date {
   display: flex;
@@ -226,8 +224,7 @@ button:focus {
   text-align: center;
   justify-content: center;
 }
-.calendarContainer {
-}
+
 .datePicker {
   font-size: 14px;
   line-height: 18px;
@@ -237,12 +234,11 @@ button:focus {
   border: none;
   outline: none;
   z-index: 3;
-text-align: center;
+  text-align: center;
+  cursor: pointer;
   /*width: 100%;*/
 }
-.react-datepicker__input-container{
 
-}
 .bottomContainer {
   display: flex;
   width: 100%;
@@ -306,11 +302,11 @@ text-align: center;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 1);
   cursor: pointer;
-   text-transform: uppercase;
+  text-transform: uppercase;
 }
- select option:checked {
-   background-color:  transparent;
-   color: rgba(185, 195, 200, 1);
+select option:checked {
+  background-color: transparent;
+  color: rgba(185, 195, 200, 1);
 }
 .categoryDropdown option:active {
   color: #a72536;
@@ -453,16 +449,16 @@ button {
 @media screen and (max-width: 767px) {
   .challengeContainer,
   .cardContainer {
-   display: flex;
-   padding: 21px;
-   flex-direction: column;
-   justify-content: space-between;
-   width: 290px;
-   height: 260px;
-   align-items: center;
-   border-radius: 10px;
-   position: relative;
-   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
+    display: flex;
+    padding: 21px;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 290px;
+    height: 260px;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.1);
   }
   .Easy,
   .Normal,
@@ -495,7 +491,7 @@ button {
     font-size: 18px;
   }
   .calendarIcon {
-    right: 27%;
+    right: 25%;
     bottom: 37.55%;
   }
   .bottomContainer {
@@ -520,8 +516,8 @@ button {
     height: 12px;
     width: 12px;
   }
-  .datePicker{
-   font-size: 18px;
+  .datePicker {
+    font-size: 18px;
   }
   .doneIcon {
     height: 14px;
@@ -532,13 +528,13 @@ button {
 /*----------------------TABLET VERTICAL------------------------- */
 
 @media screen and (min-width: 768px) {
-.challengeContainer,
-.cardContainer {
-   width: 100vw;
-   height: 100vw;
-   max-width: 199px;
-   max-height: 205px;
-}
+  .challengeContainer,
+  .cardContainer {
+    width: 100vw;
+    height: 100vw;
+    max-width: 199px;
+    max-height: 205px;
+  }
   .saveIcon,
   .clearIcon {
     height: 10px;
@@ -550,7 +546,7 @@ button {
     width: 14px;
   }
   .calendarIcon {
-    right: 30%;
+    right: 25%;
     bottom: 34%;
   }
 }
